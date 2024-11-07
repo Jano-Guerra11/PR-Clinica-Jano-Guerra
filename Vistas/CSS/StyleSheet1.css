@@ -1,0 +1,54 @@
+﻿body {
+    background-color:darkcyan;
+     color:black;
+}
+.Titulo {
+    text-align: center;
+    
+}
+
+.Tabla {
+    width: 70%;
+   
+    margin:auto;
+    
+    background-color:black;
+    color:white;
+    
+}
+
+.Columna2 {
+    /*
+    width: 278px;
+       height: 40px;
+   */
+    width:290px;
+    text-align: left;
+  
+    padding-left: 10px;
+    padding-right:5px;
+    padding-top:10px;
+    padding-bottom:10px;
+    border-bottom:solid;
+    border-right:solid;
+    border-color:chartreuse;
+    border-width:medium;
+}
+
+.Columna1 {
+    width: 290px;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: solid;
+    border-left: solid;
+    border-color: chartreuse;
+    border-width: medium;
+}
+.Titulo2{
+    background-color:chartreuse;
+    border-radius:20px;
+    padding:10px;
+}

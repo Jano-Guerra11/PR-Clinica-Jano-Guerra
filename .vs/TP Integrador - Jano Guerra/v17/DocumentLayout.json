@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\TP Integrador - Jano Guerra\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|C:\\Users\\jano\\Desktop\\Proyectos .NET\\TP Integrador - Jano Guerra\\vistas\\abmlmedico.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\abmlmedico.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|c:\\users\\jano\\desktop\\proyectos .net\\tp integrador - jano guerra\\vistas\\abmlmedico.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\abmlmedico.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|C:\\Users\\jano\\Desktop\\Proyectos .NET\\TP Integrador - Jano Guerra\\negocio\\negociomedicos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|solutionrelative:negocio\\negociomedicos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D13AB8-553C-411F-BDC4-82A6836C977C}|DAO\\DAO.csproj|c:\\users\\jano\\desktop\\proyectos .net\\tp integrador - jano guerra\\dao\\daomedico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D13AB8-553C-411F-BDC4-82A6836C977C}|DAO\\DAO.csproj|solutionrelative:dao\\daomedico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D13AB8-553C-411F-BDC4-82A6836C977C}|DAO\\DAO.csproj|c:\\users\\jano\\desktop\\proyectos .net\\tp integrador - jano guerra\\dao\\daojornadalaoboral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D13AB8-553C-411F-BDC4-82A6836C977C}|DAO\\DAO.csproj|solutionrelative:dao\\daojornadalaoboral.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ABMLMedico.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\TP Integrador - Jano Guerra\\Vistas\\ABMLMedico.aspx.cs",
+              "RelativeDocumentMoniker": "Vistas\\ABMLMedico.aspx.cs",
+              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\TP Integrador - Jano Guerra\\Vistas\\ABMLMedico.aspx.cs",
+              "RelativeToolTip": "Vistas\\ABMLMedico.aspx.cs",
+              "ViewState": "AQIAAFYAAAAAAAAAAAAUwGkAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T14:34:59.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NegocioMedicos.cs",
+              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\TP Integrador - Jano Guerra\\Negocio\\NegocioMedicos.cs",
+              "RelativeDocumentMoniker": "Negocio\\NegocioMedicos.cs",
+              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\TP Integrador - Jano Guerra\\Negocio\\NegocioMedicos.cs",
+              "RelativeToolTip": "Negocio\\NegocioMedicos.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAAAlwDcAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T13:39:15.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DaoMedico.cs",
+              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\TP Integrador - Jano Guerra\\DAO\\DaoMedico.cs",
+              "RelativeDocumentMoniker": "DAO\\DaoMedico.cs",
+              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\TP Integrador - Jano Guerra\\DAO\\DaoMedico.cs",
+              "RelativeToolTip": "DAO\\DaoMedico.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAADgv1MAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T13:37:32.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ABMLMedico.aspx",
+              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\TP Integrador - Jano Guerra\\Vistas\\ABMLMedico.aspx",
+              "RelativeDocumentMoniker": "Vistas\\ABMLMedico.aspx",
+              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\TP Integrador - Jano Guerra\\Vistas\\ABMLMedico.aspx",
+              "RelativeToolTip": "Vistas\\ABMLMedico.aspx",
+              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-11-07T13:36:16.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DaoJornadaLaoboral.cs",
+              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\TP Integrador - Jano Guerra\\DAO\\DaoJornadaLaoboral.cs",
+              "RelativeDocumentMoniker": "DAO\\DaoJornadaLaoboral.cs",
+              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\TP Integrador - Jano Guerra\\DAO\\DaoJornadaLaoboral.cs",
+              "RelativeToolTip": "DAO\\DaoJornadaLaoboral.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAYwBEAAACqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T15:12:53.24Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

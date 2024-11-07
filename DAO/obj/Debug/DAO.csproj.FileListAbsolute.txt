@@ -1,0 +1,18 @@
+C:\Users\USURIO\OneDrive\Escritorio\Programacion III\Proyectos .NET\TP Integrador - Jano Guerra\DAO\bin\Debug\DAO.dll
+C:\Users\USURIO\OneDrive\Escritorio\Programacion III\Proyectos .NET\TP Integrador - Jano Guerra\DAO\bin\Debug\DAO.pdb
+C:\Users\USURIO\OneDrive\Escritorio\Programacion III\Proyectos .NET\TP Integrador - Jano Guerra\DAO\bin\Debug\Entidades.dll
+C:\Users\USURIO\OneDrive\Escritorio\Programacion III\Proyectos .NET\TP Integrador - Jano Guerra\DAO\bin\Debug\Entidades.pdb
+C:\Users\USURIO\OneDrive\Escritorio\Programacion III\Proyectos .NET\TP Integrador - Jano Guerra\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
+C:\Users\USURIO\OneDrive\Escritorio\Programacion III\Proyectos .NET\TP Integrador - Jano Guerra\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+C:\Users\USURIO\OneDrive\Escritorio\Programacion III\Proyectos .NET\TP Integrador - Jano Guerra\DAO\obj\Debug\DAO.csproj.Up2Date
+C:\Users\USURIO\OneDrive\Escritorio\Programacion III\Proyectos .NET\TP Integrador - Jano Guerra\DAO\obj\Debug\DAO.dll
+C:\Users\USURIO\OneDrive\Escritorio\Programacion III\Proyectos .NET\TP Integrador - Jano Guerra\DAO\obj\Debug\DAO.pdb
+C:\Users\jano\Desktop\Proyectos .NET\TP Integrador - Jano Guerra\DAO\bin\Debug\DAO.dll
+C:\Users\jano\Desktop\Proyectos .NET\TP Integrador - Jano Guerra\DAO\bin\Debug\DAO.pdb
+C:\Users\jano\Desktop\Proyectos .NET\TP Integrador - Jano Guerra\DAO\bin\Debug\Entidades.dll
+C:\Users\jano\Desktop\Proyectos .NET\TP Integrador - Jano Guerra\DAO\bin\Debug\Entidades.pdb
+C:\Users\jano\Desktop\Proyectos .NET\TP Integrador - Jano Guerra\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
+C:\Users\jano\Desktop\Proyectos .NET\TP Integrador - Jano Guerra\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+C:\Users\jano\Desktop\Proyectos .NET\TP Integrador - Jano Guerra\DAO\obj\Debug\DAO.csproj.Up2Date
+C:\Users\jano\Desktop\Proyectos .NET\TP Integrador - Jano Guerra\DAO\obj\Debug\DAO.dll
+C:\Users\jano\Desktop\Proyectos .NET\TP Integrador - Jano Guerra\DAO\obj\Debug\DAO.pdb

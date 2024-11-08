@@ -84,26 +84,13 @@ namespace Vistas
         }
         public void resetearControles()
         {
-            txtDni.Text = string.Empty;
-            txtNombre.Text = string.Empty;
-            txtApellido.Text = string.Empty;
-            txtLegajo.Text = string.Empty;
-            txtFechaNacimiento.Text = string.Empty;
-            txtNacionalidad.Text = string.Empty;
-            txtTelefono.Text = string.Empty;
-            txtCorreo.Text = string.Empty;
-            txtDireccion.Text = string.Empty;
-            ddlSexo.SelectedIndex = 0;
-            ddlProvincia.SelectedIndex = 0;
-            ddlLocalidad.SelectedIndex = 0;
-            ddlEspecialidades.SelectedIndex = 0;
-            cbLunes.Checked = false;
-            cbMartes.Checked = false;
-            cbMiercoles.Checked = false;
-            cbJueves.Checked = false;
-            cbViernes.Checked = false;
-            cbSabado.Checked = false;
-            cbDomingo.Checked = false;
+            txtDni.Text = string.Empty; txtNombre.Text = string.Empty; txtApellido.Text = string.Empty;
+            txtLegajo.Text = string.Empty; txtFechaNacimiento.Text = string.Empty; txtNacionalidad.Text = string.Empty;
+            txtTelefono.Text = string.Empty; txtCorreo.Text = string.Empty;  txtDireccion.Text = string.Empty;
+            ddlSexo.SelectedIndex = 0;  ddlProvincia.SelectedIndex = 0; ddlLocalidad.SelectedIndex = 0;
+            ddlEspecialidades.SelectedIndex = 0; cbLunes.Checked = false; cbMartes.Checked = false;
+            cbMiercoles.Checked = false;  cbJueves.Checked = false; cbViernes.Checked = false;
+            cbSabado.Checked = false;  cbDomingo.Checked = false;
         }
        public void agregarJornadaLaboral()
         {
@@ -235,5 +222,46 @@ namespace Vistas
                 lblMensajeEliminar.Text = "No existe ese medico";
             }
         }
+
+        protected void grdMedicos_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            Medico medico = new Medico();
+            medico.Dni = ((TextBox)grdMedicos.Rows[e.RowIndex].FindControl("txt_Eit_Dni")).Text;
+            medico.Legajo1 = ((Label)grdMedicos.Rows[e.RowIndex].FindControl("lbl_Eit_Legajo")).Text;
+            medico.Nombre = ((TextBox)grdMedicos.Rows[e.RowIndex].FindControl("txt_Eit_Nombre")).Text;
+            medico.Apellido = ((TextBox)grdMedicos.Rows[e.RowIndex].FindControl("txt_Eit_Apellido")).Text;
+            medico.Sexo = ((DropDownList)grdMedicos.Rows[e.RowIndex].FindControl("ddl_Eit_Sexo")).SelectedItem.Text;
+            medico.Nacionalidad = ((TextBox)grdMedicos.Rows[e.RowIndex].FindControl("txt_Eit_Nacionalidad")).Text;
+            medico.FechaNacimiento = ((TextBox)grdMedicos.Rows[e.RowIndex].FindControl("txt_Eit_FechaDeNacimiento")).Text;
+            medico.Direccion = ((TextBox)grdMedicos.Rows[e.RowIndex].FindControl("txt_Eit_Direccion")).Text;
+            medico.idLocalidad1 = Convert.ToInt32(((DropDownList)grdMedicos.Rows[e.RowIndex].FindControl("ddl_eit_Localidad")).SelectedValue);
+            medico.idProvincia1 = Convert.ToInt32(((DropDownList)grdMedicos.Rows[e.RowIndex].FindControl("ddl_eit_Provincia")).SelectedValue);
+            medico.Correo = ((TextBox)grdMedicos.Rows[e.RowIndex].FindControl("txt_Eit_Correo")).Text;
+            medico.Telefono = ((TextBox)grdMedicos.Rows[e.RowIndex].FindControl("txt_Eit_Telefono")).Text;
+            medico.idEspecialidad1 = Convert.ToInt32(((DropDownList)grdMedicos.Rows[e.RowIndex].FindControl("ddl_Eit_Especialidad")).SelectedValue);
+
+            if (negMed.actalizarMedico(medico))
+            {
+                // agregado correctamente
+                grdMedicos.EditIndex = -1;
+                cargarGridView();
+            }
+        }
+        
+        protected void grdMedicos_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            grdMedicos.EditIndex = e.NewEditIndex;
+            cargarGridView();
+           
+           
+        }
+
+        protected void grdMedicos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            grdMedicos.EditIndex = -1;
+            cargarGridView();
+        }
+
+        
     }
 }

@@ -1,6 +1,0 @@
-C:\Users\USURIO\OneDrive\Escritorio\Programacion III\Proyectos .NET\TP Integrador - Jano Guerra\Entidades\bin\Debug\Entidades.dll
-C:\Users\USURIO\OneDrive\Escritorio\Programacion III\Proyectos .NET\TP Integrador - Jano Guerra\Entidades\bin\Debug\Entidades.pdb
-C:\Users\USURIO\OneDrive\Escritorio\Programacion III\Proyectos .NET\TP Integrador - Jano Guerra\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
-C:\Users\USURIO\OneDrive\Escritorio\Programacion III\Proyectos .NET\TP Integrador - Jano Guerra\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
-C:\Users\USURIO\OneDrive\Escritorio\Programacion III\Proyectos .NET\TP Integrador - Jano Guerra\Entidades\obj\Debug\Entidades.dll
-C:\Users\USURIO\OneDrive\Escritorio\Programacion III\Proyectos .NET\TP Integrador - Jano Guerra\Entidades\obj\Debug\Entidades.pdb

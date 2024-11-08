@@ -69,6 +69,18 @@ namespace Negocio
                 return -1;
             }
         }
+        public bool actalizarMedico(Medico medico)
+        {
+            if (dao.existeMedico(medico))
+            {
+                if (dao.actualizarMedico(medico) == 1)
+                {
+                    return true;
+                }
+                else{ return false;}
+            }
+            else { return false; }
+        }
         public DataTable obtenerTablaMedicos()
         {
             DataTable dt = dao.obtenerTablaMedicos();

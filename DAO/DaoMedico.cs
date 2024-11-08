@@ -84,5 +84,11 @@ namespace DAO
                 " WHERE Baja_Me = 'False' ";
             return ad.obtenerTabla(consulta, "Medicos");
         }
+        public int actualizarMedico(Medico medico)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cargarParametrosAgregar(ref cmd, medico);
+         return  ad.ejecutarProcedimientoAlmacenado(cmd,"SP_ActualizarMedico");
+        }
     }
 }

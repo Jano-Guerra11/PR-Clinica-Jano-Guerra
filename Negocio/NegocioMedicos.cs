@@ -12,13 +12,7 @@ namespace Negocio
     {
         DaoMedico dao = new DaoMedico();
 
-        public bool ingresoMedico(string legajo,string contrasena)
-        {
-            Medico medico = new Medico();
-            medico.Legajo1 = legajo;
-            medico.Contrasena1 = contrasena;
-            return dao.ingresoMedico(medico);
-        }
+        
         public bool agregarMedico(string legajo,string dni,string nombre,string apellido, string sexo, string fechaNacimiento, string nacionalidad,
            int idLocalidad,int idProvincia, string telefono,string correo, string direccion, int idEspecialidad)
         {

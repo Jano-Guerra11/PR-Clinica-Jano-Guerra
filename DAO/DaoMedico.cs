@@ -13,11 +13,7 @@ namespace DAO
     {
         AccesoDatos ad = new AccesoDatos();
 
-        public bool ingresoMedico(Medico medico)
-        {
-            string consulta = "SELECT   Legajo_Me, contrasena_Me FROM Medicos where Legajo_Me = '" + medico.Legajo1 + "' AND contrasena_Me = '" + medico.Contrasena1 + "'";
-            return ad.existe(consulta);
-        }
+        
         public void cargarParametrosAgregar(ref SqlCommand comando, Medico medico)
         {
             // ir chequeando que las propiedades de la clase coincidan con el tipo de datos de los campos 

@@ -10,13 +10,7 @@ namespace Negocio
     public class NegocioAdministradores
     {
         DaoAdministradores dao = new DaoAdministradores();
-        public bool existeAdministrador(string legajo, string contraseña)
-        {
-            administrador admin = new administrador();
-            admin.Legajo = legajo;
-            admin.Contrasena = contraseña;
-          return  dao.existeAdministrador(admin);
-        }
+       
 
         public bool contraseñaAdmin(string contraseña)
         {

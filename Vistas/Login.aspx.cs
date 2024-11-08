@@ -29,19 +29,25 @@ namespace Vistas
         {
             string legajo = txtDni.Text.Trim();
             string contraseña = txtContraseña.Text.Trim();
-            NegocioAdministradores negAd = new NegocioAdministradores();
-            NegocioMedicos negMed = new NegocioMedicos();
-
+            
+            NegocioUsuarios negU = new NegocioUsuarios();
             crearCookies(legajo,contraseña );
 
-            if (negAd.existeAdministrador(legajo, contraseña))
+            switch (negU.inicioSesion(legajo,contraseña))
             {
-                Server.Transfer("MenuAdministrador.aspx");
-
-            }else if (negMed.ingresoMedico(legajo, contraseña))
-            {
-                Server.Transfer("MenuMedicos.aspx");
+                case 1:
+                    Server.Transfer("MenuAdministrador.aspx");
+                    break;
+                case 2:
+                    Server.Transfer("MenuMedicos.aspx");
+                    break;
+                case 0:
+                    lblMensaje.Text = "USUARIO INCORRECTO";
+                    break;
             }
+
+
+           
         }
         public void crearCookies(string legajo,string contraseña)
         {

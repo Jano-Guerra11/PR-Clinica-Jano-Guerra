@@ -9,11 +9,7 @@ namespace DAO
     public class DaoAdministradores
     {
         AccesoDatos ad = new AccesoDatos();
-       public bool existeAdministrador(administrador admin)
-        {
-            string consulta = "SELECT * FROM Administradores where contraseña_Ad = '" + admin.Contrasena + "' AND Legajo_Ad = '" + admin.Legajo+"'";
-            return ad.existe(consulta);
-        }
+      
 
         public bool ContrasenaAdmin(administrador admin)
         {

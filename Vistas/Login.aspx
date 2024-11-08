@@ -43,6 +43,9 @@
             height: 40px;
             width: 238px;
         }
+        #form1 {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -90,9 +93,12 @@
                     <asp:Button ID="btnIngresar" runat="server" Height="28px" Text="Ingresar" Width="74px" OnClick="btnIngresar_Click" ValidationGroup="logeo" />
                 </td>
                 <td class="auto-style6">
-                    &nbsp;</td>
+                    </td>
             </tr>
         </table>
+        <br />
+        <br />
+        <br />
         <asp:Label ID="lblMensaje" runat="server" ForeColor="Red"></asp:Label>
     </form>
 </body>

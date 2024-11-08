@@ -11,15 +11,6 @@ namespace DAO
         AccesoDatos ad = new AccesoDatos();
       
 
-        public bool ContrasenaAdmin(administrador admin)
-        {
-            string consulta = "SELECT * FROM Administradores where contraseña_Ad = '" + admin.Contrasena + "'";
-            return ad.existe(consulta);
-        }
-        public bool LegajoAdmin(administrador admin)
-        {
-            string consulta = "SELECT * FROM Administradores where Legajo_Ad = '" + admin.Legajo + "'";
-            return ad.existe(consulta);
-        }
+   
     }
 }

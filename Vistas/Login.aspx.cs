@@ -64,8 +64,8 @@ namespace Vistas
 
         protected void cvInicioSesion_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            NegocioAdministradores negAd = new NegocioAdministradores();
-            if (negAd.LegajoAdmin(args.Value.ToString()))
+            NegocioUsuarios neg = new NegocioUsuarios();
+            if (neg.validarLegajo(args.Value.ToString()))
             {
                 args.IsValid = true;
             }
@@ -75,8 +75,8 @@ namespace Vistas
         }
         protected void cvContrasena_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            NegocioAdministradores negAd = new NegocioAdministradores();
-            if (negAd.contraseñaAdmin(args.Value.ToString()))
+            NegocioUsuarios neg = new NegocioUsuarios();
+            if (neg.validarContrasena(args.Value.ToString()))
             {
                 args.IsValid = true;
             }

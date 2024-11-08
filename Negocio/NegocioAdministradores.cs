@@ -12,17 +12,6 @@ namespace Negocio
         DaoAdministradores dao = new DaoAdministradores();
        
 
-        public bool contraseñaAdmin(string contraseña)
-        {
-            administrador admin = new administrador();
-            admin.Contrasena = contraseña;
-            return dao.ContrasenaAdmin(admin);
-        }
-        public bool LegajoAdmin(string legajo)
-        {
-            administrador admin = new administrador();
-            admin.Legajo = legajo;
-            return dao.LegajoAdmin(admin);
-        }
+        
     }
 }

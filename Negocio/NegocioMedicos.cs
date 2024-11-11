@@ -85,5 +85,19 @@ namespace Negocio
             }
             else { return null; }
         }
+        public bool existeMedico(string legajo)
+        {
+            Medico m = new Medico();
+            m.Legajo1 = legajo;
+           return dao.existeMedico(m);
+        }
+        public DataTable tablaFiltrada(string legajo, string dni,string apellido,string especialidad )
+        {
+            Medico medico = new Medico();
+            medico.Legajo1 = legajo;
+            medico.Dni = dni;
+            medico.Apellido = apellido;
+            return dao.obtenerTablaFiltrada(medico, especialidad);
+        }
     }
 }

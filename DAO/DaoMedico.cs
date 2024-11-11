@@ -80,6 +80,14 @@ namespace DAO
                 " WHERE Baja_Me = 'False' ";
             return ad.obtenerTabla(consulta, "Medicos");
         }
+        public DataTable obtenerTablaFiltrada(Medico medico,string especialidad)
+        {
+            string consulta = "select * from medicos inner join Provincias on Medicos.idProvincia_Me = Provincias.IdProvincia_Pr " +
+                "inner join Localidades on Medicos.IdLocalidad_Me = Localidades.IdLocalidad inner join Especialidades on Medicos.IdEspecialidad = Especialidades.IdEspecialidad_Esp" +
+                " WHERE Baja_Me = 'False' AND Legajo_Me LIKE '"+medico.Legajo1+"%' AND Dni_Me LIKE '"+medico.Dni+"%' " +
+                "AND Apellido_Me LIKE '"+medico.Apellido+"%' AND NombreEspecialidad_Esp LIKE '"+especialidad+"%'";
+            return ad.obtenerTabla(consulta, "TablaFiltradaMedicos");
+        }
         public int actualizarMedico(Medico medico)
         {
             SqlCommand cmd = new SqlCommand();

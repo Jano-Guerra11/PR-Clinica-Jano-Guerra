@@ -38,12 +38,15 @@ namespace Vistas
                 item.Text = dr["NombreEspecialidad_Esp"].ToString();
                 item.Value = dr["IdEspecialidad_Esp"].ToString();
                 ddlEspecialidades.Items.Add(item);
+                ddlFiltroEspecialidad.Items.Add(item);
             }
         }
         public void cargarGridView()
         {
             grdMedicos.DataSource = negMed.obtenerTablaMedicos();
             grdMedicos.DataBind();
+            
+            
         }
         public void cargarDDLProvincias()
         {
@@ -190,6 +193,9 @@ namespace Vistas
 
         protected void btnVerJornada_Click(object sender, EventArgs e)
         {
+
+            if (lblMedicoSeleccionado.Text != "" )
+            {
             if(grdJornadaLaboral.Visible == false)
             {
                 grdJornadaLaboral.Visible = true;
@@ -198,12 +204,18 @@ namespace Vistas
 
           grdJornadaLaboral.DataSource = negJl.obtenerJornadaDeMedico(lblMedicoSeleccionado.Text);
             grdJornadaLaboral.DataBind();
+
+            }
+            else
+            {
+                lblMedicoSeleccionado.Text = "Seleccione un medico primero";
+            }
+
         }
 
         protected void grdMedicos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
-            string legajo = ((Label)grdMedicos.Rows[e.NewSelectedIndex].FindControl("lbl_It_Legajo")).Text;
-            lblMedicoSeleccionado.Text = legajo;
+           
         }
 
         protected void grdMedicos_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -262,6 +274,37 @@ namespace Vistas
             cargarGridView();
         }
 
-        
+        protected void grdMedicos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void grdMedicos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if(e.CommandName == "verDiasYhorarios")
+            {
+                int filaSeleccionada = Convert.ToInt32(e.CommandArgument);
+                string legajo = ((Label)grdMedicos.Rows[filaSeleccionada].FindControl("lbl_It_Legajo")).Text;
+                
+                grdJornadaLaboral.DataSource = negJl.obtenerJornadaDeMedico(legajo);
+                grdJornadaLaboral.DataBind();
+            }
+        }
+
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            DataTable tablaFiltrada = negMed.tablaFiltrada(txtFiltroLegajo.Text, txtFiltroDni.Text, txtFiltroApellido.Text, ddlFiltroEspecialidad.SelectedItem.ToString());
+            grdMedicos.DataSource = tablaFiltrada;
+            grdMedicos .DataBind();
+        }
+
+        protected void btnMostrarTodos_Click(object sender, EventArgs e)
+        {
+            cargarGridView();
+            txtFiltroLegajo.Text = string.Empty;
+            txtFiltroDni.Text = string.Empty;   
+            txtFiltroApellido.Text = string.Empty;
+            ddlFiltroEspecialidad.SelectedIndex = 0;
+        }
     }
 }

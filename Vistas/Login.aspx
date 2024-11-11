@@ -75,7 +75,9 @@
             </tr>
             <tr>
                 <td class="auto-style9">
-                    <asp:TextBox ID="txtContraseña" runat="server" Height="24px" Width="161px"></asp:TextBox>
+                    <asp:TextBox ID="txtContraseña" runat="server" Height="24px" Width="161px" TextMode="Password"></asp:TextBox>
+                    <br />
+                    <asp:Button ID="btnMostrar" runat="server" Height="30px" OnClick="btnMostrar_Click" Text="Mostrar" />
                 </td>
                 <td class="auto-style6">
                     <asp:CustomValidator ID="cvContrasena" runat="server" ControlToValidate="txtContraseña" ForeColor="Red" OnServerValidate="cvContrasena_ServerValidate" ValidationGroup="logeo"></asp:CustomValidator>

@@ -31,5 +31,10 @@ namespace Negocio
             }
             else { return false; }
         }
+        public DataRow diaLaboralMedico(string legajoMedico,string dia)
+        {
+            DataTable dt = dao.obtenerJornadaDeDia(legajoMedico,dia);
+            return dt.Rows[0];
+        }
     }
 }

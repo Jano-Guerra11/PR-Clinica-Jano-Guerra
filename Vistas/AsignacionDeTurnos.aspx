@@ -65,7 +65,7 @@
             <tr>
                 <td>DIA:</td>
                 <td>
-                    <asp:DropDownList ID="ddlDias" runat="server" Width="222px" Height="21px" OnSelectedIndexChanged="ddlDias_SelectedIndexChanged">
+                    <asp:DropDownList ID="ddlDias" runat="server" Width="222px" Height="21px" OnSelectedIndexChanged="ddlDias_SelectedIndexChanged" AutoPostBack="True">
                         <asp:ListItem Value="0">-- Seleccione Dia --</asp:ListItem>
                     </asp:DropDownList>
                     <br />

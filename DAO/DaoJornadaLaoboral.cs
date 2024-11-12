@@ -18,6 +18,12 @@ namespace DAO
             string consulta = "SELECT DiaAtencion_J AS 'DIA', HoraIngreso_J AS 'INGRESO', HoraEgreso_J AS 'EGRESO' FROM JornadaLaboral WHERE LegajoMedico_J = '"+legajo+"'";
            return ad.obtenerTabla(consulta,"JornadaLaboral");
         }
+        public DataTable obtenerJornadaDeDia(string legajoMedico,string dia)
+        {
+            string consulta ="SELECT DiaAtencion_J AS 'DIA', HoraIngreso_J AS 'INGRESO', HoraEgreso_J AS 'EGRESO' FROM JornadaLaboral WHERE LegajoMedico_J = '"+legajoMedico+"' " +
+                "AND DiaAtencion_J = '"+dia+"'";
+            return ad.obtenerTabla(consulta, "diaLaboral");
+        }
         public void cargarParametrosJornadaLaboral(ref SqlCommand cmd,JornadaLaboral jl)
         {
             SqlParameter par = new SqlParameter();

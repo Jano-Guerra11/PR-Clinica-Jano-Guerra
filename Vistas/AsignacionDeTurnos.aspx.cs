@@ -57,9 +57,23 @@ namespace Vistas
         protected void ddlDias_SelectedIndexChanged(object sender, EventArgs e)
         {
             NegocioJornadaLaboral negJ = new NegocioJornadaLaboral();
-            DataTable dt = negJ.obtenerJornadaDeMedico(ddlMedicos.SelectedValue.ToString());
+            DataRow dr = negJ.diaLaboralMedico(ddlMedicos.SelectedValue.ToString(),ddlDias.SelectedItem.Text.ToString());
             // un fo que recorra dessde la hora de entrada hasta la hora de salida y cada una hora vaya agregando un horario
-            int horaEntrada 
+            TimeSpan horaEntrada = TimeSpan.Parse(dr["INGRESO"].ToString());
+            TimeSpan horaSalida = TimeSpan.Parse(dr["EGRESO"].ToString());
+
+            TimeSpan unaHora = new TimeSpan(1, 0, 0);
+            for(TimeSpan i = horaEntrada; i <= horaSalida; i += unaHora)
+            {
+                ListItem item = new ListItem();
+                 
+                TimeSpan horaFinalizacion = i + unaHora;
+                item.Text = i.ToString() +" - "+horaFinalizacion.ToString();
+                ddlHorariosDelDia.Items.Add(item);
+            }
+            
+            lblDias.Text = horaEntrada.ToString();
+
         }
     }
 }

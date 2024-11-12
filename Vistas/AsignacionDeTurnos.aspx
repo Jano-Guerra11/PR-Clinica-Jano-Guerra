@@ -48,13 +48,13 @@
         <table class="auto-style2">
             <tr>
                 <td>ESPECIALIDAD:          <td>
-                    <asp:DropDownList ID="ddlEspecialidad" runat="server" Height="19px" Width="197px">
+                    <asp:DropDownList ID="ddlEspecialidad" runat="server" Height="17px" Width="266px" AutoPostBack="True" OnSelectedIndexChanged="ddlEspecialidad_SelectedIndexChanged">
                         <asp:ListItem>-- Seleccione Especialidad --</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td>MEDICO:</td>
                 <td>
-                    <asp:DropDownList ID="ddlMedicos" runat="server" Height="17px" Width="169px">
+                    <asp:DropDownList ID="ddlMedicos" runat="server" Height="16px" Width="258px" AutoPostBack="True" OnSelectedIndexChanged="ddlMedicos_SelectedIndexChanged">
                         <asp:ListItem>-- Seleccione Medico --</asp:ListItem>
                     </asp:DropDownList>
                 </td>
@@ -65,22 +65,17 @@
             <tr>
                 <td>DIA:</td>
                 <td>
-                    <asp:DropDownList ID="ddlDias" runat="server" Width="145px">
+                    <asp:DropDownList ID="ddlDias" runat="server" Width="222px" Height="21px" OnSelectedIndexChanged="ddlDias_SelectedIndexChanged">
                         <asp:ListItem Value="0">-- Seleccione Dia --</asp:ListItem>
-                        <asp:ListItem Value="1">Lunes</asp:ListItem>
-                        <asp:ListItem Value="2">Martes</asp:ListItem>
-                        <asp:ListItem Value="3">Miercoles</asp:ListItem>
-                        <asp:ListItem Value="4">Jueves</asp:ListItem>
-                        <asp:ListItem Value="5">Viernes</asp:ListItem>
-                        <asp:ListItem Value="6">Sabado</asp:ListItem>
-                        <asp:ListItem Value="7">Domingo</asp:ListItem>
                     </asp:DropDownList>
                     <br />
                     <asp:Label ID="lblDias" runat="server"></asp:Label>
                 </td>
                 <td>HORARIO:</td>
                 <td>
-                    <asp:ListBox ID="lbHorarios" runat="server" Width="168px"></asp:ListBox>
+                    <asp:DropDownList ID="ddlHorariosDelDia" runat="server" Height="30px" Width="254px">
+                        <asp:ListItem>-- Seleccione Hora --</asp:ListItem>
+                    </asp:DropDownList>
                 </td>
                 <td>&nbsp;</td>
                 <td>

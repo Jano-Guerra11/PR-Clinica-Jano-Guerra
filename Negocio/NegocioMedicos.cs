@@ -99,5 +99,9 @@ namespace Negocio
             medico.Apellido = apellido;
             return dao.obtenerTablaFiltrada(medico, especialidad);
         }
+        public DataTable obtenerMedicosDeEspecialidad(int idEspecialidad)
+        {
+            return dao.obtenerMedicosDeEspecialidad(idEspecialidad);
+        }
     }
 }

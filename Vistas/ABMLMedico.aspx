@@ -54,27 +54,27 @@
         }
         .auto-style16 {
             height: 32px;
-            width: 213px;
+            width: 216px;
         }
         .auto-style17 {
             height: 30px;
-            width: 213px;
+            width: 216px;
         }
         .auto-style18 {
             height: 29px;
-            width: 213px;
+            width: 216px;
         }
         .auto-style19 {
             height: 27px;
-            width: 213px;
+            width: 216px;
         }
         .auto-style20 {
             height: 28px;
-            width: 213px;
+            width: 216px;
         }
         .auto-style21 {
             height: 31px;
-            width: 213px;
+            width: 216px;
         }
         .auto-style28 {
             height: 45px;
@@ -144,7 +144,7 @@
         }
         .auto-style56 {
             height: 32px;
-            width: 213px;
+            width: 216px;
             text-align: center;
         }
         .auto-style57 {

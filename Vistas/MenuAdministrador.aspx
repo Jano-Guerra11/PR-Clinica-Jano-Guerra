@@ -56,6 +56,7 @@
                 </td>
             </tr>
         </table>
+        <asp:LinkButton ID="lbCerrarSesion" runat="server" OnClick="lbCerrarSesion_Click">Cerrar Sesion</asp:LinkButton>
     </form>
 </body>
 </html>

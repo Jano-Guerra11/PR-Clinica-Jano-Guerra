@@ -14,11 +14,30 @@ namespace Vistas
         /* este form se va a ingresar el dni y la contraseña y dependiendo de a que rama pertenezca(administrador o medico)
          * se va a redirigir a la secuencia de formularios correspondientes al presionar el boton ingresar 
           */
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            ViewState["contrasena"] = txtContraseña.Text;
+            verificarPermisos();
            
+
+        }
+        public void verificarPermisos()
+        {
+            if (Request.Cookies["infoUsuario"] != null)
+            {
+                // USUARIO LOGUEADO
+                HttpCookie cookie = Request.Cookies["infoUsuario"];
+                if (cookie["tipoUsuario"] == "medico")
+                {
+                    
+                    Response.Redirect("MenuMedicos.aspx");
+                }
+                else
+                {
+                    
+                    Response.Redirect("MenuAdministrador.aspx");
+                }
+            }
             
         }
 
@@ -28,15 +47,18 @@ namespace Vistas
             string contraseña = txtContraseña.Text.Trim();
             
             NegocioUsuarios negU = new NegocioUsuarios();
-            // CON CADA INICIO DE SESION BORRO LA COOKIE SI TOCA RECORDAR SE CREA UNA
+           
+
             if (this.Request.Cookies["infoUsuario"] != null)
             {
             HttpCookie cookie = new HttpCookie("infoUsuario");
             cookie.Expires = DateTime.Now.AddDays(-1);
             this.Response.Cookies.Add(cookie);
             }
-
+           
             crearCookies(legajo, contraseña);
+
+            Session["yaInicio"] = 1;
 
             switch (negU.inicioSesion(legajo,contraseña))
             {
@@ -107,17 +129,20 @@ namespace Vistas
 
         protected void btnMostrar_Click(object sender, EventArgs e)
         {
+          string  contrasena = txtContraseña.Text;
             if(txtContraseña.TextMode == TextBoxMode.Password)
             {
-                txtContraseña.Attributes["Value"] = ViewState["contrasena"].ToString();
                 txtContraseña.TextMode = TextBoxMode.SingleLine;
                 btnMostrar.Text = "Ocultar";
+                
+                txtContraseña.Attributes["Value"] = contrasena;
             }
             else
             {
                 txtContraseña.TextMode = TextBoxMode.Password;
                 btnMostrar.Text = "Mostrar";
-                txtContraseña.Attributes["value"] = ViewState["contrasena"].ToString();
+               
+                txtContraseña.Attributes["Value"] = contrasena;
             }
         }
     }

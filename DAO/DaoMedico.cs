@@ -94,5 +94,10 @@ namespace DAO
             cargarParametrosAgregar(ref cmd, medico);
          return  ad.ejecutarProcedimientoAlmacenado(cmd,"SP_ActualizarMedico");
         }
+        public DataTable obtenerMedicosDeEspecialidad(int idEspecialidad)
+        {
+            string consulta = "SELECT * FROM Medicos WHERE IdEspecialidad = " + idEspecialidad;
+            return ad.obtenerTabla(consulta, "MedicosDeEspecialidad");
+        }
     }
 }

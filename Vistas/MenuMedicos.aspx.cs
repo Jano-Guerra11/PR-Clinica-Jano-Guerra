@@ -31,9 +31,9 @@ namespace Vistas
                     Response.Redirect("MenuAdministrador.aspx");
                 }
             }
-            else
+            else if (Convert.ToInt32(Session["yaInicio"]) != 1)
             {
-                //EL USUARIO NO ESTA LOGUEADO
+                //EL USUARIO NO ESTA LOGUEADO O NO PUSO RECORDAR
                 Response.Redirect("Login.aspx");
             }
         }
@@ -46,6 +46,7 @@ namespace Vistas
                 ck.Expires = DateTime.Now.AddDays(-1);
                 this.Response.Cookies.Add(ck);                
             }
+            Session["yaInicio"] = null;
             Response.Redirect("Login.aspx");
         }
     }

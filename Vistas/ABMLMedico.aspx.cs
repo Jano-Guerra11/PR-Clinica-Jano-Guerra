@@ -69,6 +69,7 @@ namespace Vistas
                 txtFechaNacimiento.Text,txtNacionalidad.Text.Trim(),Convert.ToInt32(ddlLocalidad.SelectedValue), Convert.ToInt32(ddlProvincia.SelectedValue),
                 txtTelefono.Text.Trim(),txtCorreo.Text.Trim(),txtDireccion.Text.Trim(),Convert.ToInt32(ddlEspecialidades.SelectedValue));
 
+            
             agregarJornadaLaboral();
 
             if(agregadoMedico)
@@ -95,38 +96,27 @@ namespace Vistas
             cbMiercoles.Checked = false;  cbJueves.Checked = false; cbViernes.Checked = false;
             cbSabado.Checked = false;  cbDomingo.Checked = false;
         }
-       public void agregarJornadaLaboral()
+        
+        public void agregarJornadaLaboral()
         {
-            string legajoMedico = txtLegajo.Text.Trim();
-            if (cbLunes.Checked)
+            string legajoDelMedico = txtLegajo.Text.Trim();
+            List<JornadaLaboral> jornadaMedico = new List<JornadaLaboral>();
+            string[] dias = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" };
+            for(int i = 0;i < dias.Length; i++)
             {
-                negJl.AltaJornadaLaboral(legajoMedico, lblLunes.Text, txtEntradaLunes.Text, txtSalidaLunes.Text);
+                CheckBox cbDia = (CheckBox)FindControl($"cb{dias[i]}");
+                TextBox txtHorarioEntrada = (TextBox)FindControl($"txtEntrada{dias[i]}");
+                TextBox txtHorarioSalida = (TextBox)FindControl($"txtSalida{dias[i]}");
+
+               if (cbDia.Checked)
+               {
+                  negJl.AltaJornadaLaboral(legajoDelMedico, dias[i], txtHorarioEntrada.Text, txtHorarioSalida.Text);
+               }
+
             }
-            if (cbMartes.Checked)
-            {
-                negJl.AltaJornadaLaboral(legajoMedico, lblMartes.Text, txtEntradaMartes.Text, txtSalidaMartes.Text);
-            }
-            if (cbMiercoles.Checked)
-            {
-                negJl.AltaJornadaLaboral(legajoMedico, lblMiercoles.Text, txtEntradaMiercoles.Text, txtSalidaMiercoles.Text);
-            }
-            if (cbJueves.Checked)
-            {
-                negJl.AltaJornadaLaboral(legajoMedico, lblJueves.Text, txtEntradaJueves.Text, txtSalidaJueves.Text);
-            }
-            if (cbViernes.Checked)
-            {
-                negJl.AltaJornadaLaboral(legajoMedico, lblViernes.Text, txtEntradaViernes.Text, txtSalidaViernes.Text);
-            }
-            if (cbSabado.Checked)
-            {
-                negJl.AltaJornadaLaboral(legajoMedico, lblSabado.Text, txtEntradaSabado.Text, txtSalidaSabado.Text);
-            }
-            if (cbDomingo.Checked)
-            {
-                negJl.AltaJornadaLaboral(legajoMedico, lblDomingo.Text, txtEntradaDomingo.Text, txtSalidaDomingo.Text);
-            }
-        }
+  
+        } 
+      
         
         protected void cblDias_SelectedIndexChanged(object sender, EventArgs e)
         {

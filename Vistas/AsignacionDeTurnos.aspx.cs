@@ -30,6 +30,9 @@ namespace Vistas
 
         protected void ddlEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ddlMedicos.Items.Clear();
+            ListItem itemDefault = new ListItem("-- Seleccione Medico --", "0");
+            ddlMedicos.Items.Add(itemDefault);
             NegocioMedicos NegM = new NegocioMedicos();
             DataTable dt = NegM.obtenerMedicosDeEspecialidad(Convert.ToInt32(ddlEspecialidad.SelectedValue.ToString()));
             foreach(DataRow dr in dt.Rows)

@@ -528,13 +528,31 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.GridView grdMedicos;
 
         /// <summary>
-        /// Control lblMedicoSeleccionado.
+        /// Control lblMensajeConfirmacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMedicoSeleccionado;
+        protected global::System.Web.UI.WebControls.Label lblMensajeConfirmacion;
+
+        /// <summary>
+        /// Control lbSi.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbSi;
+
+        /// <summary>
+        /// Control lbNo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbNo;
 
         /// <summary>
         /// Control lblMensajeEliminar.
@@ -544,15 +562,6 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMensajeEliminar;
-
-        /// <summary>
-        /// Control btnVerJornada.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVerJornada;
 
         /// <summary>
         /// Control grdJornadaLaboral.

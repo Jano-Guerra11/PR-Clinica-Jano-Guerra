@@ -7,6 +7,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -26,6 +27,7 @@ namespace Vistas
                 cargarDDLEspecialidades();
 
             }
+            visibilidadDeHorarios();
             
         }
         public void cargarDDLEspecialidades()
@@ -83,7 +85,7 @@ namespace Vistas
                 // no se pudo agregar
                 lblMensaje.Text = "No se pudo agregar";
             }
-            cargarGridView();
+            cargarTablaFiltrada();
             resetearControles();
         }
         public void resetearControles()
@@ -112,16 +114,9 @@ namespace Vistas
                {
                   negJl.AltaJornadaLaboral(legajoDelMedico, dias[i], txtHorarioEntrada.Text, txtHorarioSalida.Text);
                }
-
             }
-  
         } 
       
-        
-        protected void cblDias_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
         protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
             ddlLocalidad.Items.Clear();
@@ -139,6 +134,28 @@ namespace Vistas
             }
         }
 
+        public void visibilidadDeHorarios()
+        {
+            string[] diasSemanales = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" };
+            for (int i = 0; i < diasSemanales.Length; i++)
+            {
+                CheckBox cb = (CheckBox)FindControl($"cb{diasSemanales[i]}");
+                TextBox entrada = (TextBox)FindControl($"txtEntrada{diasSemanales[i]}");
+                TextBox salida = (TextBox)FindControl($"txtSalida{diasSemanales[i]}");
+                if (cb.Checked)
+                {
+
+                    entrada.Visible = true;
+                    salida.Visible = true;
+                }
+                else
+                {
+                    entrada.Visible = false;
+                    salida.Visible = false;
+                }
+            }
+        } 
+
         private void ActualizarVisibilidadEntradaSalida(CheckBox cb, TextBox txtEntrada, TextBox txtSalida)
         {
             if (cb.Checked)
@@ -152,77 +169,57 @@ namespace Vistas
                 txtSalida.Visible = false;
             }
         }
-        protected void cbLunes_CheckedChanged(object sender, EventArgs e)
-        {
-            ActualizarVisibilidadEntradaSalida(cbLunes, txtEntradaLunes, txtSalidaLunes);
-        }
-        protected void cbMartes_CheckedChanged(object sender, EventArgs e)
-        {
-            ActualizarVisibilidadEntradaSalida(cbMartes,txtEntradaMartes,txtSalidaMartes);
-        }
-        protected void cbMiercoles_CheckedChanged(object sender, EventArgs e)
-        {
-            ActualizarVisibilidadEntradaSalida(cbMiercoles, txtEntradaMiercoles, txtSalidaMiercoles);
-        }
-        protected void cbJueves_CheckedChanged(object sender, EventArgs e)
-        {
-            ActualizarVisibilidadEntradaSalida(cbJueves, txtEntradaJueves, txtSalidaJueves);
-        }
-        protected void cbSabado_CheckedChanged(object sender, EventArgs e)
-        {
-            ActualizarVisibilidadEntradaSalida(cbSabado, txtEntradaSabado, txtSalidaSabado);
-        }
-        protected void cbViernes_CheckedChanged(object sender, EventArgs e)
-        {
-            ActualizarVisibilidadEntradaSalida(cbViernes, txtEntradaViernes, txtSalidaViernes);
-        }
-        protected void cbDomingo_CheckedChanged(object sender, EventArgs e)
-        {
-            ActualizarVisibilidadEntradaSalida(cbDomingo, txtEntradaDomingo, txtSalidaDomingo);
-        }
-
-        protected void btnVerJornada_Click(object sender, EventArgs e)
-        {
-
-            if (lblMedicoSeleccionado.Text != "" )
-            {
-            if(grdJornadaLaboral.Visible == false)
-            {
-                grdJornadaLaboral.Visible = true;
-            }
-            else { grdJornadaLaboral.Visible = false; }
-
-          grdJornadaLaboral.DataSource = negJl.obtenerJornadaDeMedico(lblMedicoSeleccionado.Text);
-            grdJornadaLaboral.DataBind();
-
-            }
-            else
-            {
-                lblMedicoSeleccionado.Text = "Seleccione un medico primero";
-            }
-
-        }
-
-        protected void grdMedicos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-        {
-           
-        }
-
+ 
         protected void grdMedicos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string legajo = ((Label)grdMedicos.Rows[e.RowIndex].FindControl("lbl_It_Legajo")).Text;
             string Dni = ((Label)grdMedicos.Rows[e.RowIndex].FindControl("lbl_It_Dni")).Text;
-            int x = negMed.BajaMedico(legajo,Dni);
-          if ( x == 1)
+
+            Session["legajo"] = legajo;
+            Session["dni"] = Dni;
+
+            lblMensajeConfirmacion.Visible = true;
+            lblMensajeConfirmacion.Text = "Seguro que desea eliminar el medico de legajo " + legajo +" ?";
+            lbSi.Visible = true;
+            lbNo.Visible = true;
+       
+
+        }
+
+        protected void lbSi_Click(object sender, EventArgs e)
+        {
+            string legajo = Session["legajo"].ToString();
+            string dni = Session["dni"].ToString();
+           BajaMedico(legajo,dni);
+            lblMensajeConfirmacion.Visible = false;
+            lblMensajeConfirmacion.Text = "";
+            lbSi.Visible = false;
+            lbNo.Visible = false;
+        }
+        protected void lbNo_Click(object sender, EventArgs e)
+        {
+            lblMensajeConfirmacion.Visible = false;
+            lblMensajeConfirmacion.Text = "";
+            lbSi.Visible = false;
+            lbNo.Visible = false;
+        }
+        public void BajaMedico(string legajo,string Dni)
+        {
+            int x = negMed.BajaMedico(legajo, Dni);
+            if (x == 1)
             {
 
-            lblMensajeEliminar.Text = "Eliminado correctamente";
+                lblMensajeEliminar.Text = "Eliminado correctamente";
             }
-            else if (x == 0) { lblMensajeEliminar.Text = "No se pudo eliminar";
-            }else if(x == -1)
+            else if (x == 0)
+            {
+                lblMensajeEliminar.Text = "No se pudo eliminar";
+            }
+            else if (x == -1)
             {
                 lblMensajeEliminar.Text = "No existe ese medico";
             }
+            cargarTablaFiltrada();
         }
 
         protected void grdMedicos_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -246,14 +243,14 @@ namespace Vistas
             {
                 // agregado correctamente
                 grdMedicos.EditIndex = -1;
-                cargarGridView();
+                cargarTablaFiltrada();
             }
         }
         
         protected void grdMedicos_RowEditing(object sender, GridViewEditEventArgs e)
         {
             grdMedicos.EditIndex = e.NewEditIndex;
-            cargarGridView();
+            cargarTablaFiltrada();
            
            
         }
@@ -261,12 +258,7 @@ namespace Vistas
         protected void grdMedicos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             grdMedicos.EditIndex = -1;
-            cargarGridView();
-        }
-
-        protected void grdMedicos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            cargarTablaFiltrada(); 
         }
 
         protected void grdMedicos_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -283,18 +275,31 @@ namespace Vistas
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
+            cargarTablaFiltrada();
+        }
+
+        public void cargarTablaFiltrada()
+        {
             DataTable tablaFiltrada = negMed.tablaFiltrada(txtFiltroLegajo.Text, txtFiltroDni.Text, txtFiltroApellido.Text, ddlFiltroEspecialidad.SelectedItem.ToString());
             grdMedicos.DataSource = tablaFiltrada;
-            grdMedicos .DataBind();
+            grdMedicos.DataBind();
         }
 
         protected void btnMostrarTodos_Click(object sender, EventArgs e)
         {
-            cargarGridView();
             txtFiltroLegajo.Text = string.Empty;
             txtFiltroDni.Text = string.Empty;   
             txtFiltroApellido.Text = string.Empty;
             ddlFiltroEspecialidad.SelectedIndex = 0;
+            cargarTablaFiltrada();
         }
+
+        protected void grdMedicos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdMedicos.PageIndex = e.NewPageIndex;
+            cargarTablaFiltrada();
+
+        }
+
     }
 }

@@ -99,5 +99,10 @@ namespace DAO
             string consulta = "SELECT * FROM Medicos WHERE IdEspecialidad = " + idEspecialidad;
             return ad.obtenerTabla(consulta, "MedicosDeEspecialidad");
         }
+        public DataTable obtenerProvinciaAsignada(string legajo)
+        {
+            string consulta = "SELECT IdProvincia_Me FROM Medicos WHERE Legajo_Me = '" + legajo + "'";
+           return ad.obtenerTabla(consulta,"provinciaAsingada");
+        }
     }
 }

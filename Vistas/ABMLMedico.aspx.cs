@@ -301,5 +301,52 @@ namespace Vistas
 
         }
 
+        protected void grdMedicos_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            // si el tipo de la fila que se esta procesando es de tipo Datarow && si el estado de la fila esta en edit 
+            if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowState.HasFlag(DataControlRowState.Edit))
+            {
+                DropDownList ddlProvincia = (DropDownList)e.Row.FindControl("ddl_eit_Provincia");
+                DropDownList ddlLocalidad = (DropDownList)e.Row.FindControl("ddl_eit_Localidad");
+                DropDownList ddlEspecialidad = (DropDownList)e.Row.FindControl("ddl_Eit_Especialidad");
+                string legajo = ((Label)e.Row.FindControl("lbl_Eit_Legajo")).Text;
+                NegocioProvincias negProv = new NegocioProvincias();
+                NegocioLocalidades negLoc = new NegocioLocalidades();
+                NegocioEspecialidades negEsp = new NegocioEspecialidades();
+                DataTable dt = new DataTable();
+
+                dt = negProv.obtenerProvincias();
+                ddlProvincia.DataSource = dt;
+                ddlProvincia.DataTextField = "NombreProvincia_Pr";
+                ddlProvincia.DataValueField = "IdProvincia_Pr";
+                ddlProvincia.Items.Insert(0,new ListItem("- Seleccione Provincia -", "0"));
+                ddlProvincia.DataBind();
+                ddlProvincia.SelectedValue = negMed.obtenerProvinciaAsignada(legajo); // funciona
+
+                // se cargan las localidades de la provincia cargada pero no la localidad que estaba asignada
+                // y tampoco cambian las localidades al cambiar de provincia
+                dt = negLoc.obtenerLocalidadesDeProvincia(Convert.ToInt32(ddlProvincia.SelectedValue));
+                ddlLocalidad.DataSource = dt;
+                ddlLocalidad.DataTextField = "NombreLocalidad";
+                ddlLocalidad.DataValueField = "IdLocalidad";
+                ddlLocalidad.Items.Insert(0, new ListItem("- Seleccione Localidad -", "0"));
+                ddlLocalidad.DataBind();
+                
+
+                dt = negEsp.obtenerEspecialidades();
+                ddlEspecialidad.DataSource = dt;
+                ddlEspecialidad.DataTextField = "NombreEspecialidad_Esp";
+                ddlEspecialidad.DataValueField = "IdEspecialidad_Esp";
+                ddlEspecialidad.DataBind();
+                
+            }
+        }
+
+        protected void ddl_eit_Provincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList ddl = (DropDownList)sender;
+            Session["idProvinciaSeleccionada"] = ddl.SelectedValue.ToString();
+
+        }
     }
 }

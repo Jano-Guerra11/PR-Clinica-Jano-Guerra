@@ -103,5 +103,10 @@ namespace Negocio
         {
             return dao.obtenerMedicosDeEspecialidad(idEspecialidad);
         }
+        public string obtenerProvinciaAsignada(string legajo)
+        {
+            DataTable dt =  dao.obtenerProvinciaAsignada(legajo);
+           return dt.Rows[0].ToString();
+        }
     }
 }

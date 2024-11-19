@@ -52,11 +52,32 @@
                         <asp:ListItem>-- Seleccione Especialidad --</asp:ListItem>
                     </asp:DropDownList>
                 </td>
-                <td>MEDICO:</td>
+                <td>&nbsp;</td>
                 <td>
+                    &nbsp;</td>
+                <td>&nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>MEDICO:<td>
                     <asp:DropDownList ID="ddlMedicos" runat="server" Height="16px" Width="258px" AutoPostBack="True" OnSelectedIndexChanged="ddlMedicos_SelectedIndexChanged">
                         <asp:ListItem>-- Seleccione Medico --</asp:ListItem>
                     </asp:DropDownList>
+                </td>
+                <td>
+                    <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="250px" NextPrevFormat="ShortMonth" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" Width="330px">
+                        <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" Height="8pt" />
+                        <DayStyle BackColor="#CCCCCC" />
+                        <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="White" />
+                        <OtherMonthDayStyle ForeColor="#999999" />
+                        <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                        <TitleStyle BackColor="#333399" BorderStyle="Solid" Font-Bold="True" Font-Size="12pt" ForeColor="White" Height="12pt" />
+                        <TodayDayStyle BackColor="#999999" ForeColor="White" />
+                    </asp:Calendar>
+                </td>
+                <td>
+                    <asp:ListBox ID="lbHorarios" runat="server" Height="264px" Width="168px"></asp:ListBox>
                 </td>
                 <td>&nbsp;</td>
                 <td>
@@ -71,12 +92,25 @@
                     <br />
                     <asp:Label ID="lblDias" runat="server"></asp:Label>
                 </td>
+                <td>
+                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                </td>
+                <td>
+                    &nbsp;</td>
+                <td>&nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
                 <td>HORARIO:</td>
                 <td>
-                    <asp:DropDownList ID="ddlHorariosDelDia" runat="server" Height="30px" Width="254px">
+                    <asp:DropDownList ID="ddlHorariosDelDia" runat="server" Height="30px" Width="254px" OnSelectedIndexChanged="ddlHorariosDelDia_SelectedIndexChanged">
                         <asp:ListItem>-- Seleccione Hora --</asp:ListItem>
                     </asp:DropDownList>
                 </td>
+                <td>&nbsp;</td>
+                <td>
+                    &nbsp;</td>
                 <td>&nbsp;</td>
                 <td>
                     &nbsp;</td>
@@ -87,8 +121,7 @@
                     <asp:TextBox ID="txtDniPaciente" runat="server" Height="19px" Width="190px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:Button ID="btnAgregar" runat="server" Height="37px" Text="Agregar Turno" Width="100px" ValidationGroup="1" />
-                </td>
+                    &nbsp;</td>
                 <td>
                     &nbsp;</td>
                 <td>&nbsp;</td>
@@ -96,10 +129,12 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td></td>
+                <td>&nbsp;</td>
                 <td>
                     &nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style5">
+                    <asp:Button ID="btnAgregar" runat="server" Height="53px" Text="Agregar Turno" Width="153px" ValidationGroup="1" />
+                </td>
                 <td>
                     &nbsp;</td>
                 <td>
@@ -128,6 +163,7 @@
         </table>
         <asp:GridView ID="grdTurnos" runat="server">
         </asp:GridView>
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </form>
 </body>
 </html>

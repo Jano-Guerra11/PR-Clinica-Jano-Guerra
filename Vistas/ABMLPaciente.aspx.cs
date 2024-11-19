@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -21,6 +22,7 @@ namespace Vistas
                 cargarDdlProvincias();
 
             }
+            lblMensajeBorrar.Text = string.Empty;
         }
         public void cargarGridView()
         {
@@ -47,13 +49,13 @@ namespace Vistas
         protected void grdPacientes_RowEditing(object sender, GridViewEditEventArgs e)
         {
             grdPacientes.EditIndex = e.NewEditIndex;
-            cargarGridView();
+            TablaFiltrada();
         }
 
         protected void grdPacientes_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             grdPacientes.EditIndex = -1;
-            cargarGridView();
+            TablaFiltrada();
 
         }
 
@@ -73,7 +75,7 @@ namespace Vistas
             paciente.Telefono = ((TextBox)grdPacientes.Rows[e.RowIndex].FindControl("txt_Eit_Telefono")).Text;
             negPac.ActualizarPaciente(paciente);
             grdPacientes.EditIndex = -1;
-            cargarGridView();
+            TablaFiltrada();
         }
 
         protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
@@ -103,7 +105,7 @@ namespace Vistas
         protected void grdPacientes_RowUpdated(object sender, GridViewUpdatedEventArgs e)
         {
             grdPacientes.EditIndex = -1;
-            cargarGridView();
+            TablaFiltrada();
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -131,7 +133,7 @@ namespace Vistas
                 lblMensaje.ForeColor = Color.Red;
                 lblMensaje.Text = "No se pudo agregar el paciente, o el paciente ya existe o ocurrio un error inesperado";
             }
-            cargarGridView();
+            TablaFiltrada();
             ResetearControles();
         }
         public void ResetearControles()
@@ -178,8 +180,62 @@ namespace Vistas
 
         protected void grdPacientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            string dni = ((Label)grdPacientes.Rows[e.RowIndex].FindControl("lbl_It_Dni")).Text;
-           if(negPac.bajaPaciente(dni))
+            Session["dni"]  = ((Label)grdPacientes.Rows[e.RowIndex].FindControl("lbl_It_Dni")).Text;
+            string nombre = ((Label)grdPacientes.Rows[e.RowIndex].FindControl("lbl_it_Nombre")).Text;
+            string apellido = ((Label)grdPacientes.Rows[e.RowIndex].FindControl("lbl_it_Apellido")).Text;
+
+            lblMensajeConfirmacion.Text = "SEGURO QUE QUIERE ELIMINAR AL PACIENTE " + nombre + " " + apellido+"?";
+           lbSi.Visible = true;
+            lbNo.Visible = true;
+        }
+
+        protected void grdPacientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void grdPacientes_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+           if(e.Row.RowType == DataControlRowType.DataRow && e.Row.RowState == DataControlRowState.Edit)
+            {
+
+            DropDownList ddlProvincia = (DropDownList)e.Row.FindControl("ddl_eit_Provincia");
+            DropDownList ddlLocalidad = (DropDownList)e.Row.FindControl("ddl_eit_Localidad");
+           string  dni = ((TextBox)e.Row.FindControl("txt_Eit_Dni")).Text;
+
+            DataTable dt = new DataTable();
+
+            NegocioProvincias negProv = new NegocioProvincias();
+            NegocioLocalidades negLoc = new NegocioLocalidades();
+            NegocioPacientes negPac = new NegocioPacientes();
+
+            dt = negProv.obtenerProvincias();
+            ddlProvincia.DataSource = dt;
+            ddlProvincia.DataTextField = "NombreProvincia_Pr";
+            ddlProvincia.DataValueField = "IdProvincia_Pr";
+            ddlProvincia.DataBind();
+            ddlProvincia.SelectedValue = negPac.obtenerIdProvincia(dni);
+
+            dt = negLoc.obtenerTodasLasLocalidades();
+            ddlLocalidad.DataSource = dt;
+            ddlLocalidad.DataTextField = "NombreLocalidad";
+            ddlLocalidad.DataValueField = "IdLocalidad";
+            ddlLocalidad.DataBind();
+            ddlLocalidad.SelectedValue = negPac.obtenerIdLocalidad(dni);
+            }
+
+        }
+
+        protected void grdPacientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdPacientes.PageIndex = e.NewPageIndex;
+            TablaFiltrada();
+        }
+
+        protected void lbSi_Click(object sender, EventArgs e)
+        {
+            string dni = Session["dni"].ToString();
+            if (negPac.bajaPaciente(dni))
             {
                 lblMensajeBorrar.ForeColor = Color.Green;
                 lblMensajeBorrar.Text = "Eliminado Correctamente";
@@ -191,7 +247,18 @@ namespace Vistas
                 lblMensajeBorrar.Text = " No se pudo Eliminar";
 
             }
-            cargarGridView();
+            TablaFiltrada();
+            lblMensajeConfirmacion.Text = string.Empty;
+            lbSi.Visible = false;
+            lbNo.Visible = false;
+
+        }
+
+        protected void lbNo_Click(object sender, EventArgs e)
+        {
+            lblMensajeConfirmacion.Text = string.Empty;
+            lbSi.Visible = false;
+            lbNo.Visible = false;
         }
     }
 }

@@ -26,7 +26,7 @@ namespace DAO
             string consulta = "SELECT Dni_p,nombre_p,apellido_p,sexo_p,nacionalidad_p,fechadenacimiento_p,dirección_P,correo_p,telefono_p," +
                 "NombreProvincia_Pr,nombreLocalidad,IdLocalidad,IdProvincia_Pr FROM Pacientes inner join Provincias on pacientes.IdProvincia_p = Provincias.IdProvincia_Pr " +
                 "inner join localidades on pacientes.IdLocalidad_p = Localidades.IdLocalidad WHERE Dni_p like '"+paciente.Dni+"%' AND nombre_p like '"+paciente.Nombre+"%' AND " +
-                " Apellido_p LIKE '"+paciente.Apellido+"%'";
+                " Apellido_p LIKE '"+paciente.Apellido+"%' AND Baja_P = 0";
             return ad.obtenerTabla(consulta,"TablaFiltradPacientes");
         }
 
@@ -80,6 +80,11 @@ namespace DAO
             SqlCommand cmd = new SqlCommand();
             cargarParametrosEliminar(ref cmd, paciente);
             return ad.ejecutarProcedimientoAlmacenado(cmd,"SP_BajaPaciente");
+        }
+        public DataTable obtenerProvYLocDePaciente(string dni)
+        {
+            string consulta = "SELECT IdProvincia_P,IdLocalidad_P FROM Pacientes WHERE dni_P = '" + dni + "'";
+            return ad.obtenerTabla(consulta, "provYLocPaciente");
         }
 
     }

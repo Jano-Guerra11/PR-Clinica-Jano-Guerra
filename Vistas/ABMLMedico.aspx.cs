@@ -319,12 +319,11 @@ namespace Vistas
                 ddlProvincia.DataSource = dt;
                 ddlProvincia.DataTextField = "NombreProvincia_Pr";
                 ddlProvincia.DataValueField = "IdProvincia_Pr";
-               
                 ddlProvincia.DataBind();
                 ddlProvincia.SelectedValue = negMed.obtenerProvinciaAsignada(legajo);
 
-                
-                dt = negLoc.obtenerLocalidadesDeProvincia(Convert.ToInt32(ddlProvincia.SelectedValue));
+
+                dt = negLoc.obtenerTodasLasLocalidades();
                 ddlLocalidad.DataSource = dt;
                 ddlLocalidad.DataTextField = "NombreLocalidad";
                 ddlLocalidad.DataValueField = "IdLocalidad";
@@ -337,6 +336,7 @@ namespace Vistas
                 ddlEspecialidad.DataTextField = "NombreEspecialidad_Esp";
                 ddlEspecialidad.DataValueField = "IdEspecialidad_Esp";
                 ddlEspecialidad.DataBind();
+                ddlEspecialidad.SelectedValue = negMed.obtenerEspecialidadAsignada(legajo);
                 
             }
         }

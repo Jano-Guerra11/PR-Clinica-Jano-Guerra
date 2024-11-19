@@ -34,7 +34,12 @@ namespace Negocio
         public DataRow diaLaboralMedico(string legajoMedico,string dia)
         {
             DataTable dt = dao.obtenerJornadaDeDia(legajoMedico,dia);
+            if(dt.Rows.Count > 0)
+            {
             return dt.Rows[0];
+
+            }
+            return null;
         }
     }
 }

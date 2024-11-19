@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace Vistas
 {
+    // un ddl que aparezcan los dias en los que atiende el medico y al seleccionar uno muestra una tabla con los 
     public partial class AsignacionDeTurnos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -59,6 +60,7 @@ namespace Vistas
 
         protected void ddlDias_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ddlHorariosDelDia.Items.Clear();
             NegocioJornadaLaboral negJ = new NegocioJornadaLaboral();
             DataRow dr = negJ.diaLaboralMedico(ddlMedicos.SelectedValue.ToString(),ddlDias.SelectedItem.Text.ToString());
             // un fo que recorra dessde la hora de entrada hasta la hora de salida y cada una hora vaya agregando un horario
@@ -76,6 +78,75 @@ namespace Vistas
             }
             
             lblDias.Text = horaEntrada.ToString();
+
+        }
+
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+            DateTime fechaSeleccionada = Calendar1.SelectedDate;
+            lbHorarios.Items.Clear();
+            if(ddlMedicos.SelectedItem.Text != "-- Seleccione Medico --")
+            {
+            if (fechaSeleccionada.DayOfWeek == DayOfWeek.Monday)
+            {
+                cargarHorariosDeDia("LUNES",fechaSeleccionada);
+            }
+            if (fechaSeleccionada.DayOfWeek == DayOfWeek.Tuesday)
+            {
+                cargarHorariosDeDia("MARTES", fechaSeleccionada);
+            }
+            if (fechaSeleccionada.DayOfWeek == DayOfWeek.Wednesday)
+            {
+                cargarHorariosDeDia("MIERCOLES", fechaSeleccionada);
+            }
+            if (fechaSeleccionada.DayOfWeek == DayOfWeek.Thursday)
+            {
+                cargarHorariosDeDia("JUEVES", fechaSeleccionada);
+            }
+            if (fechaSeleccionada.DayOfWeek == DayOfWeek.Friday)
+            {
+                cargarHorariosDeDia("VIERNES", fechaSeleccionada);
+            }
+            if (fechaSeleccionada.DayOfWeek == DayOfWeek.Saturday)
+            {
+                cargarHorariosDeDia("SABADO", fechaSeleccionada);
+            }
+
+            }
+
+            // ahora falta cargar un turno y verificar que solo aparezcan los horarios disponibles(funion bool)
+            // tengo que obtener la fecha seleccionada y verificar 
+        }
+
+        protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
+        {
+            
+        }
+
+        public void cargarHorariosDeDia( string dia,DateTime fecha)
+        {
+            // verificar que en esa fecha no haya ningun turno asignado
+            lbHorarios.Items.Clear();
+            NegocioJornadaLaboral negJ = new NegocioJornadaLaboral();
+            DataRow dr = negJ.diaLaboralMedico(ddlMedicos.SelectedValue.ToString(), dia);
+            // un fo que recorra dessde la hora de entrada hasta la hora de salida y cada una hora vaya agregando un horario
+            TimeSpan horaEntrada = TimeSpan.Parse(dr["INGRESO"].ToString());
+            TimeSpan horaSalida = TimeSpan.Parse(dr["EGRESO"].ToString());
+
+            TimeSpan unaHora = new TimeSpan(1, 0, 0);
+            for (TimeSpan i = horaEntrada; i <= horaSalida; i += unaHora)
+            {
+                ListItem item = new ListItem();
+
+                TimeSpan horaFinalizacion = i + unaHora;
+                item.Text = i.ToString() + " - " + horaFinalizacion.ToString();
+                lbHorarios.Items.Add(item);
+            }
+        }
+
+        protected void ddlHorariosDelDia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
 
         }
     }

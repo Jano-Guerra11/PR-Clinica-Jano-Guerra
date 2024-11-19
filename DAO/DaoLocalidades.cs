@@ -15,5 +15,10 @@ namespace DAO
             string consulta = "SELECT IdLocalidad,NombreLocalidad FROM Localidades WHERE IdProvincia = " + idProvincia;
           return  ad.obtenerTabla(consulta, "LocalidadesDeProvincia");
         }
+        public DataTable obtenerTodasLasLocalidades()
+        {
+            string consulta = " SELECT * FROM LOCALIDADES";
+            return ad.obtenerTabla(consulta, "localidades");
+        }
     }
 }

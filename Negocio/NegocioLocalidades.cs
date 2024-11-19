@@ -16,5 +16,9 @@ namespace Negocio
   
            return  dao.obtenerLocalidadesDeProvincia(idProvincia);
         }
+        public DataTable obtenerTodasLasLocalidades()
+        {
+            return dao.obtenerTodasLasLocalidades();
+        }
     }
 }

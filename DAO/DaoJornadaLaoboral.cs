@@ -15,7 +15,7 @@ namespace DAO
 
         public DataTable obtenerJornadaDeMedico(string legajo)
         {
-            string consulta = "SELECT DiaAtencion_J AS 'DIA', HoraIngreso_J AS 'INGRESO', HoraEgreso_J AS 'EGRESO' FROM JornadaLaboral WHERE LegajoMedico_J = '"+legajo+"'";
+            string consulta = "SELECT DiaAtencion_J AS 'DIA', HoraIngreso_J AS 'INGRESO', HoraEgreso_J AS 'EGRESO' FROM JornadaLaboral WHERE LegajoMedico_J LIKE '"+legajo+"%'";
            return ad.obtenerTabla(consulta,"JornadaLaboral");
         }
         public DataTable obtenerJornadaDeDia(string legajoMedico,string dia)

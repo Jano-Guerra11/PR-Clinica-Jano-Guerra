@@ -46,5 +46,23 @@ namespace Negocio
             }
             else { return false; }
         }
+        public string obtenerIdProvincia(string dni)
+        {
+            DataTable dt = dao.obtenerProvYLocDePaciente(dni);
+            if(dt != null && dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["IdProvincia_P"].ToString();
+            }
+            return null;
+        }
+        public string obtenerIdLocalidad(string dni)
+        {
+            DataTable dt = dao.obtenerProvYLocDePaciente(dni);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["IdLocalidad_P"].ToString();
+            }
+            return null;
+        }
     }
 }

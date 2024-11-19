@@ -251,8 +251,8 @@ namespace Vistas
         {
             grdMedicos.EditIndex = e.NewEditIndex;
             cargarTablaFiltrada();
-           
-           
+            
+
         }
 
         protected void grdMedicos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -319,19 +319,18 @@ namespace Vistas
                 ddlProvincia.DataSource = dt;
                 ddlProvincia.DataTextField = "NombreProvincia_Pr";
                 ddlProvincia.DataValueField = "IdProvincia_Pr";
-                ddlProvincia.Items.Insert(0,new ListItem("- Seleccione Provincia -", "0"));
+               
                 ddlProvincia.DataBind();
-                ddlProvincia.SelectedValue = negMed.obtenerProvinciaAsignada(legajo); // funciona
+                ddlProvincia.SelectedValue = negMed.obtenerProvinciaAsignada(legajo);
 
-                // se cargan las localidades de la provincia cargada pero no la localidad que estaba asignada
-                // y tampoco cambian las localidades al cambiar de provincia
+                
                 dt = negLoc.obtenerLocalidadesDeProvincia(Convert.ToInt32(ddlProvincia.SelectedValue));
                 ddlLocalidad.DataSource = dt;
                 ddlLocalidad.DataTextField = "NombreLocalidad";
                 ddlLocalidad.DataValueField = "IdLocalidad";
-                ddlLocalidad.Items.Insert(0, new ListItem("- Seleccione Localidad -", "0"));
                 ddlLocalidad.DataBind();
-                
+                ddlLocalidad.SelectedValue = negMed.obtenerLocalidadAsignada(legajo);
+               
 
                 dt = negEsp.obtenerEspecialidades();
                 ddlEspecialidad.DataSource = dt;
@@ -344,8 +343,19 @@ namespace Vistas
 
         protected void ddl_eit_Provincia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DropDownList ddl = (DropDownList)sender;
-            Session["idProvinciaSeleccionada"] = ddl.SelectedValue.ToString();
+            DropDownList ddlProvincia = (DropDownList)sender;
+            GridViewRow row = (GridViewRow)ddlProvincia.NamingContainer;
+            DropDownList ddlLocalidades = (DropDownList)row.FindControl("ddl_eit_Localidad");
+
+            NegocioLocalidades negLoc = new NegocioLocalidades();
+            DataTable dt = new DataTable();
+            dt = negLoc.obtenerLocalidadesDeProvincia(Convert.ToInt32(ddlProvincia.SelectedValue));
+            ddlLocalidad.DataSource = dt;
+            ddlLocalidad.DataTextField = "NombreLocalidad";
+            ddlLocalidad.DataValueField = "IdLocalidad";
+            ddlLocalidad.Items.Insert(0, new ListItem("- Seleccione Localidad -", "0"));
+            ddlLocalidad.DataBind();
+
 
         }
     }

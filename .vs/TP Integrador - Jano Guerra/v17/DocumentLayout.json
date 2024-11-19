@@ -11,8 +11,12 @@
       "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\abmlmedico.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|c:\\users\\jano\\desktop\\proyectos .net\\pr-clinica-jano-guerra\\negocio\\negociomedicos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\negocio\\negociomedicos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|solutionrelative:negocio\\negociomedicos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D13AB8-553C-411F-BDC4-82A6836C977C}|DAO\\DAO.csproj|c:\\users\\jano\\desktop\\proyectos .net\\pr-clinica-jano-guerra\\dao\\daomedico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D13AB8-553C-411F-BDC4-82A6836C977C}|DAO\\DAO.csproj|solutionrelative:dao\\daomedico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,13 +38,26 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DaoMedico.cs",
+              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\DAO\\DaoMedico.cs",
+              "RelativeDocumentMoniker": "DAO\\DaoMedico.cs",
+              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\DAO\\DaoMedico.cs",
+              "RelativeToolTip": "DAO\\DaoMedico.cs",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAtwG0AAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T13:43:05.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "NegocioMedicos.cs",
               "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Negocio\\NegocioMedicos.cs",
               "RelativeDocumentMoniker": "Negocio\\NegocioMedicos.cs",
               "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Negocio\\NegocioMedicos.cs",
               "RelativeToolTip": "Negocio\\NegocioMedicos.cs",
-              "ViewState": "AQIAAGEAAAAAAAAAAAAqwGwAAAAoAAAA",
+              "ViewState": "AQIAAGcAAAAAAAAAAAAgwHkAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-14T15:59:42.627Z",
               "EditorCaption": ""
@@ -53,7 +70,7 @@
               "RelativeDocumentMoniker": "Vistas\\ABMLMedico.aspx.cs",
               "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Vistas\\ABMLMedico.aspx.cs",
               "RelativeToolTip": "Vistas\\ABMLMedico.aspx.cs",
-              "ViewState": "AQIAADkBAAAAAAAAAAAqwEYBAABMAAAA",
+              "ViewState": "AQIAAFIBAAAAAAAAAAAAAEwBAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-12T21:35:00.641Z",
               "EditorCaption": ""

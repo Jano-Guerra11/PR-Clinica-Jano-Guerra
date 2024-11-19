@@ -105,8 +105,24 @@ namespace Negocio
         }
         public string obtenerProvinciaAsignada(string legajo)
         {
+            
             DataTable dt =  dao.obtenerProvinciaAsignada(legajo);
-           return dt.Rows[0].ToString();
+            if(dt != null && dt.Rows.Count > 0)
+            {
+              return dt.Rows[0]["idProvincia_Me"].ToString();
+
+            }
+            return null;
+        }
+        public string obtenerLocalidadAsignada(string legajo)
+        {
+            DataTable dt = dao.obtenerLocalidadAsignada(legajo);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["idLocalidad_Me"].ToString();
+
+            }
+            return null;
         }
     }
 }

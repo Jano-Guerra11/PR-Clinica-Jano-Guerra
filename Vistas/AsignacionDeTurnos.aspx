@@ -36,6 +36,9 @@
         .auto-style9 {
             height: 30px;
         }
+        .auto-style10 {
+            height: 268px;
+        }
     </style>
 </head>
 <body>
@@ -54,18 +57,18 @@
                 </td>
                 <td>&nbsp;</td>
                 <td>
-                    &nbsp;</td>
+                    Horarios disponibles</td>
                 <td>&nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>
             <tr>
-                <td>MEDICO:<td>
+                <td class="auto-style10">MEDICO:<td class="auto-style10">
                     <asp:DropDownList ID="ddlMedicos" runat="server" Height="16px" Width="258px" AutoPostBack="True" OnSelectedIndexChanged="ddlMedicos_SelectedIndexChanged">
                         <asp:ListItem>-- Seleccione Medico --</asp:ListItem>
                     </asp:DropDownList>
                 </td>
-                <td>
+                <td class="auto-style10">
                     <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="250px" NextPrevFormat="ShortMonth" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" Width="330px">
                         <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" Height="8pt" />
                         <DayStyle BackColor="#CCCCCC" />
@@ -76,50 +79,41 @@
                         <TodayDayStyle BackColor="#999999" ForeColor="White" />
                     </asp:Calendar>
                 </td>
-                <td>
-                    <asp:ListBox ID="lbHorarios" runat="server" Height="264px" Width="168px"></asp:ListBox>
+                <td class="auto-style10">
+                    <asp:ListBox ID="lbHorarios" runat="server" Height="264px" Width="201px"></asp:ListBox>
                 </td>
-                <td>&nbsp;</td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td>DIA:</td>
-                <td>
-                    <asp:DropDownList ID="ddlDias" runat="server" Width="222px" Height="21px" OnSelectedIndexChanged="ddlDias_SelectedIndexChanged" AutoPostBack="True">
-                        <asp:ListItem Value="0">-- Seleccione Dia --</asp:ListItem>
-                    </asp:DropDownList>
-                    <br />
-                    <asp:Label ID="lblDias" runat="server"></asp:Label>
-                </td>
-                <td>
-                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-                </td>
-                <td>
-                    &nbsp;</td>
-                <td>&nbsp;</td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td>HORARIO:</td>
-                <td>
-                    <asp:DropDownList ID="ddlHorariosDelDia" runat="server" Height="30px" Width="254px" OnSelectedIndexChanged="ddlHorariosDelDia_SelectedIndexChanged">
-                        <asp:ListItem>-- Seleccione Hora --</asp:ListItem>
-                    </asp:DropDownList>
-                </td>
-                <td>&nbsp;</td>
-                <td>
-                    &nbsp;</td>
-                <td>&nbsp;</td>
-                <td>
-                    &nbsp;</td>
+                <td class="auto-style10"></td>
+                <td class="auto-style10">
+                    </td>
             </tr>
             <tr>
                 <td>DNI PACIENTE:</td>
                 <td>
                     <asp:TextBox ID="txtDniPaciente" runat="server" Height="19px" Width="190px"></asp:TextBox>
+                    <br />
                 </td>
+                <td>&nbsp;</td>
+                <td>
+                    &nbsp;</td>
+                <td>&nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    &nbsp;</td>
+                <td>&nbsp;</td>
+                <td>
+                    &nbsp;</td>
+                <td>&nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    &nbsp;</td>
                 <td>
                     &nbsp;</td>
                 <td>

@@ -17,9 +17,9 @@ namespace DAO
            return ad.obtenerTabla(consulta, "turnosOcupados");
         }
         
-        public DataTable verHorariosDeDia(string fecha)
+        public DataTable verHorariosDeDia(string fecha,string legajoMedico)
         {
-            string consulta = "SELECT Horario_T FROM Turnos WHERE estado_T = 'indefinido' AND Baja_T = 0 AND dia_T LIKE '"+fecha+"%'";
+            string consulta = "SELECT Horario_T FROM Turnos WHERE estado_T = 'indefinido' AND Baja_T = 0 AND dia_T LIKE '"+fecha+"%' AND LegajoMedico_T = '"+legajoMedico+"'";
             return ad.obtenerTabla(consulta, "HorariosDelDia");
         }
         

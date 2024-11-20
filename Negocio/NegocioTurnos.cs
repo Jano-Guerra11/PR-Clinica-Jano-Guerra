@@ -11,9 +11,10 @@ namespace Negocio
     public class NegocioTurnos
     {
         DaoTurnos dao = new DaoTurnos();
-        public DataTable obtenerHorariosDeDia(string fecha)
+        public DataTable obtenerHorariosDeDia(string fecha,string legajoMedico)
         {
-            return dao.verHorariosDeDia(fecha);
+            DataTable dt = dao.verHorariosDeDia(fecha, legajoMedico);
+            return dt;
         }
     }
 }

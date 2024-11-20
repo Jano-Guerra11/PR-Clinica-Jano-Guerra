@@ -47,37 +47,12 @@ namespace Vistas
 
         protected void ddlMedicos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            NegocioJornadaLaboral negJ = new NegocioJornadaLaboral();
-            DataTable dt = negJ.obtenerJornadaDeMedico(ddlMedicos.SelectedValue.ToString());
-            foreach(DataRow dr in dt.Rows)
-            {
-                ListItem item = new ListItem();
-                item.Text = dr["DIA"].ToString();
-                item.Value = dr["DIA"].ToString();
-                ddlDias.Items.Add(item);
-            }
+           
         }
 
         protected void ddlDias_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ddlHorariosDelDia.Items.Clear();
-            NegocioJornadaLaboral negJ = new NegocioJornadaLaboral();
-            DataRow dr = negJ.diaLaboralMedico(ddlMedicos.SelectedValue.ToString(),ddlDias.SelectedItem.Text.ToString());
-            // un fo que recorra dessde la hora de entrada hasta la hora de salida y cada una hora vaya agregando un horario
-            TimeSpan horaEntrada = TimeSpan.Parse(dr["INGRESO"].ToString());
-            TimeSpan horaSalida = TimeSpan.Parse(dr["EGRESO"].ToString());
-
-            TimeSpan unaHora = new TimeSpan(1, 0, 0);
-            for(TimeSpan i = horaEntrada; i <= horaSalida; i += unaHora)
-            {
-                ListItem item = new ListItem();
-                 
-                TimeSpan horaFinalizacion = i + unaHora;
-                item.Text = i.ToString() +" - "+horaFinalizacion.ToString();
-                ddlHorariosDelDia.Items.Add(item);
-            }
-            
-            lblDias.Text = horaEntrada.ToString();
+           
 
         }
 
@@ -128,8 +103,12 @@ namespace Vistas
             // verificar que en esa fecha no haya ningun turno asignado
             lbHorarios.Items.Clear();
             NegocioJornadaLaboral negJ = new NegocioJornadaLaboral();
+            NegocioTurnos negT = new NegocioTurnos();
             DataRow dr = negJ.diaLaboralMedico(ddlMedicos.SelectedValue.ToString(), dia);
-            // un fo que recorra dessde la hora de entrada hasta la hora de salida y cada una hora vaya agregando un horario
+
+            if (dr != null)
+            {
+
             TimeSpan horaEntrada = TimeSpan.Parse(dr["INGRESO"].ToString());
             TimeSpan horaSalida = TimeSpan.Parse(dr["EGRESO"].ToString());
 
@@ -139,9 +118,40 @@ namespace Vistas
                 ListItem item = new ListItem();
 
                 TimeSpan horaFinalizacion = i + unaHora;
+
+                if(verificarHorario(fecha.ToString(), ddlMedicos.SelectedValue.ToString(), item.Text)) 
+                {
                 item.Text = i.ToString() + " - " + horaFinalizacion.ToString();
+
+                }
+                 else
+                 {
+                        item.Text = "Horario Ocupado";
+                 }
+                    
                 lbHorarios.Items.Add(item);
             }
+
+            }
+            else
+            {
+                lbHorarios.Items.Add(new ListItem("No trabaja los "+dia.ToLower(), "0"));
+            }
+        }
+
+        public bool verificarHorario(string fecha,string legajoMedico,string horario)
+        {
+            NegocioTurnos negT = new NegocioTurnos();
+            DataTable dataTable = negT.obtenerHorariosDeDia(fecha.ToString(), ddlMedicos.SelectedValue.ToString());
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                if (dr["Horario_T"].ToString() == horario)
+                {
+                    return false;
+                }
+
+            }
+            return true;
         }
 
         protected void ddlHorariosDelDia_SelectedIndexChanged(object sender, EventArgs e)

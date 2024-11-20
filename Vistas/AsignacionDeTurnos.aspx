@@ -39,6 +39,13 @@
         .auto-style10 {
             height: 268px;
         }
+        .auto-style11 {
+            height: 57px;
+        }
+        .auto-style12 {
+            text-align: center;
+            height: 57px;
+        }
     </style>
 </head>
 <body>
@@ -54,10 +61,13 @@
                     <asp:DropDownList ID="ddlEspecialidad" runat="server" Height="17px" Width="266px" AutoPostBack="True" OnSelectedIndexChanged="ddlEspecialidad_SelectedIndexChanged">
                         <asp:ListItem>-- Seleccione Especialidad --</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidad" ForeColor="Red" InitialValue="-- Seleccione Especialidad --" ValidationGroup="3">*</asp:RequiredFieldValidator>
                 </td>
                 <td>&nbsp;</td>
                 <td>
-                    Horarios disponibles</td>
+                    Horarios disponibles<br />
+                    <asp:Label ID="lblNoDisponible" runat="server"></asp:Label>
+                </td>
                 <td>&nbsp;</td>
                 <td>
                     &nbsp;</td>
@@ -67,6 +77,7 @@
                     <asp:DropDownList ID="ddlMedicos" runat="server" Height="16px" Width="258px" AutoPostBack="True" OnSelectedIndexChanged="ddlMedicos_SelectedIndexChanged">
                         <asp:ListItem>-- Seleccione Medico --</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvMedico" runat="server" ControlToValidate="ddlMedicos" ForeColor="Red" InitialValue="-- Seleccione Medico --" ValidationGroup="3">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style10">
                     <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="250px" NextPrevFormat="ShortMonth" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" Width="330px">
@@ -81,15 +92,18 @@
                 </td>
                 <td class="auto-style10">
                     <asp:ListBox ID="lbHorarios" runat="server" Height="264px" Width="201px"></asp:ListBox>
+                    <asp:RequiredFieldValidator ID="rfvHorario" runat="server" ControlToValidate="lbHorarios" ForeColor="Red" ValidationGroup="3">*</asp:RequiredFieldValidator>
                 </td>
-                <td class="auto-style10"></td>
+                <td class="auto-style10">&nbsp;</td>
                 <td class="auto-style10">
                     </td>
             </tr>
             <tr>
                 <td>DNI PACIENTE:</td>
                 <td>
-                    <asp:TextBox ID="txtDniPaciente" runat="server" Height="19px" Width="190px"></asp:TextBox>
+                    <asp:TextBox ID="txtDniPaciente" runat="server" Height="19px" Width="202px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvDniPaciente" runat="server" ControlToValidate="txtDniPaciente" ForeColor="Red" ValidationGroup="3">*</asp:RequiredFieldValidator>
+                    <asp:CustomValidator ID="cvExistePaciente" runat="server" ControlToValidate="txtDniPaciente" ForeColor="Red" OnServerValidate="cvExistePaciente_ServerValidate" ValidationGroup="3">Paciente Inexistente</asp:CustomValidator>
                     <br />
                 </td>
                 <td>&nbsp;</td>
@@ -113,7 +127,8 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="lblMensaje" runat="server"></asp:Label>
+                </td>
                 <td>
                     &nbsp;</td>
                 <td>
@@ -123,17 +138,17 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>
-                    &nbsp;</td>
-                <td class="auto-style5">
-                    <asp:Button ID="btnAgregar" runat="server" Height="53px" Text="Agregar Turno" Width="153px" ValidationGroup="1" />
+                <td class="auto-style11"></td>
+                <td class="auto-style11">
+                    </td>
+                <td class="auto-style12">
+                    <asp:Button ID="btnAgregar" runat="server" Height="53px" Text="Agregar Turno" Width="153px" ValidationGroup="3" OnClick="btnAgregar_Click" />
                 </td>
-                <td>
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style11">
+                    </td>
+                <td class="auto-style11">
+                    </td>
+                <td class="auto-style11"></td>
             </tr>
         </table>
         </div>

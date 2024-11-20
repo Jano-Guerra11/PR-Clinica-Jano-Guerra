@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAO;
+using Entidades;
 
 namespace Negocio
 {
@@ -15,6 +17,29 @@ namespace Negocio
         {
             DataTable dt = dao.verHorariosDeDia(fecha, legajoMedico);
             return dt;
+        }
+        public bool altaTurno( string dniPaciente, string legajoMedico, string dia, DateTime horario,
+            string estado)
+        {
+            Turnos turno = new Turnos();
+            
+            turno.DniPaciente = dniPaciente;
+            turno.LegajoMedico = legajoMedico;
+            turno.Dia = dia;
+            turno.Horario = horario;
+            turno.Estado = estado;
+            
+           
+            if (dao.altaTurno(turno) > 0)
+            {
+                return true;
+            }
+
+                return false;
+        }
+        public DataTable obtenerTurnos()
+        {
+            return dao.obtenerTurnos();
         }
     }
 }

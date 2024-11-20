@@ -64,5 +64,9 @@ namespace Negocio
             }
             return null;
         }
+        public bool existePaciente(string dni)
+        {
+           return dao.existePaciente(dni);
+        }
     }
 }

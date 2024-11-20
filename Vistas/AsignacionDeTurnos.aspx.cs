@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,7 +15,13 @@ namespace Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            NegocioTurnos negocioTurnos = new NegocioTurnos();
+            if (!IsPostBack)
+            {
             cargarEspecialidades();
+            }
+                grdTurnos.DataSource = negocioTurnos.obtenerTurnos();
+                grdTurnos.DataBind();
         }
         public void cargarEspecialidades()
         {
@@ -47,7 +54,7 @@ namespace Vistas
 
         protected void ddlMedicos_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            lbHorarios.Items.Clear();
         }
 
         protected void ddlDias_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,33 +65,36 @@ namespace Vistas
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
-            DateTime fechaSeleccionada = Calendar1.SelectedDate;
+            DateTime fechaSeleccionada = Calendar1.SelectedDate.Date;
+            string fecha = fechaSeleccionada.ToString("yyyy-MM-dd");
+            Debug.WriteLine(fecha);
             lbHorarios.Items.Clear();
+           
             if(ddlMedicos.SelectedItem.Text != "-- Seleccione Medico --")
             {
             if (fechaSeleccionada.DayOfWeek == DayOfWeek.Monday)
             {
-                cargarHorariosDeDia("LUNES",fechaSeleccionada);
+                cargarHorariosDeDia("LUNES", fecha);
             }
             if (fechaSeleccionada.DayOfWeek == DayOfWeek.Tuesday)
             {
-                cargarHorariosDeDia("MARTES", fechaSeleccionada);
+                cargarHorariosDeDia("MARTES", fecha);
             }
             if (fechaSeleccionada.DayOfWeek == DayOfWeek.Wednesday)
             {
-                cargarHorariosDeDia("MIERCOLES", fechaSeleccionada);
+                cargarHorariosDeDia("MIERCOLES", fecha);
             }
             if (fechaSeleccionada.DayOfWeek == DayOfWeek.Thursday)
             {
-                cargarHorariosDeDia("JUEVES", fechaSeleccionada);
+                cargarHorariosDeDia("JUEVES", fecha);
             }
             if (fechaSeleccionada.DayOfWeek == DayOfWeek.Friday)
             {
-                cargarHorariosDeDia("VIERNES", fechaSeleccionada);
+                cargarHorariosDeDia("VIERNES", fecha);
             }
             if (fechaSeleccionada.DayOfWeek == DayOfWeek.Saturday)
             {
-                cargarHorariosDeDia("SABADO", fechaSeleccionada);
+                cargarHorariosDeDia("SABADO", fecha);
             }
 
             }
@@ -98,7 +108,7 @@ namespace Vistas
             
         }
 
-        public void cargarHorariosDeDia( string dia,DateTime fecha)
+        public void cargarHorariosDeDia( string dia,string fecha)
         {
             // verificar que en esa fecha no haya ningun turno asignado
             lbHorarios.Items.Clear();
@@ -113,29 +123,31 @@ namespace Vistas
             TimeSpan horaSalida = TimeSpan.Parse(dr["EGRESO"].ToString());
 
             TimeSpan unaHora = new TimeSpan(1, 0, 0);
-            for (TimeSpan i = horaEntrada; i <= horaSalida; i += unaHora)
-            {
-                ListItem item = new ListItem();
+              for (TimeSpan i = horaEntrada; i <= horaSalida; i += unaHora)
+              {
+                 ListItem item = new ListItem();
 
-                TimeSpan horaFinalizacion = i + unaHora;
-
-                if(verificarHorario(fecha.ToString(), ddlMedicos.SelectedValue.ToString(), item.Text)) 
-                {
-                item.Text = i.ToString() + " - " + horaFinalizacion.ToString();
-
-                }
-                 else
+                 TimeSpan horaFinalizacion = i + unaHora;
+                    bool esta = verificarHorario(fecha, ddlMedicos.SelectedValue.ToString(), i.ToString());
+                 if (esta) 
                  {
-                        item.Text = "Horario Ocupado";
+                        item.Text = i.ToString() + " - " + horaFinalizacion.ToString();
+                 item.Value = i.ToString();
+
                  }
+                  else
+                  {
+                        item.Text = "Horario Ocupado";
+                  }
                     
-                lbHorarios.Items.Add(item);
-            }
+                  lbHorarios.Items.Add(item);
+              }
 
             }
             else
             {
-                lbHorarios.Items.Add(new ListItem("No trabaja los "+dia.ToLower(), "0"));
+                lblNoDisponible.Text = "No trabaja los " + dia.ToLower();
+                
             }
         }
 
@@ -143,8 +155,13 @@ namespace Vistas
         {
             NegocioTurnos negT = new NegocioTurnos();
             DataTable dataTable = negT.obtenerHorariosDeDia(fecha.ToString(), ddlMedicos.SelectedValue.ToString());
+
+          
+
             foreach (DataRow dr in dataTable.Rows)
             {
+                Debug.WriteLine("------------------------------" + dr["Horario_T"].ToString());
+                
                 if (dr["Horario_T"].ToString() == horario)
                 {
                     return false;
@@ -158,6 +175,33 @@ namespace Vistas
         {
            
 
+        }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            NegocioTurnos negocioTurnos = new NegocioTurnos();
+            
+          bool alta = negocioTurnos.altaTurno(txtDniPaciente.Text,ddlMedicos.SelectedValue.ToString(),Calendar1.SelectedDate.ToString("yyyy-MM-dd"),
+              Convert.ToDateTime(lbHorarios.SelectedValue),"indefinido");
+            if (alta)
+            {
+                lblMensaje.Text = "Turno cargado correctamente";
+                ddlEspecialidad.SelectedIndex = 0;
+                ddlMedicos.SelectedIndex = 0;
+                txtDniPaciente.Text = string.Empty;
+                lbHorarios.Items.Clear();
+            }
+            else { lblMensaje.Text = "No se Pudo Cargar el turno"; }
+        }
+
+        protected void cvExistePaciente_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            NegocioPacientes negocioPacientes = new NegocioPacientes();
+            if (negocioPacientes.existePaciente(txtDniPaciente.Text))
+            {
+                args.IsValid = true;
+            }
+            else {args.IsValid = false; }
         }
     }
 }

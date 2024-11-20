@@ -86,6 +86,11 @@ namespace DAO
             string consulta = "SELECT IdProvincia_P,IdLocalidad_P FROM Pacientes WHERE dni_P = '" + dni + "'";
             return ad.obtenerTabla(consulta, "provYLocPaciente");
         }
+        public bool existePaciente(string dni)
+        {
+            string consulta = "SELECT * FROM Pacientes WHERE dni_P = '" + dni + "'";
+           return ad.existe(consulta);
+        }
 
     }
 }

@@ -42,31 +42,31 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.HyperLink hlAbmlPacientes;
 
         /// <summary>
-        /// Control lbMedico.
+        /// Control hlMedicos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbMedico;
+        protected global::System.Web.UI.WebControls.HyperLink hlMedicos;
 
         /// <summary>
-        /// Control lbAsignacionDeTurnos.
+        /// Control hlAsignacionTurnos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbAsignacionDeTurnos;
+        protected global::System.Web.UI.WebControls.HyperLink hlAsignacionTurnos;
 
         /// <summary>
-        /// Control lbInformes.
+        /// Control hlInformes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbInformes;
+        protected global::System.Web.UI.WebControls.HyperLink hlInformes;
 
         /// <summary>
         /// Control lbCerrarSesion.

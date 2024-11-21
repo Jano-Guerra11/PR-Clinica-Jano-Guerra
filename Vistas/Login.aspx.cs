@@ -11,10 +11,6 @@ namespace Vistas
     public partial class WebForm1 : System.Web.UI.Page
     {
 
-        /* este form se va a ingresar el dni y la contraseña y dependiendo de a que rama pertenezca(administrador o medico)
-         * se va a redirigir a la secuencia de formularios correspondientes al presionar el boton ingresar 
-          */
-        
         protected void Page_Load(object sender, EventArgs e)
         {
             verificarPermisos();
@@ -49,24 +45,30 @@ namespace Vistas
             NegocioUsuarios negU = new NegocioUsuarios();
            
 
-            if (this.Request.Cookies["infoUsuario"] != null)
+            if (this.Request.Cookies["infoUsuario"] != null && cbRecordarme.Checked)
             {
             HttpCookie cookie = new HttpCookie("infoUsuario");
             cookie.Expires = DateTime.Now.AddDays(-1);
             this.Response.Cookies.Add(cookie);
             }
-           
-            crearCookies(legajo, contraseña);
 
-            Session["yaInicio"] = 1;
+            if (cbRecordarme.Checked)
+            {
+            crearCookies(legajo, contraseña);
+            }
+
+          
 
             switch (negU.inicioSesion(legajo,contraseña))
             {
                 case 1:
+                    Session["usuario"] = "administrador";
+                    Session["legajo"] = legajo;
                     Server.Transfer("MenuAdministrador.aspx");
-                    
                     break;
                 case 2:
+                    Session["usuario"] = "medico";
+                    Session["legajo"] = legajo;
                     Server.Transfer("MenuMedicos.aspx");
                    
                     break;

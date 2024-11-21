@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Vistas
 {
-    // un ddl que aparezcan los dias en los que atiende el medico y al seleccionar uno muestra una tabla con los 
+    
     public partial class AsignacionDeTurnos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -97,10 +97,7 @@ namespace Vistas
                 cargarHorariosDeDia("SABADO", fecha);
             }
 
-            }
-
-            // ahora falta cargar un turno y verificar que solo aparezcan los horarios disponibles(funion bool)
-            // tengo que obtener la fecha seleccionada y verificar 
+            } 
         }
 
         protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
@@ -156,11 +153,8 @@ namespace Vistas
             NegocioTurnos negT = new NegocioTurnos();
             DataTable dataTable = negT.obtenerHorariosDeDia(fecha.ToString(), ddlMedicos.SelectedValue.ToString());
 
-          
-
             foreach (DataRow dr in dataTable.Rows)
             {
-                Debug.WriteLine("------------------------------" + dr["Horario_T"].ToString());
                 
                 if (dr["Horario_T"].ToString() == horario)
                 {
@@ -190,6 +184,8 @@ namespace Vistas
                 ddlMedicos.SelectedIndex = 0;
                 txtDniPaciente.Text = string.Empty;
                 lbHorarios.Items.Clear();
+                grdTurnos.DataSource = negocioTurnos.obtenerTurnos();
+                grdTurnos.DataBind();
             }
             else { lblMensaje.Text = "No se Pudo Cargar el turno"; }
         }
@@ -202,6 +198,18 @@ namespace Vistas
                 args.IsValid = true;
             }
             else {args.IsValid = false; }
+        }
+
+        protected void grdTurnos_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if(e.Row.RowType == DataControlRowType.DataRow)
+            {
+                Label lbl = (Label)e.Row.FindControl("lbl_it_Fecha");
+                DateTime lblFecha = Convert.ToDateTime(((Label)e.Row.FindControl("lbl_it_Fecha")).Text);
+               
+                lbl.Text = lblFecha.ToString("dd/MM/yyyy");
+
+            }
         }
     }
 }

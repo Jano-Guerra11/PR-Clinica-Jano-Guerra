@@ -31,10 +31,23 @@ namespace Vistas
                     Response.Redirect("MenuMedicos.aspx");
                 }
             }
-            else if (Convert.ToInt32(Session["yaInicio"]) != 1 )
+            else if (Session["usuario"] != null  )
+            {
+                if(Session["usuario"].ToString() == "administrador")
+                {
+                    lblUsuario.Text = Session["legajo"].ToString();
+                }
+                else
+                {
+                    // NO TIENE ACCESO
+                    Response.Redirect("MenuMedicos.aspx");
+                }
+            }
+            else
             {
                 //EL USUARIO NO ESTA LOGUEADO
                 Response.Redirect("Login.aspx");
+
             }
         }
 

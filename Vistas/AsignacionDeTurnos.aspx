@@ -92,7 +92,7 @@
                 </td>
                 <td class="auto-style10">
                     <asp:ListBox ID="lbHorarios" runat="server" Height="264px" Width="201px"></asp:ListBox>
-                    <asp:RequiredFieldValidator ID="rfvHorario" runat="server" ControlToValidate="lbHorarios" ForeColor="Red" ValidationGroup="3">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvHorario" runat="server" ControlToValidate="lbHorarios" ForeColor="Red" ValidationGroup="3" InitialValue="Horario Ocupado">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style10">&nbsp;</td>
                 <td class="auto-style10">
@@ -170,7 +170,54 @@
                 </td>
             </tr>
         </table>
-        <asp:GridView ID="grdTurnos" runat="server">
+        <asp:GridView ID="grdTurnos" runat="server" AutoGenerateColumns="False" OnRowDataBound="grdTurnos_RowDataBound">
+            <Columns>
+                <asp:TemplateField HeaderText="Codigo">
+                    <ItemTemplate>
+                        <asp:Label ID="lblCodigo" runat="server" Text='<%# Bind("Codigo") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Dni del paciente">
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_it_DniPaciente" runat="server" Text='<%# Bind("DniPaciente") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Paciente">
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_it_Paciente" runat="server" Text='<%# Bind("Paciente") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Legajo Del medico">
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_it_LegajoMedico" runat="server" Text='<%# Bind("LegajoMedico") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Medico">
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_it_Medico" runat="server" Text='<%# Bind("Medico") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Fecha">
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_it_Fecha" runat="server" Text='<%# Bind("Fecha") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Horario">
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_it_Horario" runat="server" Text='<%# Bind("Horario") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Estado">
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_it_Estado" runat="server" Text='<%# Bind("Estado") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Observacion">
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_it_Observacion" runat="server" Text='<%# Bind("Observacion") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
         </asp:GridView>
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </form>

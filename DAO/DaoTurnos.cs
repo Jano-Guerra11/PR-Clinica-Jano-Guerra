@@ -37,8 +37,8 @@ namespace DAO
         }
         public DataTable obtenerTurnos()
         {
-            string consulta = "SELECT codTurno_T AS 'Codigo', DniPaciente_T AS 'Dni del paciente', nombre_P AS 'Paciente'," +
-                "LegajoMedico_T AS 'Legajo Medico', Nombre_Me AS 'Medico',dia_T AS 'Fecha', Horario_T AS 'Horario' ," +
+            string consulta = "SELECT codTurno_T AS 'Codigo', DniPaciente_T AS 'DniPaciente', nombre_P AS 'Paciente'," +
+                "LegajoMedico_T AS 'LegajoMedico', Nombre_Me AS 'Medico',dia_T AS 'Fecha', Horario_T AS 'Horario' ," +
                 "Estado_T AS 'Estado', Observacion_T AS 'Observacion' FROM TURNOS inner join Pacientes on turnos.dniPaciente_T = " +
                 "pacientes.DNI_P inner join Medicos on turnos.LegajoMedico_T = medicos.Legajo_Me";
           return  ad.obtenerTabla(consulta, "turnos");

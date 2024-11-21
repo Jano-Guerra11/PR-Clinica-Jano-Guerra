@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|c:\\users\\jano\\desktop\\proyectos .net\\pr-clinica-jano-guerra\\vistas\\asignaciondeturnos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\asignaciondeturnos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|c:\\users\\jano\\desktop\\proyectos .net\\pr-clinica-jano-guerra\\vistas\\menuadministrador.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\menuadministrador.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{32D13AB8-553C-411F-BDC4-82A6836C977C}|DAO\\DAO.csproj|c:\\users\\jano\\desktop\\proyectos .net\\pr-clinica-jano-guerra\\dao\\daoturnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32D13AB8-553C-411F-BDC4-82A6836C977C}|DAO\\DAO.csproj|solutionrelative:dao\\daoturnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|c:\\users\\jano\\desktop\\proyectos .net\\pr-clinica-jano-guerra\\vistas\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\negocio\\negocioturnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|solutionrelative:negocio\\negocioturnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\vistas\\asignaciondeturnos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\asignaciondeturnos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|c:\\users\\jano\\desktop\\proyectos .net\\pr-clinica-jano-guerra\\negocio\\negociopacientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|solutionrelative:negocio\\negociopacientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2CA6DD03-3CA7-44FA-9E1A-40021D8A65FE}|Entidades\\Entidades.csproj|c:\\users\\jano\\desktop\\proyectos .net\\pr-clinica-jano-guerra\\entidades\\turnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2CA6DD03-3CA7-44FA-9E1A-40021D8A65FE}|Entidades\\Entidades.csproj|solutionrelative:entidades\\turnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|c:\\users\\jano\\desktop\\proyectos .net\\pr-clinica-jano-guerra\\vistas\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,80 +34,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "NegocioPacientes.cs",
-              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Negocio\\NegocioPacientes.cs",
-              "RelativeDocumentMoniker": "Negocio\\NegocioPacientes.cs",
-              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Negocio\\NegocioPacientes.cs",
-              "RelativeToolTip": "Negocio\\NegocioPacientes.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAkwEQAAAASAAAA",
+              "DocumentIndex": 0,
+              "Title": "MenuAdministrador.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Vistas\\MenuAdministrador.aspx.cs",
+              "RelativeDocumentMoniker": "Vistas\\MenuAdministrador.aspx.cs",
+              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Vistas\\MenuAdministrador.aspx.cs",
+              "RelativeToolTip": "Vistas\\MenuAdministrador.aspx.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAYwCYAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T15:16:37.671Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DaoTurnos.cs",
-              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\DAO\\DaoTurnos.cs",
-              "RelativeDocumentMoniker": "DAO\\DaoTurnos.cs",
-              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\DAO\\DaoTurnos.cs",
-              "RelativeToolTip": "DAO\\DaoTurnos.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAArwBoAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T13:05:56.048Z",
+              "WhenOpened": "2024-11-21T16:27:16.422Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "NegocioTurnos.cs",
-              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Negocio\\NegocioTurnos.cs",
-              "RelativeDocumentMoniker": "Negocio\\NegocioTurnos.cs",
-              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Negocio\\NegocioTurnos.cs",
-              "RelativeToolTip": "Negocio\\NegocioTurnos.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAvwCAAAAAdAAAA",
+              "Title": "Login.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Vistas\\Login.aspx.cs",
+              "RelativeDocumentMoniker": "Vistas\\Login.aspx.cs",
+              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Vistas\\Login.aspx.cs",
+              "RelativeToolTip": "Vistas\\Login.aspx.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAAAvwEYAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T21:22:30.795Z",
+              "WhenOpened": "2024-11-21T16:19:59.284Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AsignacionDeTurnos.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Vistas\\AsignacionDeTurnos.aspx.cs",
-              "RelativeDocumentMoniker": "Vistas\\AsignacionDeTurnos.aspx.cs",
-              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Vistas\\AsignacionDeTurnos.aspx.cs",
-              "RelativeToolTip": "Vistas\\AsignacionDeTurnos.aspx.cs",
-              "ViewState": "AQIAAK8AAAAAAAAAAAAowLcAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T19:52:44.838Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AsignacionDeTurnos.aspx",
-              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Vistas\\AsignacionDeTurnos.aspx",
-              "RelativeDocumentMoniker": "Vistas\\AsignacionDeTurnos.aspx",
-              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Vistas\\AsignacionDeTurnos.aspx",
-              "RelativeToolTip": "Vistas\\AsignacionDeTurnos.aspx",
-              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "DocumentIndex": 1,
+              "Title": "Login.aspx",
+              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Vistas\\Login.aspx",
+              "RelativeDocumentMoniker": "Vistas\\Login.aspx",
+              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Vistas\\Login.aspx",
+              "RelativeToolTip": "Vistas\\Login.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-11-19T19:51:57.126Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Turnos.cs",
-              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Entidades\\Turnos.cs",
-              "RelativeDocumentMoniker": "Entidades\\Turnos.cs",
-              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Entidades\\Turnos.cs",
-              "RelativeToolTip": "Entidades\\Turnos.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAAwBYAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T15:32:25.993Z",
+              "WhenOpened": "2024-11-21T16:14:41.326Z",
               "EditorCaption": ""
             }
           ]

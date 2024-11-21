@@ -42,17 +42,17 @@
             </tr>
             <tr>
                 <td class="auto-style10">
-                    <asp:LinkButton ID="lbMedico" runat="server">Medicos</asp:LinkButton>
+                    <asp:HyperLink ID="hlMedicos" runat="server" NavigateUrl="~/ABMLMedico.aspx">Medicos</asp:HyperLink>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style10">
-                    <asp:LinkButton ID="lbAsignacionDeTurnos" runat="server">Asignacion de Turnos</asp:LinkButton>
+                    <asp:HyperLink ID="hlAsignacionTurnos" runat="server" NavigateUrl="~/AsignacionDeTurnos.aspx">Asignacion de turnos</asp:HyperLink>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style10">
-                    <asp:LinkButton ID="lbInformes" runat="server">Informes</asp:LinkButton>
+                    <asp:HyperLink ID="hlInformes" runat="server">Informes</asp:HyperLink>
                 </td>
             </tr>
         </table>

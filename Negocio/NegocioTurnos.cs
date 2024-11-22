@@ -41,5 +41,14 @@ namespace Negocio
         {
             return dao.obtenerTurnos();
         }
+        public DataTable obtenerTurnosDeMedico( string nombreP,string apellidoP, string fecha, string opFecha, string estado, string legajoMedico)
+        {
+            Turnos turno = new Turnos();
+           
+            turno.Dia = fecha;
+            turno.LegajoMedico = legajoMedico;
+            turno.Estado = estado;
+            return dao.obtenerTurnosMedico(legajoMedico);
+        }
     }
 }

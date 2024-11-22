@@ -17,7 +17,7 @@
             text-align: center;
         }
         .auto-style4 {
-            margin-left: 542px;
+            margin-left: 413px;
         }
         .auto-style5 {
             font-size: large;
@@ -51,6 +51,16 @@
         .auto-style15 {
             font-size: x-large;
         }
+        .auto-style16 {
+            width: 625px;
+            height: 24px;
+        }
+        .auto-style17 {
+            width: 625px;
+        }
+        .auto-style18 {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -62,32 +72,43 @@
             <span class="auto-style1"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Turnos<br />
             </strong></span><span class="auto-style5">&nbsp;<span class="auto-style1"><strong>&nbsp;</strong></span></span><strong><span class="auto-style1"><br />
                 </span>
-                <span class="auto-style15">Filtrar</span></strong><span class="auto-style1"><table class="auto-style6">
+                <span class="auto-style15">Filtrar</span></strong><span class="auto-style1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <table class="auto-style6">
                 <tr>
-                    <td class="auto-style12"><span class="auto-style5">Numero</span></td>
-                    <td class="auto-style13"><span class="auto-style5"> <span class="auto-style1"><strong>
-            <asp:DropDownList ID="ddlComparacion" runat="server" Height="16px" Width="82px">
-                <asp:ListItem Value="=">igual a</asp:ListItem>
-                <asp:ListItem Value="&lt;">Menor a</asp:ListItem>
-                <asp:ListItem Value="&gt;">Mayor a</asp:ListItem>
-            </asp:DropDownList>
-                        </strong></span></span></td>
+                    <td class="auto-style12">&nbsp;</td>
+                    <td class="auto-style13">&nbsp;</td>
                     <td class="auto-style14">
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                    </td>
+                        &nbsp;</td>
+                    <td class="auto-style16">
+                        &nbsp;</td>
                 </tr>
                 </span>
                 <tr>
                     <td class="auto-style10">Nombre</td>
                     <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style7">
-                        <asp:TextBox ID="TextBox2" runat="server" Width="118px"></asp:TextBox>
+                        <asp:TextBox ID="txtNombre" runat="server" Width="118px"></asp:TextBox>
+                    </td>
+                    <td class="auto-style17">
+                        <table class="auto-style18">
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </table>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style10">Horario</td>
+                    <td class="auto-style10">Apellido</td>
+                    <td class="auto-style9">&nbsp;</td>
+                    <td class="auto-style7">
+                        <asp:TextBox ID="txtApellido" runat="server"></asp:TextBox>
+                    </td>
+                    <td class="auto-style17">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style10">Fecha</td>
                     <td class="auto-style9"><span class="auto-style1"><span class="auto-style5"><strong>
-            <asp:DropDownList ID="ddlComparacionHorario" runat="server" Height="16px" Width="81px">
+            <asp:DropDownList ID="ddlComparacionFecha" runat="server" Height="16px" Width="81px">
                 <asp:ListItem Value="=">igual a</asp:ListItem>
                 <asp:ListItem Value="&lt;">Menor a</asp:ListItem>
                 <asp:ListItem Value="&gt;">Mayor a</asp:ListItem>
@@ -96,46 +117,73 @@
                 </span>
                     </td>
                     <td class="auto-style7">
-                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtFecha" runat="server"></asp:TextBox>
                     </td>
+                    <td class="auto-style17">
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style10">Estado</td>
                     <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style7">
-                        <asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="124px">
+                        <asp:DropDownList ID="ddlEstado" runat="server" Height="16px" Width="124px">
+                            <asp:ListItem>indefinido</asp:ListItem>
+                            <asp:ListItem>presente</asp:ListItem>
+                            <asp:ListItem>ausente</asp:ListItem>
                         </asp:DropDownList>
                     </td>
+                    <td class="auto-style17">
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style10">&nbsp;</td>
                     <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style7">
-                        <asp:Button ID="btnFiltrar" runat="server" Height="34px" Text="Filtrar" Width="67px" />
+                        <asp:Button ID="btnFiltrar" runat="server" Height="34px" Text="Filtrar" Width="67px" OnClick="btnFiltrar_Click" />
                     </td>
+                    <td class="auto-style17">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style10">&nbsp;</td>
+                    <td class="auto-style9">&nbsp;</td>
+                    <td class="auto-style7">
+                        &nbsp;</td>
+                    <td class="auto-style17">
+                        &nbsp;</td>
                 </tr>
             </table>
             </span>
         </div>
         <div class="auto-style3">
-            <asp:GridView ID="grdTurnos" runat="server" AutoGenerateColumns="False" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True" CssClass="auto-style4" OnSelectedIndexChanged="grdTurnos_SelectedIndexChanged">
+            <asp:GridView ID="grdTurnos" runat="server" AutoGenerateColumns="False" AutoGenerateDeleteButton="True" AutoGenerateEditButton="True" CssClass="auto-style4" OnSelectedIndexChanged="grdTurnos_SelectedIndexChanged" OnRowDataBound="grdTurnos_RowDataBound">
                 <Columns>
                     <asp:TemplateField HeaderText="Numero">
                         <ItemTemplate>
-                            <asp:Label ID="lblNumeroDeTurno" runat="server"></asp:Label>
+                            <asp:Label ID="lbl_it_NueroTurno" runat="server" Text='<%# Bind("Codigo") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Paciente">
+                    <asp:TemplateField HeaderText="Nombre">
                         <ItemTemplate>
                             <div class="auto-style3">
-                                <asp:Label ID="lblNombreDelPaciente" runat="server"></asp:Label>
+                                <asp:Label ID="lbl_it_NombrePaciente" runat="server" Text='<%# Bind("Nombre") %>'></asp:Label>
                             </div>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Apellido">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_ApellidoPaciente" runat="server" Text='<%# Bind("Apellido") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Fecha">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl_it_Fecha" runat="server" Text='<%# Bind("Fecha") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Horario">
                         <ItemTemplate>
                             <div class="auto-style3">
-                                <asp:Label ID="lblHorario" runat="server"></asp:Label>
+                                <asp:Label ID="lbl_it_Horario" runat="server" Text='<%# Bind("Horario") %>'></asp:Label>
                             </div>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -145,7 +193,7 @@
                         </EditItemTemplate>
                         <ItemTemplate>
                             <div class="auto-style3">
-                                <asp:Label ID="lblObservacion" runat="server"></asp:Label>
+                                <asp:Label ID="lbl_it_Observacion" runat="server" Text='<%# Bind("Observacion") %>'></asp:Label>
                             </div>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -156,7 +204,7 @@
                         </EditItemTemplate>
                         <ItemTemplate>
                             <div class="auto-style3">
-                                <asp:Label ID="lblEstado" runat="server"></asp:Label>
+                                <asp:Label ID="lbl_it_Estado" runat="server" Text='<%# Bind("Estado") %>'></asp:Label>
                             </div>
                         </ItemTemplate>
                     </asp:TemplateField>

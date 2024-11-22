@@ -310,6 +310,7 @@ namespace Vistas
                 DropDownList ddlLocalidad = (DropDownList)e.Row.FindControl("ddl_eit_Localidad");
                 DropDownList ddlEspecialidad = (DropDownList)e.Row.FindControl("ddl_Eit_Especialidad");
                 string legajo = ((Label)e.Row.FindControl("lbl_Eit_Legajo")).Text;
+
                 NegocioProvincias negProv = new NegocioProvincias();
                 NegocioLocalidades negLoc = new NegocioLocalidades();
                 NegocioEspecialidades negEsp = new NegocioEspecialidades();
@@ -345,7 +346,7 @@ namespace Vistas
         {
             DropDownList ddlProvincia = (DropDownList)sender;
             GridViewRow row = (GridViewRow)ddlProvincia.NamingContainer;
-            DropDownList ddlLocalidades = (DropDownList)row.FindControl("ddl_eit_Localidad");
+            DropDownList ddlLocalidad = (DropDownList)row.FindControl("ddl_eit_Localidad");
 
             NegocioLocalidades negLoc = new NegocioLocalidades();
             DataTable dt = new DataTable();

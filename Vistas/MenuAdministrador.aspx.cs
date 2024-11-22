@@ -64,7 +64,7 @@ namespace Vistas
                 this.Response.Cookies.Add(Request.Cookies["infoUsuario"]);
 
             }
-            Session["yaInicio"] = null;
+            Session["usuario"] = null;
             Response.Redirect("Login.aspx");
         }
     }

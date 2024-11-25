@@ -41,14 +41,26 @@ namespace Negocio
         {
             return dao.obtenerTurnos();
         }
-        public DataTable obtenerTurnosDeMedico( string nombreP,string apellidoP, string fecha, string opFecha, string estado, string legajoMedico)
+        public DataTable obtenerTurnosFiltrados( string nombreP,string apellidoP, string fecha, string opFecha, string estado, string legajoMedico)
         {
             Turnos turno = new Turnos();
-           
+            
             turno.Dia = fecha;
             turno.LegajoMedico = legajoMedico;
             turno.Estado = estado;
-            return dao.obtenerTurnosMedico(legajoMedico);
+            return dao.obtenerTurnosFiltrados(turno,opFecha,nombreP,apellidoP);
+        }
+        public bool dejarEstadoYobservacion(int codTurno, string observacion, string estado)
+        {
+            Turnos turno = new Turnos();
+            turno.CodTurno = codTurno;
+            turno.Observacion = observacion;
+            turno.Estado = estado;
+            if (dao.actualizarEstadoYObservacion(turno) == 1)
+            {
+                return true;
+            }
+            else { return false; }
         }
     }
 }

@@ -37,10 +37,10 @@ namespace DAO
         }
         public DataTable obtenerTurnos()
         {
-            string consulta = "SELECT codTurno_T AS 'Codigo', DniPaciente_T AS 'DniPaciente', nombre_P AS 'Paciente'," +
-                "LegajoMedico_T AS 'LegajoMedico', Nombre_Me AS 'Medico',dia_T AS 'Fecha', Horario_T AS 'Horario' ," +
-                "Estado_T AS 'Estado', Observacion_T AS 'Observacion' FROM TURNOS inner join Pacientes on turnos.dniPaciente_T = " +
-                "pacientes.DNI_P inner join Medicos on turnos.LegajoMedico_T = medicos.Legajo_Me";
+            string consulta = "SELECT codTurno_T AS 'Codigo', nombre_P AS 'Nombre', apellido_P AS 'Apellido' ," +
+                " dia_T AS 'Fecha', Horario_T AS 'Horario' , " +
+                "Estado_T AS 'Estado', Observacion_T AS 'Observacion', Legajo_Me  FROM TURNOS inner join Pacientes on turnos.dniPaciente_T = " +
+                "pacientes.DNI_P inner join Medicos on turnos.LegajoMedico_T = medicos.Legajo_Me  WHERE Baja_T = 'False'";
           return  ad.obtenerTabla(consulta, "turnos");
         }
         public DataTable obtenerTurnosFiltrados(Turnos turno, string opFecha,string nombreP,string apellidoP)
@@ -62,6 +62,12 @@ namespace DAO
                 "pacientes.DNI_P inner join Medicos on turnos.LegajoMedico_T = medicos.Legajo_Me " +
                 "WHERE LegajoMedico_T = '" + legajoMedico +"'";
             return ad.obtenerTabla(consulta, "tablaFiltrada");
+        }
+        public int actualizarEstadoYObservacion(Turnos turno)
+        {
+            string consulta = "UPDATE Turnos SET observacion_T = '"+turno.Observacion+"' , Estado_T = '"+turno.Estado+"' " +
+                "WHERE codTurno_T = "+turno.CodTurno;
+           return ad.ejecutarConsulta(consulta);
         }
     }
 }

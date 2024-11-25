@@ -1,6 +1,9 @@
-﻿using Negocio;
+﻿using Entidades;
+using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,7 +16,11 @@ namespace Vistas
         NegocioTurnos negTurn = new NegocioTurnos();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
             verificarPermisos();
+
+            }
            
         }
 
@@ -66,8 +73,20 @@ namespace Vistas
             string estado = ddlEstado.SelectedItem.Text;
             string legajo = lblUsuario.Text;
 
-            grdTurnos.DataSource = negTurn.obtenerTurnosDeMedico(nombre,apellido,fecha,opFecha,estado,legajo);
+            if (txtNombre.Text == string.Empty && txtApellido.Text == string.Empty && txtFecha.Text == string.Empty
+                && ddlEstado.SelectedItem.Text == "-- estado -- ") 
+            {
+
+                grdTurnos.DataSource = negTurn.obtenerTurnos();
+                grdTurnos.DataBind();
+            }
+            else
+            {
+            grdTurnos.DataSource = negTurn.obtenerTurnosFiltrados(nombre,apellido,fecha,opFecha,estado,legajo);
             grdTurnos.DataBind();
+
+            }
+
         }
 
         protected void grdTurnos_SelectedIndexChanged(object sender, EventArgs e)
@@ -82,7 +101,7 @@ namespace Vistas
 
         protected void grdTurnos_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if(e.Row.RowType == DataControlRowType.DataRow)
+            if(e.Row.RowType == DataControlRowType.DataRow && e.Row.RowState == DataControlRowState.Normal)
             {
                Label lblFecha = (Label)e.Row.FindControl("lbl_it_Fecha");
                 DateTime fecha = Convert.ToDateTime(((Label)e.Row.FindControl("lbl_it_Fecha")).Text);
@@ -90,6 +109,57 @@ namespace Vistas
                 lblFecha.Text = fecha.ToString("dd/MM/yyyy");
 
             }
+            else if(e.Row.RowType == DataControlRowType.DataRow && e.Row.RowState == DataControlRowState.Edit)
+            {
+                Label lblFecha = (Label)e.Row.FindControl("lbl_Eit_Fecha");
+                DateTime fecha = Convert.ToDateTime(((Label)e.Row.FindControl("lbl_Eit_Fecha")).Text);
+
+                lblFecha.Text = fecha.ToString("dd/MM/yyyy");
+            }
+        }
+        protected void grdTurnos_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            grdTurnos.EditIndex = e.NewEditIndex;
+            cargarTablaTurnos();
+        }
+
+        protected void grdTurnos_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            
+            int rowindex = e.RowIndex;
+            GridViewRow fila = grdTurnos.Rows[rowindex];
+            int numero = Convert.ToInt32(((Label)grdTurnos.Rows[e.RowIndex].FindControl("lbl_eit_Numero")).Text);
+            string observacion = ((TextBox)grdTurnos.Rows[e.RowIndex].FindControl("txt_eit_Observacion")).Text;
+            string estado = ((DropDownList)fila.FindControl("ddlEstados")).SelectedValue.ToString();
+
+            
+            Debug.WriteLine(observacion);
+            Debug.WriteLine(estado);
+
+            if(negTurn.dejarEstadoYobservacion(numero, observacion, estado))
+            {
+                lblMensaje.Text = "Agregado correctamente";
+            }
+            else
+            {
+                lblMensaje.Text = " no se agrego";
+            }
+
+            grdTurnos.EditIndex = -1;
+            cargarTablaTurnos();
+        }
+
+
+        protected void btnMostrarTodos_Click(object sender, EventArgs e)
+        {
+            grdTurnos.DataSource = negTurn.obtenerTurnos();
+            grdTurnos.DataBind();
+        }
+
+        protected void grdTurnos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            grdTurnos.EditIndex = -1;
+            cargarTablaTurnos();
         }
     }
 }

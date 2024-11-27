@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Entidades;
 using Negocio;
 namespace Vistas
 {
@@ -21,89 +22,71 @@ namespace Vistas
         {
             if (Request.Cookies["infoUsuario"] != null)
             {
-                // USUARIO LOGUEADO
                 HttpCookie cookie = Request.Cookies["infoUsuario"];
-                if (cookie["tipoUsuario"] == "medico")
+                if (cookie["tipoUsuario"] == "Administrador")
                 {
+                    Response.Redirect("MenuAdministrador.aspx");
                     
-                    Response.Redirect("MenuMedicos.aspx");
                 }
                 else
                 {
+                    Response.Redirect("MenuMedicos.aspx");
                     
-                    Response.Redirect("MenuAdministrador.aspx");
                 }
-            }
-            
+
+            } 
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            string legajo = txtDni.Text.Trim();
-            string contraseña = txtContraseña.Text.Trim();
-            
             NegocioUsuarios negU = new NegocioUsuarios();
-           
+            DataRow usuario = negU.inicioSesion(txtDni.Text.Trim(), txtContraseña.Text.Trim());
 
-            if (this.Request.Cookies["infoUsuario"] != null && cbRecordarme.Checked)
+            if (usuario != null) // existe un usuario 
             {
-            HttpCookie cookie = new HttpCookie("infoUsuario");
-            cookie.Expires = DateTime.Now.AddDays(-1);
-            this.Response.Cookies.Add(cookie);
-            }
+                string legajo = usuario["Legajo_U"].ToString();
+                string contrasena = usuario["contrasena_U"].ToString();
+                string tipo = usuario["tipo_u"].ToString();
 
-            if (cbRecordarme.Checked)
-            {
-            crearCookies(legajo, contraseña);
-            }
-
-          
-
-            switch (negU.inicioSesion(legajo,contraseña))
-            {
-                case 1:
-                    Session["usuario"] = "administrador";
-                    Session["legajo"] = legajo;
-                    Server.Transfer("MenuAdministrador.aspx");
-                    break;
-                case 2:
-                    Session["usuario"] = "medico";
-                    Session["legajo"] = legajo;
-                    Server.Transfer("MenuMedicos.aspx");
-                   
-                    break;
-                case 0:
-                    lblMensaje.Text = "USUARIO INCORRECTO";
-                    break;
-            }
-           
-        }
-        public void crearCookies(string legajo, string contrasena)
-        {
-            NegocioUsuarios Neg = new NegocioUsuarios();
-           int x = Neg.inicioSesion(legajo,contrasena);
-            if (cbRecordarme.Checked)
-            {
-
-                if (x != 0)
+                if (cbRecordarme.Checked)
                 {
-                    // SI EL USUARIO ES CORRECTO CREO UNA COOKIE NUEVA CON EL USUARIO
-                    HttpCookie cookie = new HttpCookie("infoUsuario");
-                    this.Response.Cookies.Add(cookie);
-                    cookie["Legajo"] = legajo;
-                    cookie["Contrasena"] = contrasena;
-                    if (x == 1)
-                    {
-                        cookie["tipoUsuario"] = "administrador";
-                    }
-                    else { cookie["tipoUsuario"] = "medico"; }
-
-                    cookie.Expires = DateTime.Now.AddHours(2);
-
-                    Response.Cookies.Add(cookie);
+                    crearCookies(legajo,contrasena,tipo);
                 }
-                
+                else
+                {
+                    crearSession(legajo,contrasena,tipo);
+                }
+
+                if(tipo == "Administrador")
+                {
+                    Response.Redirect("MenuAdministrador.aspx");
+                }
+                else
+                {
+                    Response.Redirect("MenuMedicos.aspx");
+                }
             }
+
+        }
+        public void crearCookies(string legajo, string contrasena,string tipo)
+        {
+
+           HttpCookie cookie = new HttpCookie("UsuarioInfo");
+            cookie["Legajo"] = legajo;
+            cookie["contrasena"] = contrasena;
+            cookie["tipoUsuario"] = tipo;
+            cookie.Path = "/";
+
+            cookie.Expires = DateTime.Now.AddDays(5);
+
+            Response.Cookies.Add(cookie);
+        }
+        private void crearSession(string Legajo, string contrasena, string TipoUsuario)
+        {
+            
+            Session["Legajo"] = Legajo;
+            Session["contrasena"] = contrasena;
+            Session["tipoUsuario"] = TipoUsuario;
         }
 
         protected void cvInicioSesion_ServerValidate(object source, ServerValidateEventArgs args)

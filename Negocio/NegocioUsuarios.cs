@@ -12,7 +12,7 @@ namespace Negocio
     public class NegocioUsuarios
     {
         DaoUsuarios dao = new DaoUsuarios();
-        public int inicioSesion(string legajo, string contrasena)
+        public DataRow inicioSesion(string legajo, string contrasena)
         {
             Usuarios usuario = new Usuarios();
             usuario.Legajo_U1 = legajo;
@@ -21,15 +21,11 @@ namespace Negocio
              
             if(tablaUsuario.Rows.Count > 0  )
             {
-                DataRow datosDelUsuario = tablaUsuario.Rows[0];
-                if (datosDelUsuario["Tipo_U"].ToString().ToLower() == "administrador")
-                {
-                    return 1; // USUARIO ADMINISTRADOR
-                }
-                else { return 2; }  // USUARIO MEDICO
+                return tablaUsuario.Rows[0];
+                
             }
             else
-            { return 0; }  // USUARIO INEXISTENTE
+            { return null; }  // USUARIO INEXISTENTE
         }
         public bool validarLegajo(string legajo)
         {

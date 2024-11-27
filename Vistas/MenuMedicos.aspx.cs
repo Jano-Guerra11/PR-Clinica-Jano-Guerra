@@ -16,10 +16,10 @@ namespace Vistas
         }
         public void verificarPermisos()
         {
-            if (Request.Cookies["infoUsuario"] != null)
+            if (Request.Cookies["UsuarioInfo"] != null)
             {
                 // USUARIO LOGUEADO
-                HttpCookie cookie = Request.Cookies["infoUsuario"];
+                HttpCookie cookie = Request.Cookies["UsuarioInfo"];
                 if (cookie["tipoUsuario"] == "medico")
                 {
                     //TIENE ACCESO MEDICO
@@ -31,12 +31,12 @@ namespace Vistas
                     Response.Redirect("MenuAdministrador.aspx");
                 }
             }
-            else if (Session["usuario"] != null)
+            else if (Session["tipoUsuario"] != null)
             {
-                if (Session["usuario"].ToString() == "medico")
+                if (Session["tipoUsuario"].ToString() == "medico")
                 {
                     //TIENE ACCESO MEDICO
-                    lblUsuario.Text = Session["legajo"].ToString();
+                    lblUsuario.Text = Session["Legajo"].ToString();
                 }
                 else
                 {
@@ -54,13 +54,19 @@ namespace Vistas
 
         protected void lbCerrarSesion_Click(object sender, EventArgs e)
         {
-            if (this.Request.Cookies["infoUsuario"]!= null)
+            if (this.Request.Cookies["UsuarioInfo"]!= null)
             {
-                HttpCookie ck = new HttpCookie("infoUsuario");
+                HttpCookie ck = new HttpCookie("UsuarioInfo");
                 ck.Expires = DateTime.Now.AddDays(-1);
-                this.Response.Cookies.Add(ck);                
+                this.Response.Cookies.Add(ck);
             }
-            Session["yaInicio"] = null;
+            else
+            {
+                Session.Remove("Legajo");
+                Session.Remove("contrasena");
+                Session.Remove("tipoUsuario");
+            }
+            
             Response.Redirect("Login.aspx");
         }
     }

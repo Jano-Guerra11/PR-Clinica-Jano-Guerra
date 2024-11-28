@@ -11,19 +11,16 @@ namespace Vistas
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             verificarPermisos();
-           
-
         }
         public void verificarPermisos()
         {
             if (Request.Cookies["infoUsuario"] != null)
             {
                 HttpCookie cookie = Request.Cookies["infoUsuario"];
-                if (cookie["tipoUsuario"] == "Administrador")
+                if (cookie["tipoUsuario"].ToLower() == "administrador")
                 {
                     Response.Redirect("MenuAdministrador.aspx");
                     
@@ -33,10 +30,8 @@ namespace Vistas
                     Response.Redirect("MenuMedicos.aspx");
                     
                 }
-
             } 
         }
-
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
             NegocioUsuarios negU = new NegocioUsuarios();
@@ -45,19 +40,19 @@ namespace Vistas
             if (usuario != null) // existe un usuario 
             {
                 string legajo = usuario["Legajo_U"].ToString();
-                string contrasena = usuario["contrasena_U"].ToString();
+                string Nombre = usuario["nombreUsuario_U"].ToString();
                 string tipo = usuario["tipo_u"].ToString();
 
                 if (cbRecordarme.Checked)
                 {
-                    crearCookies(legajo,contrasena,tipo);
+                    crearCookies(legajo,Nombre,tipo);
                 }
                 else
                 {
-                    crearSession(legajo,contrasena,tipo);
+                    crearSession(legajo,Nombre,tipo);
                 }
 
-                if(tipo == "Administrador")
+                if(tipo.ToLower() == "administrador")
                 {
                     Response.Redirect("MenuAdministrador.aspx");
                 }
@@ -68,12 +63,11 @@ namespace Vistas
             }
 
         }
-        public void crearCookies(string legajo, string contrasena,string tipo)
+        public void crearCookies(string legajo, string nombre,string tipo)
         {
-
-           HttpCookie cookie = new HttpCookie("UsuarioInfo");
+           HttpCookie cookie = new HttpCookie("infoUsuario");
             cookie["Legajo"] = legajo;
-            cookie["contrasena"] = contrasena;
+            cookie["Nombre"] = nombre;
             cookie["tipoUsuario"] = tipo;
             cookie.Path = "/";
 
@@ -81,11 +75,10 @@ namespace Vistas
 
             Response.Cookies.Add(cookie);
         }
-        private void crearSession(string Legajo, string contrasena, string TipoUsuario)
+        private void crearSession(string Legajo, string Nombre, string TipoUsuario)
         {
-            
             Session["Legajo"] = Legajo;
-            Session["contrasena"] = contrasena;
+            Session["Nombre"] = Nombre;
             Session["tipoUsuario"] = TipoUsuario;
         }
 
@@ -111,7 +104,6 @@ namespace Vistas
                 cvContrasena.Text = "Contraseña Incorrecta";
             }
         }
-
         protected void btnMostrar_Click(object sender, EventArgs e)
         {
           string  contrasena = txtContraseña.Text;

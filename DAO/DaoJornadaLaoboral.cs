@@ -42,6 +42,10 @@ namespace DAO
             cargarParametrosJornadaLaboral(ref cmd,jl);
            return ad.ejecutarProcedimientoAlmacenado(cmd, "SP_AgregarJornadaLaboral");
         }
-
+        public bool existeJornada(JornadaLaboral jl)
+        {
+            string consulta = "select * from JornadaLaboral where LegajoMedico_J = '"+jl.LegajoMedico1+"' AND DiaAtencion_J = '"+jl.DiaAtencion1+"'";
+            return ad.existe(consulta);
+        }
     }
 }

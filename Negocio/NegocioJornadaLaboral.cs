@@ -25,6 +25,8 @@ namespace Negocio
             jl.DiaAtencion1 = diaAtencion;
             jl.Ingreso1 = Ingreso;
             jl.Egreso = egreso;
+            // chequear que esa jornada no exista 
+
             if (dao.AltaJornada(jl) == 1)
             {
                 return true;

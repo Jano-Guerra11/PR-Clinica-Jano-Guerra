@@ -66,12 +66,10 @@ namespace Vistas
         
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-        
-         bool agregadoMedico = negMed.agregarMedico(txtLegajo.Text.Trim(), txtDni.Text.Trim(),txtNombre.Text.Trim(),txtApellido.Text.Trim(),ddlSexo.SelectedItem.Text,
-                txtFechaNacimiento.Text,txtNacionalidad.Text.Trim(),Convert.ToInt32(ddlLocalidad.SelectedValue), Convert.ToInt32(ddlProvincia.SelectedValue),
-                txtTelefono.Text.Trim(),txtCorreo.Text.Trim(),txtDireccion.Text.Trim(),Convert.ToInt32(ddlEspecialidades.SelectedValue));
-
-            
+            bool  agregadoMedico = negMed.agregarMedico(txtLegajo.Text.Trim(), txtDni.Text.Trim(),txtNombre.Text.Trim(),txtApellido.Text.Trim(),ddlSexo.SelectedItem.Text,
+              txtFechaNacimiento.Text,txtNacionalidad.Text.Trim(),Convert.ToInt32(ddlLocalidad.SelectedValue), Convert.ToInt32(ddlProvincia.SelectedValue),
+              txtTelefono.Text.Trim(),txtCorreo.Text.Trim(),txtDireccion.Text.Trim(),Convert.ToInt32(ddlEspecialidades.SelectedValue));
+  
             agregarJornadaLaboral();
 
             if(agregadoMedico)

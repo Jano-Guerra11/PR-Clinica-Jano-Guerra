@@ -16,14 +16,14 @@ namespace Vistas
         }
         public void verificarPermisos()
         {
-            if (Request.Cookies["UsuarioInfo"] != null)
+            if (Request.Cookies["infoUsuario"] != null)
             {
                 // USUARIO LOGUEADO Y GUARDADO
-                HttpCookie cookie = Request.Cookies["UsuarioInfo"];
-                if (cookie["tipoUsuario"] == "administrador")
+                HttpCookie cookie = Request.Cookies["infoUsuario"];
+                if (cookie["tipoUsuario"].ToLower() == "administrador")
                 {
                     //TIENE ACCESO
-                    lblUsuario.Text = cookie["Legajo"];
+                    lblUsuario.Text = cookie["Nombre"];
                 }
                 else
                 {
@@ -33,9 +33,9 @@ namespace Vistas
             }
             else if (Session["tipoUsuario"] != null  )
             {
-                if(Session["tipoUsuario"].ToString() == "administrador")
+                if(Session["tipoUsuario"].ToString().ToLower() == "administrador")
                 {
-                    lblUsuario.Text = Session["Legajo"].ToString();
+                    lblUsuario.Text = Session["Nombre"].ToString();
                 }
                 else
                 {
@@ -58,9 +58,9 @@ namespace Vistas
 
         protected void lbCerrarSesion_Click(object sender, EventArgs e)
         {
-            if (this.Request.Cookies["UsuarioInfo"] != null)
+            if (this.Request.Cookies["infoUsuario"] != null)
             {
-                HttpCookie ck = new HttpCookie("UsuarioInfo");
+                HttpCookie ck = new HttpCookie("infoUsuario");
                 ck.Expires = DateTime.Now.AddDays(-1);
                 this.Response.Cookies.Add(ck);
             }

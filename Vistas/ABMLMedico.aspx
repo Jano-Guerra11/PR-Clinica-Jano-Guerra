@@ -202,17 +202,20 @@
     <form id="form1" runat="server">
         <div>
             <div class="auto-style7">
-                hhhhhh<asp:HyperLink ID="hlVolverAlMenu" runat="server" CssClass="auto-style6" NavigateUrl="~/MenuAdministrador.aspx">Volver al menu</asp:HyperLink>
+               
             <asp:Label ID="lblUsuario" runat="server" CssClass="auto-style6"></asp:Label>
             <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <table class="auto-style4">
                 <tr>
                     <td class="auto-style5">
-            <strong>Agregar Medico</strong></td>
+            <strong>Agregar Medico<br />
+                        </strong>
+            </strong>
+                        <asp:HyperLink ID="hlVolverAlMenu" runat="server" CssClass="auto-style6" NavigateUrl="~/MenuAdministrador.aspx">Volver al menu</asp:HyperLink>
+                    </td>
                 </tr>
             </table>
-            </strong>
         </div>
         <table class="auto-style2">
             <tr>

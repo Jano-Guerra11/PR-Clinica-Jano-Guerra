@@ -71,7 +71,8 @@
             <br />
             <br />
             <span class="auto-style1"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Turnos<br />
-            </strong></span><span class="auto-style5">&nbsp;<span class="auto-style1"><strong>&nbsp;</strong></span></span><strong><span class="auto-style1"><br />
+            </strong></span><span class="auto-style5">&nbsp;<span class="auto-style1"><strong>&nbsp;</strong><asp:HyperLink ID="hlVolverAlMenu" runat="server" CssClass="auto-style5" NavigateUrl="~/MenuMedicos.aspx">Volver al menu</asp:HyperLink>
+            </span></span><strong><span class="auto-style1"><br />
                 </span>
                 <span class="auto-style15">Filtrar</span></strong><span class="auto-style1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <table class="auto-style6">
                 <tr>

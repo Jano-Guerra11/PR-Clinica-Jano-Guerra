@@ -128,6 +128,7 @@
             </tr>
         </table>
         </div>
+        <asp:HyperLink ID="hlVolverAlMenu" runat="server" NavigateUrl="~/MenuMedicos.aspx">Volver al menu</asp:HyperLink>
     </form>
 </body>
 </html>

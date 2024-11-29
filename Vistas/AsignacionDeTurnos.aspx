@@ -54,6 +54,7 @@
             <div class="auto-style5">
                 <strong><span class="auto-style3">Asignacion De Turnos</span><br class="auto-style3" />
                 </strong>
+                <asp:HyperLink ID="hlVolverAlMenu" runat="server" NavigateUrl="~/MenuAdministrador.aspx">Volver al menu</asp:HyperLink>
             </div>
         <table class="auto-style2">
             <tr>

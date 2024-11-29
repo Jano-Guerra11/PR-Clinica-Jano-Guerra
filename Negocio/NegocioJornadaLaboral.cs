@@ -20,18 +20,21 @@ namespace Negocio
         }
         public bool AltaJornadaLaboral(string LegajoM, string diaAtencion, string Ingreso, string egreso)
         {
+            bool estado = false;
             JornadaLaboral jl = new JornadaLaboral();
             jl.LegajoMedico1 = LegajoM;
             jl.DiaAtencion1 = diaAtencion;
             jl.Ingreso1 = Ingreso;
             jl.Egreso = egreso;
-            // chequear que esa jornada no exista 
 
-            if (dao.AltaJornada(jl) == 1)
+            if (dao.existeJornada(jl) == false)
             {
-                return true;
+                if (dao.AltaJornada(jl) == 1)
+                {
+                    estado = true;
+                }
             }
-            else { return false; }
+            return estado;
         }
         public DataRow diaLaboralMedico(string legajoMedico,string dia)
         {

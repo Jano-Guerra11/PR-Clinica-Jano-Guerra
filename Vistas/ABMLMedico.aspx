@@ -191,13 +191,18 @@
         .auto-style68 {
             height: 43px;
         }
+        .Titulo2{
+    background-color:chartreuse;
+    border-radius:20px;
+    padding:10px;
+}
         </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
             <div class="auto-style7">
-            <strong>&nbsp; </strong>
+                hhhhhh<asp:HyperLink ID="hlVolverAlMenu" runat="server" CssClass="auto-style6" NavigateUrl="~/MenuAdministrador.aspx">Volver al menu</asp:HyperLink>
             <asp:Label ID="lblUsuario" runat="server" CssClass="auto-style6"></asp:Label>
             <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>

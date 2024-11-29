@@ -47,13 +47,14 @@
 <body>
     <form id="form1" runat="server">
         <div class="auto-style1">
+            <asp:HyperLink ID="hlVolverAlMenu" runat="server" CssClass="auto-style6" NavigateUrl="~/MenuAdministrador.aspx">Volver al menu</asp:HyperLink>
             <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>
             <asp:Label ID="lblUsuario" runat="server" CssClass="auto-style6"></asp:Label>
             <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <table class="auto-style4">
                 <tr>
                     <td class="Titulo">
-            <strong class="Titulo2">Agregar Paciente</strong></td>
+                        <strong class="Titulo2">Agregar Paciente</strong></td>
                 </tr>
             </table>
 &nbsp;&nbsp;&nbsp;&nbsp; </strong></div>

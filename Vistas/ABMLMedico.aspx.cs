@@ -121,15 +121,12 @@ namespace Vistas
             NegocioLocalidades negocioLocalidades = new NegocioLocalidades();
             DataTable localidades = new DataTable();
            localidades = negocioLocalidades.obtenerLocalidadesDeProvincia(Convert.ToInt32(ddlProvincia.SelectedValue.ToString()));
-            ListItem itemDefault = new ListItem("-- Seleccione Localidad --", "x");
-            ddlLocalidad.Items.Add(itemDefault);
-            foreach (DataRow dr in localidades.Rows)
-            {
-                ListItem item = new ListItem();
-                item.Text = dr["NombreLocalidad"].ToString();
-                item.Value = dr["IdLocalidad"].ToString();
-                ddlLocalidad.Items.Add(item);
-            }
+            ddlLocalidad.DataSource = localidades;
+            ddlLocalidad.DataTextField = "NombreLocalidad";
+            ddlLocalidad.DataValueField = "IdLocalidad";
+            ddlLocalidad.DataBind();
+            ddlLocalidad.Items.Insert(0,new ListItem("-- Seleccione Localidad --", "0"));
+            
         }
 
         public void visibilidadDeHorarios()
@@ -142,7 +139,6 @@ namespace Vistas
                 TextBox salida = (TextBox)FindControl($"txtSalida{diasSemanales[i]}");
                 if (cb.Checked)
                 {
-
                     entrada.Visible = true;
                     salida.Visible = true;
                 }
@@ -153,21 +149,6 @@ namespace Vistas
                 }
             }
         } 
-
-        private void ActualizarVisibilidadEntradaSalida(CheckBox cb, TextBox txtEntrada, TextBox txtSalida)
-        {
-            if (cb.Checked)
-            {
-                txtEntrada.Visible = true;
-                txtSalida.Visible = true;
-            }
-            else
-            {
-                txtEntrada.Visible = false;
-                txtSalida.Visible = false;
-            }
-        }
- 
         protected void grdMedicos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string legajo = ((Label)grdMedicos.Rows[e.RowIndex].FindControl("lbl_It_Legajo")).Text;
@@ -179,9 +160,7 @@ namespace Vistas
             lblMensajeConfirmacion.Visible = true;
             lblMensajeConfirmacion.Text = "Seguro que desea eliminar el medico de legajo " + legajo +" ?";
             lbSi.Visible = true;
-            lbNo.Visible = true;
-       
-
+            lbNo.Visible = true;       
         }
 
         protected void lbSi_Click(object sender, EventArgs e)

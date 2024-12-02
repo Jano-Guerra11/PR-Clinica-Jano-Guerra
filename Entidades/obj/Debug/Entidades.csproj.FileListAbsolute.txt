@@ -10,3 +10,9 @@ C:\Users\jano\Desktop\Proyectos .NET\PR-Clinica-Jano-Guerra\Entidades\obj\Debug\
 C:\Users\jano\Desktop\Proyectos .NET\PR-Clinica-Jano-Guerra\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\jano\Desktop\Proyectos .NET\PR-Clinica-Jano-Guerra\Entidades\obj\Debug\Entidades.dll
 C:\Users\jano\Desktop\Proyectos .NET\PR-Clinica-Jano-Guerra\Entidades\obj\Debug\Entidades.pdb
+C:\Users\USURIO\OneDrive\Escritorio\Programacion III\TPs Grupales\PR-Clinica-Jano-Guerra\Entidades\bin\Debug\Entidades.dll
+C:\Users\USURIO\OneDrive\Escritorio\Programacion III\TPs Grupales\PR-Clinica-Jano-Guerra\Entidades\bin\Debug\Entidades.pdb
+C:\Users\USURIO\OneDrive\Escritorio\Programacion III\TPs Grupales\PR-Clinica-Jano-Guerra\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
+C:\Users\USURIO\OneDrive\Escritorio\Programacion III\TPs Grupales\PR-Clinica-Jano-Guerra\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\USURIO\OneDrive\Escritorio\Programacion III\TPs Grupales\PR-Clinica-Jano-Guerra\Entidades\obj\Debug\Entidades.dll
+C:\Users\USURIO\OneDrive\Escritorio\Programacion III\TPs Grupales\PR-Clinica-Jano-Guerra\Entidades\obj\Debug\Entidades.pdb

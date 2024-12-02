@@ -211,5 +211,33 @@ namespace Vistas
 
             }
         }
+
+        protected void grdTurnos_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            lblMensajeConfirmacion.Text = "¿SEGURO QUE DESEA ELIMINAR ESTE TURNO?";
+            lbSi.Visible = true;
+            lbNo.Visible = true;
+            Session["CodTurno"] = ((Label)grdTurnos.Rows[e.RowIndex].FindControl("lblCodigo")).Text;
+        }
+        protected void lbSi_Click(object sender, EventArgs e)
+        {
+            NegocioTurnos Turn = new NegocioTurnos();
+            string codigo = Session["CodTurno"].ToString();
+            if (Turn.bajaTurno(codigo))
+            {
+                lblMensajeConfirmacion.Text = "Turno "+codigo + " eliminado correctamente";
+            }
+            else
+            {
+                lblMensajeConfirmacion.Text = "No se pudo eliminar el turno " + codigo;
+            }
+        }
+
+ 
+        protected void grdTurnos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

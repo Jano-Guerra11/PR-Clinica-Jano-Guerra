@@ -18,11 +18,11 @@ namespace Negocio
             DataTable dt = dao.verHorariosDeDia(fecha, legajoMedico);
             return dt;
         }
-        public bool altaTurno( string dniPaciente, string legajoMedico, string dia, DateTime horario,
+        public bool altaTurno(string dniPaciente, string legajoMedico, string dia, DateTime horario,
             string estado)
         {
             Turnos turno = new Turnos();
-            
+            turno.CodTurno = 1;
             turno.DniPaciente = dniPaciente;
             turno.LegajoMedico = legajoMedico;
             turno.Dia = dia;
@@ -62,5 +62,14 @@ namespace Negocio
             }
             else { return false; }
         }
+        public bool bajaTurno(string codigo)
+        {
+            if (dao.bajaTurno(codigo) > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        
     }
 }

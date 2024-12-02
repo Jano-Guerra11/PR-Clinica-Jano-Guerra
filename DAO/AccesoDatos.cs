@@ -11,7 +11,7 @@ namespace DAO
 {
     internal class AccesoDatos
     {
-        string RutaClinica = "Data Source=LAPTOPJANO\\SQLEXPRESS;Initial Catalog=CLINICAGuerra;Integrated Security=True";
+        string RutaClinica = "Data Source=localhost\\sqlexpress;Initial Catalog=CLINICAGuerra;Integrated Security=True";
 
         private SqlConnection obtenerConexion()
         {

@@ -13,67 +13,50 @@ namespace Negocio
         DaoMedico dao = new DaoMedico();
 
         
-        public bool agregarMedico(string legajo,string dni,string nombre,string apellido, string sexo, string fechaNacimiento, string nacionalidad,
-           int idLocalidad,int idProvincia, string telefono,string correo, string direccion, int idEspecialidad)
+        public bool agregarMedico(Medico medico)
         {
-            Medico medico = new Medico();
-            medico.Legajo1 = legajo;
-            medico.Dni = dni;
-            medico.Nombre = nombre;
-            medico.Apellido = apellido;
-            medico.Sexo = sexo;
-            medico.FechaNacimiento = fechaNacimiento;
-            medico.Nacionalidad = nacionalidad;
-            medico.idLocalidad1 = idLocalidad;
-            medico.idProvincia1 = idProvincia;
-            medico.Telefono = telefono;
-            medico.Correo = correo;
-            medico.Direccion = direccion;
-            medico.idEspecialidad1 = idEspecialidad;
-            
+            DaoUsuarios us = new DaoUsuarios();
+            Usuarios usuario = new Usuarios();
+            usuario.Legajo_U1 = medico.Legajo1;
+            bool agregado = false;
 
-            if(!dao.existeMedico(medico))
+            if(!dao.existeMedico(medico) && !us.existeLegajo(usuario))
             {
-            if(dao.agregarMedico(medico) == 1)
-            {
-                return true; // se agrego correctamente
+               if(dao.agregarMedico(medico) == 1)
+               {
+                    agregado = true; // se agrego correctamente
+               }
             }
-            else { return false; } // no existe pero no se pudo agregar
-
-            }
-            else { return false;  } // ya existe  
+              return agregado;  
         }
         public int BajaMedico(string legajo,string dni)
         {
             Medico medico = new Medico();
             medico.Legajo1 = legajo;
             medico.Dni = dni;
+            int baja = -1;
             if (dao.existeMedico(medico))
             {
                 if (dao.BajaMedico(medico) == 1)
                 {
                     // eliminado correctamente
-                    return 1;
+                    baja = 1;
                 }
-                else {return 0; } // no se pudo eliminar
+                else {baja = 0; } // no se pudo eliminar
             }
-            else
-            {
-                // no existe el medico
-                return -1;
-            }
+            return baja; 
         }
         public bool actalizarMedico(Medico medico)
         {
+            bool actualizado = false;
             if (dao.existeMedico(medico))
             {
                 if (dao.actualizarMedico(medico) == 1)
                 {
-                    return true;
+                    actualizado = true;
                 }
-                else{ return false;}
             }
-            else { return false; }
+            return actualizado;
         }
         public DataTable obtenerTablaMedicos()
         {

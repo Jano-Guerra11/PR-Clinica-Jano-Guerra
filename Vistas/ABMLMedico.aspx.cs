@@ -20,8 +20,10 @@ namespace Vistas
         NegocioJornadaLaboral negJl = new NegocioJornadaLaboral();  
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
+                verificarPermisos();
                 cargarGridView();
                 cargarDDLProvincias();
                 cargarDDLEspecialidades();
@@ -30,6 +32,43 @@ namespace Vistas
             visibilidadDeHorarios();
             
         }
+        public void verificarPermisos()
+        {
+            if (Request.Cookies["infoUsuario"] != null)
+            {
+                // USUARIO LOGUEADO Y GUARDADO
+                HttpCookie cookie = Request.Cookies["infoUsuario"];
+                if (cookie["tipoUsuario"].ToLower() == "administrador")
+                {
+                    //TIENE ACCESO
+                    lblUsuario.Text = cookie["Nombre"];
+                }
+                else
+                {
+                    // NO TIENE ACCESO
+                    Response.Redirect("MenuMedicos.aspx");
+                }
+            }
+            else if (Session["tipoUsuario"] != null)
+            {
+                if (Session["tipoUsuario"].ToString().ToLower() == "administrador")
+                {
+                    lblUsuario.Text = Session["Nombre"].ToString();
+                }
+                else
+                {
+                    // NO TIENE ACCESO
+                    Response.Redirect("MenuMedicos.aspx");
+                }
+            }
+            else
+            {
+                //EL USUARIO NO ESTA LOGUEADO
+                Response.Redirect("Login.aspx");
+
+            }
+        }
+
         public void cargarDDLEspecialidades()
         {
             NegocioEspecialidades negEsp = new NegocioEspecialidades();
@@ -66,17 +105,19 @@ namespace Vistas
         
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            bool  agregadoMedico = negMed.agregarMedico(txtLegajo.Text.Trim(), txtDni.Text.Trim(),txtNombre.Text.Trim(),txtApellido.Text.Trim(),ddlSexo.SelectedItem.Text,
-              txtFechaNacimiento.Text,txtNacionalidad.Text.Trim(),Convert.ToInt32(ddlLocalidad.SelectedValue), Convert.ToInt32(ddlProvincia.SelectedValue),
-              txtTelefono.Text.Trim(),txtCorreo.Text.Trim(),txtDireccion.Text.Trim(),Convert.ToInt32(ddlEspecialidades.SelectedValue));
-  
+            NegocioUsuarios negUs = new NegocioUsuarios();
+            Medico medico = llenarEntidadMedico();
+            Usuarios usuario = llenarEntidadUsuario();
+
+            bool  agregadoMedico = negMed.agregarMedico(medico);
+            bool agregadoUsuario = negUs.altaUsuario(usuario);
+
             agregarJornadaLaboral();
 
-            if(agregadoMedico)
+            if(agregadoMedico && agregadoUsuario)
             {
                 // se agrego correctamente
                 lblMensaje.Text = "Agregado correctamente";
-                // vaciar textos
             }
             else
             {
@@ -85,6 +126,34 @@ namespace Vistas
             }
             cargarTablaFiltrada();
             resetearControles();
+        }
+        public Medico llenarEntidadMedico()
+        {
+            Medico medico = new Medico();
+            medico.Legajo1 = txtLegajo.Text.Trim();
+            medico.Dni = txtDni.Text.Trim();
+            medico.Nombre = txtNombre.Text.Trim();
+            medico.Apellido = txtApellido.Text.Trim();
+            medico.Sexo = ddlSexo.SelectedItem.Text;
+            medico.FechaNacimiento = txtFechaNacimiento.Text;
+            medico.Nacionalidad = txtNacionalidad.Text.Trim();
+            medico.idLocalidad1 = Convert.ToInt32(ddlLocalidad.SelectedValue);
+            medico.idProvincia1 = Convert.ToInt32(ddlProvincia.SelectedValue);
+            medico.Telefono = txtTelefono.Text.Trim();
+            medico.Correo = txtCorreo.Text.Trim();
+            medico.Direccion = txtDireccion.Text.Trim();
+            medico.idEspecialidad1 = Convert.ToInt32(ddlEspecialidades.SelectedValue);
+            return medico;
+                
+        }
+        public Usuarios llenarEntidadUsuario()
+        {
+            Usuarios usuario = new Usuarios();
+            usuario.Legajo_U1 = txtLegajo.Text.Trim();
+            usuario.NombreUsuario_U = txtNombreUsuario.Text.Trim();
+            usuario.Contrasena_U1 = txtDni.Text.Trim();
+            usuario.Tipo_U1 = "Medico";
+            return usuario;
         }
         public void resetearControles()
         {
@@ -244,10 +313,14 @@ namespace Vistas
             {
                 int filaSeleccionada = Convert.ToInt32(e.CommandArgument);
                 string legajo = ((Label)grdMedicos.Rows[filaSeleccionada].FindControl("lbl_It_Legajo")).Text;
-                
-                grdJornadaLaboral.DataSource = negJl.obtenerJornadaDeMedico(legajo);
-                grdJornadaLaboral.DataBind();
+               lblLegajoSeleccionado.Text = legajo;
+                cargarHorarios(legajo);
             }
+        }
+        public void cargarHorarios(string legajo)
+        {
+            grdJornadaLaboral.DataSource = negJl.obtenerJornadaDeMedico(legajo);
+            grdJornadaLaboral.DataBind();
         }
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
@@ -321,7 +394,9 @@ namespace Vistas
 
         protected void ddl_eit_Provincia_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // obtengo el control que dispara el evento
             DropDownList ddlProvincia = (DropDownList)sender;
+            // obtengo la fila en la que se encuentra
             GridViewRow row = (GridViewRow)ddlProvincia.NamingContainer;
             DropDownList ddlLocalidad = (DropDownList)row.FindControl("ddl_eit_Localidad");
 
@@ -333,8 +408,29 @@ namespace Vistas
             ddlLocalidad.DataValueField = "IdLocalidad";
             ddlLocalidad.Items.Insert(0, new ListItem("- Seleccione Localidad -", "0"));
             ddlLocalidad.DataBind();
+        }
 
+        protected void grdJornadaLaboral_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            grdJornadaLaboral.EditIndex = e.NewEditIndex;
+            string legajo = lblLegajoSeleccionado.Text;
+            cargarHorarios(legajo);
+        }
 
+        protected void grdJornadaLaboral_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            grdJornadaLaboral.EditIndex = -1;
+            string legajo = lblLegajoSeleccionado.Text;
+            cargarHorarios(legajo);
+        }
+
+        protected void grdJornadaLaboral_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            JornadaLaboral jl = new JornadaLaboral();
+            jl.LegajoMedico1 = lblLegajoSeleccionado.Text;
+            jl.DiaAtencion1 = grdJornadaLaboral.Rows[e.RowIndex].Cells[0].Text;
+            Debug.WriteLine("------------  "+jl.DiaAtencion1);
+            
         }
     }
 }

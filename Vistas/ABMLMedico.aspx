@@ -36,11 +36,8 @@
             width: 175px;
             height: 49px;
         }
-        .auto-style13 {
-            width: 147px;
-        }
         .auto-style14 {
-            width: 147px;
+            width: 238px;
             height: 49px;
         }
         .auto-style3 {
@@ -221,43 +218,50 @@
             <tr>
                 <td>LEGAJO:          <td>
                     <asp:TextBox ID="txtLegajo" runat="server" Width="139px"></asp:TextBox>
-                &nbsp;<asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtDni" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                &nbsp;<asp:RequiredFieldValidator ID="rfvLegajo" runat="server" ControlToValidate="txtLegajo" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
-                <td class="auto-style13">DNI:</td>
+                <td class="auto-style63">DNI:</td>
                 <td>
                     <asp:TextBox ID="txtDni" runat="server" Width="135px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtDni" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style11">NOMBRE:</td>
                 <td>
                     <asp:TextBox ID="txtNombre" runat="server" Width="132px"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtApellido" ForeColor="Red" ValidationGroup="1" ID="RequiredFieldValidator1">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtNombre" ForeColor="Red" ValidationGroup="1" ID="rfvNombre">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td>APELLIDO:</td>
                 <td>
                     <asp:TextBox ID="txtApellido" runat="server" Width="133px"></asp:TextBox>
+            <strong>
+                    <asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="txtApellido" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
-                <td class="auto-style13">SEXO:</td>
+                <td class="auto-style63">SEXO:</td>
                 <td>
                     <asp:DropDownList ID="ddlSexo" runat="server" Width="145px">
                         <asp:ListItem>-- Seleccione Sexo -- </asp:ListItem>
                         <asp:ListItem>Masculino</asp:ListItem>
                         <asp:ListItem>Femenino</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvSexo" runat="server" ControlToValidate="ddlSexo" ForeColor="Red" InitialValue="-- Seleccione Sexo --" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style11">FECHA DE NACIMIENTO:</td>
                 <td>
                     <asp:TextBox ID="txtFechaNacimiento" runat="server" Width="130px" TextMode="Date"></asp:TextBox>
+            <strong>
+                    <asp:RequiredFieldValidator ID="rfvFechaNacimiento" runat="server" ControlToValidate="txtFechaNacimiento" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td>NACIONALIDAD:</td>
                 <td>
                     <asp:TextBox ID="txtNacionalidad" runat="server" Width="138px"></asp:TextBox>
+            <strong>
+                    <asp:RequiredFieldValidator ID="rfvNacionalidad" runat="server" ControlToValidate="txtNacionalidad" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
-                <td class="auto-style13">PROVINCIA:</td>
+                <td class="auto-style63">PROVINCIA:</td>
                 <td>
                     <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" Height="29px"  Width="177px" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged">
                         <asp:ListItem>-- Seleccione Provincia --</asp:ListItem>
@@ -276,16 +280,22 @@
                 <td>TELEFONO:</td>
                 <td>
                     <asp:TextBox ID="txtTelefono" runat="server" Width="136px"></asp:TextBox>
+            <strong>
+                    <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="txtTelefono" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
-                <td class="auto-style13">CORREO:</td>
+                <td class="auto-style63">CORREO:</td>
                 <td>
                     <asp:TextBox ID="txtCorreo" runat="server"></asp:TextBox>
+            <strong>
+                    <asp:RequiredFieldValidator ID="rfvCorreo" runat="server" ControlToValidate="txtCorreo" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style11">
                     DIRECCION:
                     </td>
                 <td>
                     <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
+            <strong>
+                    <asp:RequiredFieldValidator ID="rfvDireccion" runat="server" ControlToValidate="txtDireccion" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -294,10 +304,15 @@
                     <asp:DropDownList ID="ddlEspecialidades" runat="server">
                         <asp:ListItem>-- Seleccione Especialidad --</asp:ListItem>
                     </asp:DropDownList>
+            <strong>
+                    <asp:RequiredFieldValidator ID="rfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidades" ForeColor="Red" InitialValue="-- Seleccione Especialidad --" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
-                <td class="auto-style14">&nbsp;</td>
+                <td class="auto-style14">Nombre usuario:</td>
                 <td class="auto-style9">
-                    &nbsp;</td>
+                    <asp:TextBox ID="txtNombreUsuario" runat="server"></asp:TextBox>
+            <strong>
+                    <asp:RequiredFieldValidator ID="rfvNombreUsuario" runat="server" ControlToValidate="txtNombreUsuario" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                </td>
                 <td class="auto-style12">
                     &nbsp;</td>
                 <td class="auto-style9">
@@ -593,7 +608,9 @@
         <br />
         <br />
         <asp:Label ID="lblMensajeEliminar" runat="server"></asp:Label>
-        <asp:GridView ID="grdJornadaLaboral" runat="server">
+        <br />
+        <asp:Label ID="lblLegajoSeleccionado" runat="server"></asp:Label>
+        <asp:GridView ID="grdJornadaLaboral" runat="server" AutoGenerateEditButton="True" OnRowCancelingEdit="grdJornadaLaboral_RowCancelingEdit" OnRowEditing="grdJornadaLaboral_RowEditing" OnRowUpdating="grdJornadaLaboral_RowUpdating">
         </asp:GridView>
         <br />
         <br />

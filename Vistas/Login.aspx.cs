@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -39,6 +40,9 @@ namespace Vistas
 
             if (usuario != null) // existe un usuario 
             {
+                string contraseña = usuario["contraseña_U"].ToString();
+                if(contraseña == txtContraseña.Text)
+                {
                 string legajo = usuario["Legajo_U"].ToString();
                 string Nombre = usuario["nombreUsuario_U"].ToString();
                 string tipo = usuario["tipo_u"].ToString();
@@ -59,6 +63,8 @@ namespace Vistas
                 else
                 {
                     Response.Redirect("MenuMedicos.aspx");
+                }
+
                 }
             }
 
@@ -96,11 +102,22 @@ namespace Vistas
         protected void cvContrasena_ServerValidate(object source, ServerValidateEventArgs args)
         {
             NegocioUsuarios neg = new NegocioUsuarios();
-            if (neg.validarContrasena(args.Value.ToString()))
+            DataRow usuario = neg.inicioSesion(txtDni.Text.Trim(), args.Value.ToString());
+            if(usuario != null)
+            {
+            string contraseña = usuario["contraseña_U"].ToString();
+                Debug.WriteLine("-- " + contraseña + " --- " + args.Value.ToString());
+            if ( contraseña == args.Value.ToString())
             {
                 args.IsValid = true;
             }
             else { args.IsValid = false;
+                cvContrasena.Text = "Contraseña Incorrecta";
+            }
+            }
+            else
+            {
+                args.IsValid = false;
                 cvContrasena.Text = "Contraseña Incorrecta";
             }
         }

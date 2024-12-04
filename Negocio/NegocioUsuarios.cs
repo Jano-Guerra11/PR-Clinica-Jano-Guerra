@@ -39,17 +39,14 @@ namespace Negocio
             usuarios.Contrasena_U1 = contrasena;
            return dao.existeContrasena(usuarios);
         }
+       
         public bool altaUsuario(Usuarios usuario)
         {
-            bool alta = false;
-            if(!dao.existeLegajo(usuario))
+            if (!dao.existeLegajo(usuario))
             {
-            if(dao.altaUsuario(usuario) == 1)
-            {
-                alta = true;
+               return (dao.altaUsuario(usuario) == 1) ? true : false;
             }
-            }
-            return alta;
+            return false;
         }
     }
 }

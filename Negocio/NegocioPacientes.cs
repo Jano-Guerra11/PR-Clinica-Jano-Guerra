@@ -21,30 +21,30 @@ namespace Negocio
         }
         public bool ActualizarPaciente(Paciente pac)
         {
-            if (dao.actualizarPaciente(pac) == 1)
+            bool actualizar = false;
+            if (dao.actualizarPaciente(pac) > 0)
             {
-                return true;
+                actualizar = true;
             }
-            else { return false; }
+            return actualizar;
         }
         public bool AltaPaciente(Paciente pac)
         {
-            
-            if(dao.AltaPaciente(pac) == 1)
+            bool alta = false;
+            if (!dao.existePaciente(pac.Dni))
             {
-                return true;
+              if(dao.AltaPaciente(pac) == 1)
+              {
+                alta = true;
+              }
             }
-            else { return false; }
+            return alta;
         }
         public bool bajaPaciente(string dni)
         {
-            Paciente paciente = new Paciente();
-            paciente.Dni = dni;
-            if(dao.bajaPaciente(paciente) == 1)
-            {
-                return true;
-            }
-            else { return false; }
+            var paciente = new Paciente { Dni = dni };
+            return dao.bajaPaciente(paciente) == 1;
+            
         }
         public string obtenerIdProvincia(string dni)
         {

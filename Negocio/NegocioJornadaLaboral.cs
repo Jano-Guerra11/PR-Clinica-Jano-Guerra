@@ -20,21 +20,17 @@ namespace Negocio
         }
         public bool AltaJornadaLaboral(string LegajoM, string diaAtencion, string Ingreso, string egreso)
         {
-            bool estado = false;
             JornadaLaboral jl = new JornadaLaboral();
             jl.LegajoMedico1 = LegajoM;
             jl.DiaAtencion1 = diaAtencion;
             jl.Ingreso1 = Ingreso;
             jl.Egreso = egreso;
 
-            if (dao.existeJornada(jl) == false)
+            if (!dao.existeJornada(jl))
             {
-                if (dao.AltaJornada(jl) == 1)
-                {
-                    estado = true;
-                }
+                return (dao.AltaJornada(jl) == 1) ? false : true;
             }
-            return estado;
+            return false;
         }
         public DataRow diaLaboralMedico(string legajoMedico,string dia)
         {
@@ -48,24 +44,19 @@ namespace Negocio
         }
         public bool actualizarJornada(JornadaLaboral jl)
         {
-            bool actualizado = false;   
-            if(dao.actualizarJornada(jl) > 0)
-            {
-                actualizado = true;
-            }
-            return actualizado;
+           return (dao.actualizarJornada(jl) > 0) ? true : false;         
         }
         public bool bajaJornadaLaboral(string legajo,string dia)
         {
             JornadaLaboral jl = new JornadaLaboral();
             jl.LegajoMedico1 = legajo;
             jl.DiaAtencion1 = dia;
-            bool eliminado = false;
-            if(dao.eliminarJornada(jl) > 0)
+            
+            if(dao.existeJornada(jl))
             {
-                eliminado = true;
+               return (dao.eliminarJornada(jl) > 0) ? true : false;
             }
-            return eliminado;
+            return false;
         }
         public bool ExisteJornada(string legajo,string dia)
         {

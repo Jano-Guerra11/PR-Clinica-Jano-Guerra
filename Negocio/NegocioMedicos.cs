@@ -18,55 +18,36 @@ namespace Negocio
             DaoUsuarios us = new DaoUsuarios();
             Usuarios usuario = new Usuarios();
             usuario.Legajo_U1 = medico.Legajo1;
-            bool agregado = false;
-
+    
             if(!dao.existeMedico(medico) && !us.existeLegajo(usuario))
             {
-               if(dao.agregarMedico(medico) == 1)
-               {
-                    agregado = true; // se agrego correctamente
-               }
+                return (dao.agregarMedico(medico) == 1) ? true : false; 
             }
-              return agregado;  
+            return false;
         }
-        public int BajaMedico(string legajo,string dni)
+        public bool BajaMedico(string legajo,string dni)
         {
             Medico medico = new Medico();
             medico.Legajo1 = legajo;
             medico.Dni = dni;
-            int baja = -1;
             if (dao.existeMedico(medico))
             {
-                if (dao.BajaMedico(medico) == 1)
-                {
-                    // eliminado correctamente
-                    baja = 1;
-                }
-                else {baja = 0; } // no se pudo eliminar
+                return (dao.BajaMedico(medico) == 1) ? true : false;
             }
-            return baja; 
+            return false; 
         }
         public bool actalizarMedico(Medico medico)
         {
-            bool actualizado = false;
             if (dao.existeMedico(medico))
             {
-                if (dao.actualizarMedico(medico) == 1)
-                {
-                    actualizado = true;
-                }
+                return (dao.actualizarMedico(medico) == 1) ? true : false;
             }
-            return actualizado;
+            return false;   
         }
         public DataTable obtenerTablaMedicos()
         {
             DataTable dt = dao.obtenerTablaMedicos();
-            if(dt != null)
-            {
-                return dt;
-
-            }
-            else { return null; }
+            return (dt != null && dt.Rows.Count > 0) ? dt : null;
         }
         public bool existeMedico(string legajo)
         {

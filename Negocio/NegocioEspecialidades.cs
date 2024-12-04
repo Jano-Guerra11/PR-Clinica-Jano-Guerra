@@ -13,7 +13,6 @@ namespace Negocio
         DaoEspecialidades dao = new DaoEspecialidades();
         public DataTable obtenerEspecialidades()
         {
-
            return dao.ObtenerEspecialidades();
         }
     }

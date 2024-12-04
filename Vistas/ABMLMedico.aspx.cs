@@ -315,6 +315,7 @@ namespace Vistas
                 string legajo = ((Label)grdMedicos.Rows[filaSeleccionada].FindControl("lbl_It_Legajo")).Text;
                lblLegajoSeleccionado.Text = legajo;
                 cargarHorarios(legajo);
+                lblMensajeActualizado.Text = "";
             }
         }
         public void cargarHorarios(string legajo)
@@ -427,9 +428,19 @@ namespace Vistas
         protected void grdJornadaLaboral_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             JornadaLaboral jl = new JornadaLaboral();
+            NegocioJornadaLaboral negJl = new NegocioJornadaLaboral();
+
             jl.LegajoMedico1 = lblLegajoSeleccionado.Text;
-            jl.DiaAtencion1 = grdJornadaLaboral.Rows[e.RowIndex].Cells[0].Text;
-            Debug.WriteLine("------------  "+jl.DiaAtencion1);
+            jl.DiaAtencion1 = ((DropDownList)grdJornadaLaboral.Rows[e.RowIndex].FindControl("ddl_eit_Dias")).SelectedValue.ToString();
+            jl.Ingreso1 = ((TextBox)grdJornadaLaboral.Rows[e.RowIndex].FindControl("txt_eit_Ingreso")).Text;
+            jl.Egreso = ((TextBox)grdJornadaLaboral.Rows[e.RowIndex].FindControl("txt_eit_Egreso")).Text;
+           if (negJl.actualizarJornada(jl))
+            {
+                lblMensajeActualizado.Text = "Actualizado";
+            }
+            else { lblMensajeActualizado.Text = " No se pudo actualizar"; }
+            grdJornadaLaboral.EditIndex = -1;
+            cargarHorarios(jl.LegajoMedico1);
             
         }
     }

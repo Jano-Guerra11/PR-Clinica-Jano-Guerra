@@ -610,8 +610,43 @@
         <asp:Label ID="lblMensajeEliminar" runat="server"></asp:Label>
         <br />
         <asp:Label ID="lblLegajoSeleccionado" runat="server"></asp:Label>
-        <asp:GridView ID="grdJornadaLaboral" runat="server" AutoGenerateEditButton="True" OnRowCancelingEdit="grdJornadaLaboral_RowCancelingEdit" OnRowEditing="grdJornadaLaboral_RowEditing" OnRowUpdating="grdJornadaLaboral_RowUpdating">
+        <asp:GridView ID="grdJornadaLaboral" runat="server" AutoGenerateEditButton="True" OnRowCancelingEdit="grdJornadaLaboral_RowCancelingEdit" OnRowEditing="grdJornadaLaboral_RowEditing" OnRowUpdating="grdJornadaLaboral_RowUpdating" AutoGenerateColumns="False">
+            <Columns>
+                <asp:TemplateField HeaderText="Dia">
+                    <EditItemTemplate>
+                        <asp:DropDownList ID="ddl_eit_Dias" runat="server" SelectedValue='<%# Bind("DIA") %>'>
+                            <asp:ListItem>Lunes</asp:ListItem>
+                            <asp:ListItem>Martes</asp:ListItem>
+                            <asp:ListItem>Miercoles</asp:ListItem>
+                            <asp:ListItem>Jueves</asp:ListItem>
+                            <asp:ListItem>Viernes</asp:ListItem>
+                            <asp:ListItem>Sabado</asp:ListItem>
+                            <asp:ListItem>Domingo</asp:ListItem>
+                        </asp:DropDownList>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_it_Dia" runat="server" Text='<%# Bind("DIA") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Ingreso">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txt_eit_Ingreso" runat="server" Text='<%# Bind("INGRESO") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_it_Ingreso" runat="server" Text='<%# Bind("INGRESO") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Egreso">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txt_eit_Egreso" runat="server" Text='<%# Bind("EGRESO") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_it_Egreso" runat="server" Text='<%# Bind("EGRESO") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
         </asp:GridView>
+        <asp:Label ID="lblMensajeActualizado" runat="server"></asp:Label>
         <br />
         <br />
         <br />

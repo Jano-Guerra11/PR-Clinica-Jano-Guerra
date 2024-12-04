@@ -46,5 +46,14 @@ namespace Negocio
             }
             return null;
         }
+        public bool actualizarJornada(JornadaLaboral jl)
+        {
+            bool actualizado = false;   
+            if(dao.actualizarJornada(jl) > 0)
+            {
+                actualizado = true;
+            }
+            return actualizado;
+        }
     }
 }

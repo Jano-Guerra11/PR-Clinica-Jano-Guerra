@@ -47,5 +47,11 @@ namespace DAO
             string consulta = "select * from JornadaLaboral where LegajoMedico_J = '"+jl.LegajoMedico1+"' AND DiaAtencion_J = '"+jl.DiaAtencion1+"'";
             return ad.existe(consulta);
         }
+        public int actualizarJornada(JornadaLaboral jl)
+        {
+            string consulta = "UPDATE JornadaLaboral SET DiaAtencion_J = '"+jl.DiaAtencion1+"' , HoraIngreso_J = '"+jl.Ingreso1+"' , HoraEgreso_J = " +
+                "'"+jl.Egreso+ "' WHERE LegajoMedico_J = '"+jl.LegajoMedico1+"'";
+           return ad.ejecutarConsulta(consulta);
+        }
     }
 }

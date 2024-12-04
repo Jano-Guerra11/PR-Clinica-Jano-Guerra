@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -30,7 +31,9 @@ namespace Vistas
 
             }
             visibilidadDeHorarios();
-            
+            lblMensajeActualizado.Text = "";
+
+
         }
         public void verificarPermisos()
         {
@@ -434,14 +437,78 @@ namespace Vistas
             jl.DiaAtencion1 = ((DropDownList)grdJornadaLaboral.Rows[e.RowIndex].FindControl("ddl_eit_Dias")).SelectedValue.ToString();
             jl.Ingreso1 = ((TextBox)grdJornadaLaboral.Rows[e.RowIndex].FindControl("txt_eit_Ingreso")).Text;
             jl.Egreso = ((TextBox)grdJornadaLaboral.Rows[e.RowIndex].FindControl("txt_eit_Egreso")).Text;
-           if (negJl.actualizarJornada(jl))
+            if (!negJl.ExisteJornada(jl.LegajoMedico1, jl.DiaAtencion1))
             {
-                lblMensajeActualizado.Text = "Actualizado";
+               if (negJl.actualizarJornada(jl))
+               {
+                  lblMensajeActualizado.Text = "Actualizado";
+               }
+               else { lblMensajeActualizado.Text = " No se pudo actualizar"; }
             }
-            else { lblMensajeActualizado.Text = " No se pudo actualizar"; }
+            else{ lblMensajeActualizado.Text = " Ya existe un registro para ese dia"; }
             grdJornadaLaboral.EditIndex = -1;
             cargarHorarios(jl.LegajoMedico1);
             
+        }
+
+        protected void grdJornadaLaboral_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            Session["dia"] = ((Label)grdJornadaLaboral.Rows[e.RowIndex].FindControl("lbl_it_Dia")).Text;
+            lblConfirmacionEliminar.Visible = true;
+            lblConfirmacionEliminar.Text = "Seguro que desea eliminar el dia " + Session["dia"].ToString() + " ?";
+            lbSi2.Visible = true;
+            lbNo2.Visible = true;
+        }
+
+        protected void lbNo2_Click(object sender, EventArgs e)
+        {
+            lblConfirmacionEliminar.Visible = false;
+            lblConfirmacionEliminar.Text = "";
+            lbSi2.Visible = false;
+            lbNo2.Visible = false;
+        }
+
+        protected void lbSi2_Click(object sender, EventArgs e)
+        {
+            string legajo = lblLegajoSeleccionado.Text;
+            string dia = Session["dia"].ToString();
+            if (negJl.bajaJornadaLaboral(legajo, dia))
+            {
+                lblMensajeActualizado.Text = "Eliminado correctamente";
+            }
+            lblConfirmacionEliminar.Visible = false;
+            lblConfirmacionEliminar.Text = "";
+            lbSi2.Visible = false;
+            lbNo2.Visible = false;
+            cargarHorarios(legajo);
+        }
+
+        protected void btnAgregarDia_Click(object sender, EventArgs e)
+        {
+            string legajo = lblLegajoSeleccionado.Text;
+            string dia = ddlAgregarDia.SelectedItem.Text;
+            string ingreso = txtAgregarIngreso.Text;
+            string egreso = txtAgregarEgreso.Text;
+
+            if (!negJl.ExisteJornada(legajo, dia))
+            {
+            if (negJl.AltaJornadaLaboral(legajo, dia, ingreso, egreso))
+            {
+                lblMensajeActualizado.Text = "Dia agregado correctamente";
+            }
+            else
+            {
+                lblMensajeActualizado.Text = "No se pudo agregar el dia";
+            }
+            }
+            else
+            {
+                lblMensajeActualizado.Text = "Ya existe un registro para ese dia";
+            }
+            cargarHorarios(legajo);
+            ddlAgregarDia.SelectedIndex = 0;
+            txtAgregarIngreso.Text = string.Empty;
+            txtAgregarEgreso.Text = string.Empty;
         }
     }
 }

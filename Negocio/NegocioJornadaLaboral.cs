@@ -55,5 +55,24 @@ namespace Negocio
             }
             return actualizado;
         }
+        public bool bajaJornadaLaboral(string legajo,string dia)
+        {
+            JornadaLaboral jl = new JornadaLaboral();
+            jl.LegajoMedico1 = legajo;
+            jl.DiaAtencion1 = dia;
+            bool eliminado = false;
+            if(dao.eliminarJornada(jl) > 0)
+            {
+                eliminado = true;
+            }
+            return eliminado;
+        }
+        public bool ExisteJornada(string legajo,string dia)
+        {
+            JornadaLaboral jl = new JornadaLaboral();
+            jl.LegajoMedico1 = legajo;
+            jl.DiaAtencion1 = dia;
+           return dao.existeJornada(jl);
+        }
     }
 }

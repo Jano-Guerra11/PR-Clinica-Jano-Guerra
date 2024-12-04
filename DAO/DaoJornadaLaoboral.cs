@@ -53,5 +53,10 @@ namespace DAO
                 "'"+jl.Egreso+ "' WHERE LegajoMedico_J = '"+jl.LegajoMedico1+"'";
            return ad.ejecutarConsulta(consulta);
         }
+        public int eliminarJornada(JornadaLaboral jl)
+        {
+            string consulta = "DELETE FROM JornadaLaboral WHERE LegajoMedico_J = '"+jl.LegajoMedico1+"' AND DiaAtencion_J = '"+jl.DiaAtencion1+"'";
+           return ad.ejecutarConsulta(consulta);
+        }
     }
 }

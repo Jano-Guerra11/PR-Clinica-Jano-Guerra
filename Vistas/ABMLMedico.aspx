@@ -237,6 +237,7 @@
                 <td>LEGAJO:          <td>
                     <asp:TextBox ID="txtLegajo" runat="server" Width="139px"></asp:TextBox>
                 &nbsp;<asp:RequiredFieldValidator ID="rfvLegajo" runat="server" ControlToValidate="txtLegajo" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
+                    <asp:CustomValidator ID="cvLegajo" runat="server" ControlToValidate="txtLegajo" OnServerValidate="cvLegajo_ServerValidate" ValidationGroup="1">legajo existente</asp:CustomValidator>
                 </td>
                 <td class="auto-style63">DNI:</td>
                 <td>

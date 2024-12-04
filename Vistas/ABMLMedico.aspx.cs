@@ -510,5 +510,22 @@ namespace Vistas
             txtAgregarIngreso.Text = string.Empty;
             txtAgregarEgreso.Text = string.Empty;
         }
+
+        protected void cvLegajo_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            
+            if (!negMed.existeMedico(args.Value.ToString()) && args.Value.Length <= 5)
+            {
+                args.IsValid = true;
+                cvLegajo.IsValid = true;
+                cvLegajo.Text = "";
+            }
+            else
+            {
+                args.IsValid = false;
+                cvLegajo.IsValid = false;
+                cvLegajo.Text = "Legajo existente";
+            }
+        }
     }
 }

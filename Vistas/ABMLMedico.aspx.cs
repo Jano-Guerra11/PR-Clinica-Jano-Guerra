@@ -374,6 +374,7 @@ namespace Vistas
             jl.DiaAtencion1 = ((DropDownList)grdJornadaLaboral.Rows[e.RowIndex].FindControl("ddl_eit_Dias")).SelectedValue.ToString();
             jl.Ingreso1 = ((TextBox)grdJornadaLaboral.Rows[e.RowIndex].FindControl("txt_eit_Ingreso")).Text;
             jl.Egreso = ((TextBox)grdJornadaLaboral.Rows[e.RowIndex].FindControl("txt_eit_Egreso")).Text;
+
             if (!negJl.ExisteJornada(jl.LegajoMedico1, jl.DiaAtencion1))
             {
                if (negJl.actualizarJornada(jl))

@@ -55,6 +55,8 @@
                 <strong><span class="auto-style3">Asignacion De Turnos</span><br class="auto-style3" />
                 </strong>
                 <asp:HyperLink ID="hlVolverAlMenu" runat="server" NavigateUrl="~/MenuAdministrador.aspx">Volver al menu</asp:HyperLink>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="lblUsuario" runat="server"></asp:Label>
             </div>
         <table class="auto-style2">
             <tr>
@@ -62,7 +64,7 @@
                     <asp:DropDownList ID="ddlEspecialidad" runat="server" Height="17px" Width="266px" AutoPostBack="True" OnSelectedIndexChanged="ddlEspecialidad_SelectedIndexChanged">
                         <asp:ListItem>-- Seleccione Especialidad --</asp:ListItem>
                     </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="rfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidad" ForeColor="Red" InitialValue="-- Seleccione Especialidad --" ValidationGroup="3">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidad" ForeColor="Red" InitialValue="0" ValidationGroup="3">*</asp:RequiredFieldValidator>
                 </td>
                 <td>&nbsp;</td>
                 <td>
@@ -81,7 +83,7 @@
                     <asp:RequiredFieldValidator ID="rfvMedico" runat="server" ControlToValidate="ddlMedicos" ForeColor="Red" InitialValue="-- Seleccione Medico --" ValidationGroup="3">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style10">
-                    <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="250px" NextPrevFormat="ShortMonth" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" Width="330px">
+                    <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="250px" NextPrevFormat="ShortMonth"  OnSelectionChanged="Calendar1_SelectionChanged" Width="330px">
                         <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" Height="8pt" />
                         <DayStyle BackColor="#CCCCCC" />
                         <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="White" />

@@ -27,7 +27,7 @@ namespace DAO
         public int altaTurno(Turnos turno)
         {
             string consulta = "INSERT INTO Turnos (DniPaciente_T,LegajoMedico_t,dia_T,Horario_T,Estado_T,baja_t) " +
-                "SELECT  '" + turno.DniPaciente + "','" + turno.LegajoMedico + "','" + turno.Dia + "','" + turno.Horario + "','indefinido',0";
+                "SELECT  '" + turno.DniPaciente + "','" + turno.LegajoMedico + "','" + turno.Dia + "',datepart(hour,'" + turno.Horario + "'),'indefinido',0";
             return ad.ejecutarConsulta(consulta);
         }
         public bool existeTurno(Turnos turno)

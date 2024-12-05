@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,24 +19,46 @@ namespace Vistas
             NegocioTurnos negocioTurnos = new NegocioTurnos();
             if (!IsPostBack)
             {
-            cargarEspecialidades();
+                verificarPermisos();
+               cargarEspecialidades();
             }
                 grdTurnos.DataSource = negocioTurnos.obtenerTurnos();
                 grdTurnos.DataBind();
+        }
+        public void verificarPermisos()
+        {
+            if (Request.Cookies["infoUsuario"] != null)
+            {
+                HttpCookie cookie = Request.Cookies["infoUsuario"];
+                if (cookie["tipoUsuario"].ToLower() == "administrador")
+                {
+                    lblUsuario.Text = cookie["Nombre"];
+
+                }
+                else Response.Redirect("MenuMedicos.aspx");
+            }
+            else if (Session["tipoUsuario"] != null)
+            {
+                if (Session["tipoUsuario"].ToString().ToLower() == "administrador")
+                {
+                    lblUsuario.Text = Session["Nombre"].ToString();
+                }
+                else Response.Redirect("MenuMedicos.aspx");
+
+            }
+            else Response.Redirect("Login.aspx");
         }
         public void cargarEspecialidades()
         {
             NegocioEspecialidades negEsp = new NegocioEspecialidades();
             DataTable dt = negEsp.obtenerEspecialidades();
-            foreach(DataRow dr in dt.Rows)
-            {
-                ListItem item = new ListItem();
-                item.Text = dr["NombreEspecialidad_Esp"].ToString();
-                item.Value = dr["IdEspecialidad_Esp"].ToString();
-                ddlEspecialidad.Items.Add(item);
-            } 
+            ddlEspecialidad.DataSource = dt;
+            ddlEspecialidad.DataTextField = "NombreEspecialidad_Esp";
+            ddlEspecialidad.DataValueField = "IdEspecialidad_Esp";
+            ddlEspecialidad.DataBind();
+            ddlEspecialidad.Items.Insert(0, new ListItem("-- Seleccione especialidad --", "0"));
+             
         }
-
         protected void ddlEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             ddlMedicos.Items.Clear();
@@ -51,60 +74,23 @@ namespace Vistas
                 ddlMedicos.Items.Add(item);
             }
         }
-
         protected void ddlMedicos_SelectedIndexChanged(object sender, EventArgs e)
         {
             lbHorarios.Items.Clear();
         }
-
-        protected void ddlDias_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-
-        }
-
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
+            CultureInfo español = new CultureInfo("es-ES");
             DateTime fechaSeleccionada = Calendar1.SelectedDate.Date;
+            string diaSeleccionado = fechaSeleccionada.ToString("dddd", español);
             string fecha = fechaSeleccionada.ToString("yyyy-MM-dd");
-            Debug.WriteLine(fecha);
             lbHorarios.Items.Clear();
            
             if(ddlMedicos.SelectedItem.Text != "-- Seleccione Medico --")
             {
-            if (fechaSeleccionada.DayOfWeek == DayOfWeek.Monday)
-            {
-                cargarHorariosDeDia("LUNES", fecha);
-            }
-            if (fechaSeleccionada.DayOfWeek == DayOfWeek.Tuesday)
-            {
-                cargarHorariosDeDia("MARTES", fecha);
-            }
-            if (fechaSeleccionada.DayOfWeek == DayOfWeek.Wednesday)
-            {
-                cargarHorariosDeDia("MIERCOLES", fecha);
-            }
-            if (fechaSeleccionada.DayOfWeek == DayOfWeek.Thursday)
-            {
-                cargarHorariosDeDia("JUEVES", fecha);
-            }
-            if (fechaSeleccionada.DayOfWeek == DayOfWeek.Friday)
-            {
-                cargarHorariosDeDia("VIERNES", fecha);
-            }
-            if (fechaSeleccionada.DayOfWeek == DayOfWeek.Saturday)
-            {
-                cargarHorariosDeDia("SABADO", fecha);
-            }
-
+                cargarHorariosDeDia(diaSeleccionado, fecha);
             } 
         }
-
-        protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
-        {
-            
-        }
-
         public void cargarHorariosDeDia( string dia,string fecha)
         {
             // verificar que en esa fecha no haya ningun turno asignado
@@ -115,31 +101,28 @@ namespace Vistas
 
             if (dr != null)
             {
+                TimeSpan horaEntrada = TimeSpan.Parse(dr["INGRESO"].ToString());
+                TimeSpan horaSalida = TimeSpan.Parse(dr["EGRESO"].ToString());
+                TimeSpan unaHora = new TimeSpan(1, 0, 0);
 
-            TimeSpan horaEntrada = TimeSpan.Parse(dr["INGRESO"].ToString());
-            TimeSpan horaSalida = TimeSpan.Parse(dr["EGRESO"].ToString());
+                for (TimeSpan i = horaEntrada; i <= horaSalida; i += unaHora)
+                {
+                    ListItem item = new ListItem();
 
-            TimeSpan unaHora = new TimeSpan(1, 0, 0);
-              for (TimeSpan i = horaEntrada; i <= horaSalida; i += unaHora)
-              {
-                 ListItem item = new ListItem();
-
-                 TimeSpan horaFinalizacion = i + unaHora;
+                    TimeSpan horaFinalizacion = i + unaHora;
                     bool esta = verificarHorario(fecha, ddlMedicos.SelectedValue.ToString(), i.ToString());
-                 if (esta) 
-                 {
-                        item.Text = i.ToString() + " - " + horaFinalizacion.ToString();
-                 item.Value = i.ToString();
+                   if (esta) 
+                   {
+                      item.Text = i.ToString() + " - " + horaFinalizacion.ToString();
+                      item.Value = i.ToString();
 
-                 }
-                  else
-                  {
+                   }
+                    else
+                    {
                         item.Text = "Horario Ocupado";
-                  }
-                    
+                    }
                   lbHorarios.Items.Add(item);
-              }
-
+                }
             }
             else
             {
@@ -147,7 +130,6 @@ namespace Vistas
                 
             }
         }
-
         public bool verificarHorario(string fecha,string legajoMedico,string horario)
         {
             NegocioTurnos negT = new NegocioTurnos();
@@ -155,22 +137,13 @@ namespace Vistas
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                
                 if (dr["Horario_T"].ToString() == horario)
                 {
                     return false;
                 }
-
             }
             return true;
         }
-
-        protected void ddlHorariosDelDia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-
-        }
-
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             NegocioTurnos negocioTurnos = new NegocioTurnos();

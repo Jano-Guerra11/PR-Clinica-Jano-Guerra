@@ -22,20 +22,14 @@ namespace Negocio
             string estado)
         {
             Turnos turno = new Turnos();
-            turno.CodTurno = 1;
+           
             turno.DniPaciente = dniPaciente;
             turno.LegajoMedico = legajoMedico;
             turno.Dia = dia;
             turno.Horario = horario;
             turno.Estado = estado;
-            
-           
-            if (dao.altaTurno(turno) > 0)
-            {
-                return true;
-            }
 
-                return false;
+            return (dao.altaTurno(turno) > 0) ? true : false;
         }
         public DataTable obtenerTurnos()
         {

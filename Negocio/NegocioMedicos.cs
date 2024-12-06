@@ -21,7 +21,7 @@ namespace Negocio
     
             if(!dao.existeMedico(medico) && !us.existeLegajo(usuario))
             {
-                return (dao.agregarMedico(medico) == 1) ? true : false; 
+                return (dao.agregarMedico(medico) > 0) ? true : false; 
             }
             return false;
         }

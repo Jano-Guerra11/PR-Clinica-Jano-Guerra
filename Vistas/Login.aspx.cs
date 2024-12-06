@@ -40,7 +40,7 @@ namespace Vistas
 
             if (usuario != null) // existe un usuario 
             {
-                string contraseña = usuario["contraseña_U"].ToString();
+                string contraseña = usuario["contrasena_U"].ToString();
                 if(contraseña == txtContraseña.Text)
                 {
                 string legajo = usuario["Legajo_U"].ToString();
@@ -105,7 +105,7 @@ namespace Vistas
             DataRow usuario = neg.inicioSesion(txtDni.Text.Trim(), args.Value.ToString());
             if(usuario != null)
             {
-            string contraseña = usuario["contraseña_U"].ToString();
+            string contraseña = usuario["contrasena_U"].ToString();
                 Debug.WriteLine("-- " + contraseña + " --- " + args.Value.ToString());
             if ( contraseña == args.Value.ToString())
             {

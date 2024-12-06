@@ -326,12 +326,9 @@
             <strong>
                     <asp:RequiredFieldValidator ID="rfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidades" ForeColor="Red" InitialValue="-- Seleccione Especialidad --" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
-                <td class="auto-style14">Nombre usuario:</td>
+                <td class="auto-style14">&nbsp;</td>
                 <td class="auto-style9">
-                    <asp:TextBox ID="txtNombreUsuario" runat="server"></asp:TextBox>
-            <strong>
-                    <asp:RequiredFieldValidator ID="rfvNombreUsuario" runat="server" ControlToValidate="txtNombreUsuario" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
-                </td>
+                    &nbsp;</td>
                 <td class="auto-style12">
                     &nbsp;</td>
                 <td class="auto-style9">

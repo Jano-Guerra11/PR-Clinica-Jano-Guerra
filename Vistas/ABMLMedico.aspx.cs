@@ -96,17 +96,19 @@ namespace Vistas
         {
             NegocioUsuarios negUs = new NegocioUsuarios();
             Medico medico = llenarEntidadMedico();
-            Usuarios usuario = llenarEntidadUsuario();
-
+           
             bool  agregadoMedico = negMed.agregarMedico(medico);
-            bool agregadoUsuario = negUs.altaUsuario(usuario);
 
             agregarJornadaLaboral();
 
-            if(agregadoMedico && agregadoUsuario)
+            if (agregadoMedico)
             {
                 lblMensaje.Text = "Agregado correctamente";
-            } else lblMensaje.Text = "No se pudo agregar";
+            }
+            else { 
+            lblMensaje.Text = "No se pudo agregar";
+
+            }
 
             cargarTablaFiltrada();
             resetearControles();
@@ -129,15 +131,7 @@ namespace Vistas
             medico.idEspecialidad1 = Convert.ToInt32(ddlEspecialidades.SelectedValue);
             return medico;
         }
-        public Usuarios llenarEntidadUsuario()
-        {
-            Usuarios usuario = new Usuarios();
-            usuario.Legajo_U1 = txtLegajo.Text.Trim();
-            usuario.NombreUsuario_U = txtNombreUsuario.Text.Trim();
-            usuario.Contrasena_U1 = txtDni.Text.Trim();
-            usuario.Tipo_U1 = "Medico";
-            return usuario;
-        }
+        
         public void resetearControles()
         {
             txtDni.Text = string.Empty; txtNombre.Text = string.Empty; txtApellido.Text = string.Empty;
@@ -357,6 +351,7 @@ namespace Vistas
         {
             grdJornadaLaboral.EditIndex = e.NewEditIndex;
             string legajo = lblLegajoSeleccionado.Text;
+           Session["dia"] = ((Label)grdJornadaLaboral.Rows[e.NewEditIndex].FindControl("lbl_it_Dia")).Text;
             cargarHorarios(legajo);
         }
         protected void grdJornadaLaboral_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -374,10 +369,11 @@ namespace Vistas
             jl.DiaAtencion1 = ((DropDownList)grdJornadaLaboral.Rows[e.RowIndex].FindControl("ddl_eit_Dias")).SelectedValue.ToString();
             jl.Ingreso1 = ((TextBox)grdJornadaLaboral.Rows[e.RowIndex].FindControl("txt_eit_Ingreso")).Text;
             jl.Egreso = ((TextBox)grdJornadaLaboral.Rows[e.RowIndex].FindControl("txt_eit_Egreso")).Text;
-
+            string diaAnterior = Session["dia"].ToString();
+            Debug.WriteLine(diaAnterior);
             if (!negJl.ExisteJornada(jl.LegajoMedico1, jl.DiaAtencion1))
             {
-               if (negJl.actualizarJornada(jl))
+               if (negJl.actualizarJornada(jl, diaAnterior))
                {
                   lblMensajeActualizado.Text = "Actualizado";
                }
@@ -428,11 +424,19 @@ namespace Vistas
             {
                 if (negJl.AltaJornadaLaboral(legajo, dia, ingreso, egreso))
                 {
+                    lblMensajeActualizado.ForeColor = Color.Green;
                     lblMensajeActualizado.Text = "Dia agregado correctamente";
                 }
-                 else lblMensajeActualizado.Text = "No se pudo agregar el dia";
+                else
+                {
+                    lblMensajeActualizado.ForeColor = Color.Red;
+                    lblMensajeActualizado.Text = "No se pudo agregar el dia";
+                }
             }
-             else lblMensajeActualizado.Text = "Ya existe un registro para ese dia";
+            else {
+                lblMensajeActualizado.ForeColor = Color.Red;
+                lblMensajeActualizado.Text = "Ya existe un registro para ese dia";
+            }
 
             cargarHorarios(legajo);
             ddlAgregarDia.SelectedIndex = 0;
@@ -442,6 +446,7 @@ namespace Vistas
 
         protected void cvLegajo_ServerValidate(object source, ServerValidateEventArgs args)
         {
+
             if (!negMed.existeMedico(args.Value.ToString()) && args.Value.Length <= 5)
             {
                 args.IsValid = true;

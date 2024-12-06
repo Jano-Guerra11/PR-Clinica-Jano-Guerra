@@ -28,7 +28,7 @@ namespace Negocio
 
             if (!dao.existeJornada(jl))
             {
-                return (dao.AltaJornada(jl) == 1) ? false : true;
+                return (dao.AltaJornada(jl) == 1) ? true : false;
             }
             return false;
         }
@@ -42,9 +42,9 @@ namespace Negocio
             }
             return null;
         }
-        public bool actualizarJornada(JornadaLaboral jl)
+        public bool actualizarJornada(JornadaLaboral jl,string diaAnterior)
         {
-           return (dao.actualizarJornada(jl) > 0) ? true : false;         
+           return (dao.actualizarJornada(jl,diaAnterior) > 0) ? true : false;         
         }
         public bool bajaJornadaLaboral(string legajo,string dia)
         {

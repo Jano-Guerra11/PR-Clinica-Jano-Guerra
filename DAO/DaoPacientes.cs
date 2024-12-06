@@ -91,6 +91,7 @@ namespace DAO
             string consulta = "SELECT * FROM Pacientes WHERE dni_P = '" + dni + "'";
            return ad.existe(consulta);
         }
+        
 
     }
 }

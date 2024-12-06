@@ -44,7 +44,7 @@ namespace Negocio
         {
             if (!dao.existeLegajo(usuario))
             {
-               return (dao.altaUsuario(usuario) == 1) ? true : false;
+               return (dao.altaUsuario(usuario) > 0) ? true : false;
             }
             return false;
         }

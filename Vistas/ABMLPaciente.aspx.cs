@@ -204,7 +204,7 @@ namespace Vistas
             NegocioProvincias negProv = new NegocioProvincias();
             NegocioLocalidades negLoc = new NegocioLocalidades();
             NegocioPacientes negPac = new NegocioPacientes();
-
+                
             dt = negProv.obtenerProvincias();
             ddlProvincia.DataSource = dt;
             ddlProvincia.DataTextField = "NombreProvincia_Pr";
@@ -218,6 +218,8 @@ namespace Vistas
             ddlLocalidad.DataValueField = "IdLocalidad";
             ddlLocalidad.DataBind();
             ddlLocalidad.SelectedValue = negPac.obtenerIdLocalidad(dni);
+
+              
             }
 
         }

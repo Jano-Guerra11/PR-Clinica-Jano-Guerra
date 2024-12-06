@@ -204,7 +204,10 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Sexo">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txt_Eit_Sexo" runat="server" Text='<%# Bind("Sexo_P") %>'></asp:TextBox>
+                            <asp:DropDownList ID="DropDownList1" runat="server" SelectedValue='<%# Bind("Sexo_P") %>'>
+                                <asp:ListItem>Femenino</asp:ListItem>
+                                <asp:ListItem>Masculino</asp:ListItem>
+                            </asp:DropDownList>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="lbl_it_Sexo" runat="server" Text='<%# Bind("Sexo_p") %>'></asp:Label>
@@ -220,10 +223,10 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Fecha De Nacimiento">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txt_Eit_FechaDeNacimiento" runat="server" Text='<%# Bind("FechaDeNacimiento_P") %>'></asp:TextBox>
+                            <asp:TextBox ID="txt_Eit_FechaDeNacimiento" runat="server" Text='<%# Bind("FechaDeNacimiento_P", "{0:dd/MM/yyyy}") %>' TextMode="Date"></asp:TextBox>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="lbl_It_FechaNacimiento" runat="server" Text='<%# Bind("FechaDeNacimiento_p") %>'></asp:Label>
+                            <asp:Label ID="lbl_It_FechaNacimiento" runat="server" Text='<%# Eval("FechaDeNacimiento_P", "{0:dd/MM/yyyy}") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Direccion">

@@ -52,11 +52,7 @@ namespace Negocio
             jl.LegajoMedico1 = legajo;
             jl.DiaAtencion1 = dia;
             
-            if(dao.existeJornada(jl))
-            {
-               return (dao.eliminarJornada(jl) > 0) ? true : false;
-            }
-            return false;
+            return (dao.eliminarJornada(jl) > 0) ? true : false;
         }
         public bool ExisteJornada(string legajo,string dia)
         {

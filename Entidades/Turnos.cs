@@ -12,7 +12,7 @@ namespace Entidades
         private string dniPaciente;
         private string legajoMedico;
         private string dia;
-        private DateTime horario;
+        private TimeSpan horario;
         private string estado;
         private string observacion;
         private bool baja;
@@ -21,7 +21,7 @@ namespace Entidades
         public string DniPaciente { get => dniPaciente; set => dniPaciente = value; }
         public string LegajoMedico { get => legajoMedico; set => legajoMedico = value; }
         public string Dia { get => dia; set => dia = value; }
-        public DateTime Horario { get => horario; set => horario = value; }
+        public TimeSpan Horario { get => horario; set => horario = value; }
         public string Estado { get => estado; set => estado = value; }
         public string Observacion { get => observacion; set => observacion = value; }
         public bool Baja { get => baja; set => baja = value; }

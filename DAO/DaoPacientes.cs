@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace DAO
 {
@@ -81,9 +82,9 @@ namespace DAO
             cargarParametrosEliminar(ref cmd, paciente);
             return ad.ejecutarProcedimientoAlmacenado(cmd,"SP_BajaPaciente");
         }
-        public DataTable obtenerProvYLocDePaciente(string dni)
+        public DataTable obtenerDatosPaciente(string dni)
         {
-            string consulta = "SELECT IdProvincia_P,IdLocalidad_P FROM Pacientes WHERE dni_P = '" + dni + "'";
+            string consulta = "SELECT * FROM Pacientes WHERE dni_P = '" + dni + "'";
             return ad.obtenerTabla(consulta, "provYLocPaciente");
         }
         public bool existePaciente(string dni)
@@ -91,7 +92,11 @@ namespace DAO
             string consulta = "SELECT * FROM Pacientes WHERE dni_P = '" + dni + "'";
            return ad.existe(consulta);
         }
-        
+        public DataTable obtenerDniPaciente(string nombre,string apellido)
+        {
+            string consulta = "SELECT DNI_P FROM PACIENTES WHERE NOMBRE_P = '"+nombre +"' AND APELLIDO_P = '"+apellido+"'";
+            return ad.obtenerTabla(consulta,"dni");
+        }
 
     }
 }

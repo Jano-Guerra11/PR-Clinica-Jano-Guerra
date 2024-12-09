@@ -91,6 +91,11 @@ namespace Vistas
             ddlEspecialidades.DataValueField = "IdEspecialidad_Esp";
             ddlEspecialidades.DataBind();
             ddlEspecialidades.Items.Insert(0, new ListItem("-- Seleccione Especialidad --", "0"));
+            ddlFiltroEspecialidad.DataSource = esp;
+            ddlFiltroEspecialidad.DataTextField = "NombreEspecialidad_Esp";
+            ddlFiltroEspecialidad.DataValueField = "IdEspecialidad_Esp";
+            ddlFiltroEspecialidad.DataBind();
+            ddlFiltroEspecialidad.Items.Insert(0, new ListItem("", "0"));
         }
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -99,11 +104,11 @@ namespace Vistas
            
             bool  agregadoMedico = negMed.agregarMedico(medico);
 
-            agregarJornadaLaboral();
+           int diasAgregados = agregarJornadaLaboral();
 
             if (agregadoMedico)
             {
-                lblMensaje.Text = "Agregado correctamente";
+                lblMensaje.Text = "Agregado correctamente con "+ diasAgregados+" dias laborales";
             }
             else { 
             lblMensaje.Text = "No se pudo agregar";
@@ -142,8 +147,9 @@ namespace Vistas
             cbMiercoles.Checked = false;  cbJueves.Checked = false; cbViernes.Checked = false;
             cbSabado.Checked = false;  cbDomingo.Checked = false;
         }
-        public void agregarJornadaLaboral()
+        public int agregarJornadaLaboral()
         {
+            int nDias = 0;
             string legajoDelMedico = txtLegajo.Text.Trim();
             List<JornadaLaboral> jornadaMedico = new List<JornadaLaboral>();
             string[] dias = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" };
@@ -155,9 +161,13 @@ namespace Vistas
 
                if (cbDia.Checked)
                {
-                  negJl.AltaJornadaLaboral(legajoDelMedico, dias[i], txtHorarioEntrada.Text, txtHorarioSalida.Text);
+                   if (negJl.AltaJornadaLaboral(legajoDelMedico, dias[i], txtHorarioEntrada.Text, txtHorarioSalida.Text))
+                   {
+                        nDias += 1;
+                   }
                }
             }
+            return nDias;
         } 
         public void visibilidadDeHorarios()
         {
@@ -371,15 +381,13 @@ namespace Vistas
             jl.Egreso = ((TextBox)grdJornadaLaboral.Rows[e.RowIndex].FindControl("txt_eit_Egreso")).Text;
             string diaAnterior = Session["dia"].ToString();
             Debug.WriteLine(diaAnterior);
-            if (!negJl.ExisteJornada(jl.LegajoMedico1, jl.DiaAtencion1))
-            {
+            
                if (negJl.actualizarJornada(jl, diaAnterior))
                {
                   lblMensajeActualizado.Text = "Actualizado";
                }
                else { lblMensajeActualizado.Text = " No se pudo actualizar"; }
-            }
-            else{ lblMensajeActualizado.Text = " Ya existe un registro para ese dia"; }
+            
             grdJornadaLaboral.EditIndex = -1;
             cargarHorarios(jl.LegajoMedico1);
             

@@ -18,7 +18,7 @@ namespace Negocio
             DataTable dt = dao.verHorariosDeDia(fecha, legajoMedico);
             return dt;
         }
-        public bool altaTurno(string dniPaciente, string legajoMedico, string dia, DateTime horario,
+        public bool altaTurno(string dniPaciente, string legajoMedico, string dia, TimeSpan horario,
             string estado)
         {
             Turnos turno = new Turnos();
@@ -58,9 +58,11 @@ namespace Negocio
         }
         public bool bajaTurno(string codigo)
         {
-            if (dao.bajaTurno(codigo) > 0)
+            Turnos turno = new Turnos();
+            turno.CodTurno = Convert.ToInt32(codigo);
+            if (dao.existeTurno(turno))
             {
-                return true;
+               return (dao.bajaTurno(codigo) > 0) ? true : false;
             }
             return false;
         }

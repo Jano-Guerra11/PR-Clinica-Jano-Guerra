@@ -48,5 +48,9 @@ namespace Negocio
             }
             return false;
         }
+        public bool cambioContraseña(string legajo,string contraseña)
+        {
+          return (dao.ModificarContraseña(legajo, contraseña) > 0) ? true : false;
+        }
     }
 }

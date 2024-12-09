@@ -48,7 +48,7 @@ namespace Negocio
         }
         public string obtenerIdProvincia(string dni)
         {
-            DataTable dt = dao.obtenerProvYLocDePaciente(dni);
+            DataTable dt = dao.obtenerDatosPaciente(dni);
             if(dt != null && dt.Rows.Count > 0)
             {
                 return dt.Rows[0]["IdProvincia_P"].ToString();
@@ -57,11 +57,20 @@ namespace Negocio
         }
         public string obtenerIdLocalidad(string dni)
         {
-            DataTable dt = dao.obtenerProvYLocDePaciente(dni);
+            DataTable dt = dao.obtenerDatosPaciente(dni);
             if (dt != null && dt.Rows.Count > 0)
             {
                 return dt.Rows[0]["IdLocalidad_P"].ToString();
             }
+            return null;
+        }
+        public string obtenerDNI(string nombre,string apellido)
+        {
+            DataTable dt = dao.obtenerDniPaciente(nombre,apellido);
+             if(dt.Rows.Count > 0)
+             {
+                return dt.Rows[0]["DNI_P"].ToString();
+             }
             return null;
         }
         public bool existePaciente(string dni)

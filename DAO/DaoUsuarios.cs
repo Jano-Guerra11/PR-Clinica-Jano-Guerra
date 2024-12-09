@@ -32,10 +32,14 @@ namespace DAO
         }
         public int altaUsuario(Usuarios usuario)
         {
-            Debug.WriteLine("hola usuario : " + usuario.NombreUsuario_U);
             string consulta = "INSERT INTO USUARIOS (Legajo_U,contrasena_U,tipo_U,nombreUsuario_U)" +
                 " SELECT '"+usuario.Legajo_U1 + "','"+usuario.Contrasena_U1+"','"+usuario.Tipo_U1+"','"+usuario.NombreUsuario_U+"'";
           return  ad.ejecutarConsulta(consulta);
+        }
+        public int ModificarContraseña(string legajo,string contraseña)
+        {
+            string consulta = "UPDATE usuarios SET contrasena_U = '"+contraseña+"' WHERE legajo_U = '"+legajo+"'";
+           return ad.ejecutarConsulta(consulta);
         }
     }
 }

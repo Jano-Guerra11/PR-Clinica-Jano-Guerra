@@ -1,34 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\",
+  "WorkspaceRootPath": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|c:\\users\\jano\\desktop\\proyectos .net\\pr-clinica-jano-guerra\\vistas\\abmlmedico.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\abmlmedico.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|c:\\users\\usurio\\onedrive\\escritorio\\programacion iii\\tps grupales\\pr-clinica-jano-guerra\\vistas\\turnosmedico.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\turnosmedico.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|c:\\users\\jano\\desktop\\proyectos .net\\pr-clinica-jano-guerra\\vistas\\abmlmedico.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\abmlmedico.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|c:\\users\\jano\\desktop\\proyectos .net\\pr-clinica-jano-guerra\\negocio\\negociomedicos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|solutionrelative:negocio\\negociomedicos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|c:\\users\\jano\\desktop\\proyectos .net\\pr-clinica-jano-guerra\\negocio\\negociousuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|solutionrelative:negocio\\negociousuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32D13AB8-553C-411F-BDC4-82A6836C977C}|DAO\\DAO.csproj|c:\\users\\jano\\desktop\\proyectos .net\\pr-clinica-jano-guerra\\dao\\daousuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32D13AB8-553C-411F-BDC4-82A6836C977C}|DAO\\DAO.csproj|solutionrelative:dao\\daousuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|c:\\users\\jano\\desktop\\proyectos .net\\pr-clinica-jano-guerra\\negocio\\negociopacientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|solutionrelative:negocio\\negociopacientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32D13AB8-553C-411F-BDC4-82A6836C977C}|DAO\\DAO.csproj|c:\\users\\jano\\desktop\\proyectos .net\\pr-clinica-jano-guerra\\dao\\daopacientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32D13AB8-553C-411F-BDC4-82A6836C977C}|DAO\\DAO.csproj|solutionrelative:dao\\daopacientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|c:\\users\\usurio\\onedrive\\escritorio\\programacion iii\\tps grupales\\pr-clinica-jano-guerra\\vistas\\turnosmedico.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\turnosmedico.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,105 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "NegocioMedicos.cs",
-              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Negocio\\NegocioMedicos.cs",
-              "RelativeDocumentMoniker": "Negocio\\NegocioMedicos.cs",
-              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Negocio\\NegocioMedicos.cs",
-              "RelativeToolTip": "Negocio\\NegocioMedicos.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAlwBcAAAAlAAAA",
+              "DocumentIndex": 1,
+              "Title": "TurnosMedico.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\TurnosMedico.aspx.cs",
+              "RelativeDocumentMoniker": "Vistas\\TurnosMedico.aspx.cs",
+              "ToolTip": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\TurnosMedico.aspx.cs",
+              "RelativeToolTip": "Vistas\\TurnosMedico.aspx.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAowDoAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T16:21:55.989Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DaoUsuarios.cs",
-              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\DAO\\DaoUsuarios.cs",
-              "RelativeDocumentMoniker": "DAO\\DaoUsuarios.cs",
-              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\DAO\\DaoUsuarios.cs",
-              "RelativeToolTip": "DAO\\DaoUsuarios.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAIA5wCIAAABJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T14:36:43.729Z",
+              "WhenOpened": "2024-12-09T20:09:40.801Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ABMLMedico.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Vistas\\ABMLMedico.aspx.cs",
-              "RelativeDocumentMoniker": "Vistas\\ABMLMedico.aspx.cs",
-              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Vistas\\ABMLMedico.aspx.cs",
-              "RelativeToolTip": "Vistas\\ABMLMedico.aspx.cs",
-              "ViewState": "AQIAAFsAAAAAAAAAAAAjwGwAAAALAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T13:28:58.24Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NegocioUsuarios.cs",
-              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Negocio\\NegocioUsuarios.cs",
-              "RelativeDocumentMoniker": "Negocio\\NegocioUsuarios.cs",
-              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Negocio\\NegocioUsuarios.cs",
-              "RelativeToolTip": "Negocio\\NegocioUsuarios.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAD4vy4AAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T14:32:34.606Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ABMLMedico.aspx",
-              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Vistas\\ABMLMedico.aspx",
-              "RelativeDocumentMoniker": "Vistas\\ABMLMedico.aspx",
-              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Vistas\\ABMLMedico.aspx",
-              "RelativeToolTip": "Vistas\\ABMLMedico.aspx",
+              "Title": "TurnosMedico.aspx",
+              "DocumentMoniker": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\TurnosMedico.aspx",
+              "RelativeDocumentMoniker": "Vistas\\TurnosMedico.aspx",
+              "ToolTip": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\TurnosMedico.aspx*",
+              "RelativeToolTip": "Vistas\\TurnosMedico.aspx*",
               "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-06T13:28:53.035Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "NegocioPacientes.cs",
-              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Negocio\\NegocioPacientes.cs",
-              "RelativeDocumentMoniker": "Negocio\\NegocioPacientes.cs",
-              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\Negocio\\NegocioPacientes.cs",
-              "RelativeToolTip": "Negocio\\NegocioPacientes.cs",
-              "ViewState": "AQIAADoAAAAAAAAAAAAvwEYAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T13:14:21.771Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DaoPacientes.cs",
-              "DocumentMoniker": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\DAO\\DaoPacientes.cs",
-              "RelativeDocumentMoniker": "DAO\\DaoPacientes.cs",
-              "ToolTip": "C:\\Users\\jano\\Desktop\\Proyectos .NET\\PR-Clinica-Jano-Guerra\\DAO\\DaoPacientes.cs",
-              "RelativeToolTip": "DAO\\DaoPacientes.cs",
-              "ViewState": "AQIAAE4AAAAAAAAAAAAAwF0AAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T12:55:10.219Z",
+              "WhenOpened": "2024-12-09T20:09:37.809Z",
               "EditorCaption": ""
             }
           ]

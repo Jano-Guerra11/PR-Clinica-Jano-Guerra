@@ -149,7 +149,7 @@ namespace Vistas
             NegocioTurnos negocioTurnos = new NegocioTurnos();
             
           bool alta = negocioTurnos.altaTurno(txtDniPaciente.Text,ddlMedicos.SelectedValue.ToString(),Calendar1.SelectedDate.ToString("yyyy-MM-dd"),
-              Convert.ToDateTime(lbHorarios.SelectedValue),"indefinido");
+              TimeSpan.Parse(lbHorarios.SelectedValue),"indefinido");
             if (alta)
             {
                 lblMensaje.Text = "Turno cargado correctamente";
@@ -199,18 +199,18 @@ namespace Vistas
             if (Turn.bajaTurno(codigo))
             {
                 lblMensajeConfirmacion.Text = "Turno "+codigo + " eliminado correctamente";
+                grdTurnos.DataSource = Turn.obtenerTurnos();
+                grdTurnos.DataBind();
             }
             else
             {
                 lblMensajeConfirmacion.Text = "No se pudo eliminar el turno " + codigo;
             }
         }
-
- 
-        protected void grdTurnos_SelectedIndexChanged(object sender, EventArgs e)
+        protected void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            NegocioPacientes negPac = new NegocioPacientes();
+            lblDni.Text = negPac.obtenerDNI(txtNombre.Text,txtApellido.Text);
         }
-
     }
 }

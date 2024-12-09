@@ -18,54 +18,34 @@ namespace Vistas
         {
             if (!IsPostBack)
             {
-            verificarPermisos();
-
-            }
-           
+               verificarPermisos();
+            }           
         }
 
         public void verificarPermisos()
         {
             if (Request.Cookies["infoUsuario"] != null)
             {
-                // USUARIO LOGUEADO
                 HttpCookie cookie = Request.Cookies["infoUsuario"];
                 if (cookie["tipoUsuario"] == "medico")
                 {
-                    //TIENE ACCESO MEDICO
                     lblUsuario.Text = cookie["Legajo"];
                     cargarTablaTurnos();
                 }
-                else
-                {
-                    // NO TIENE ACCESO MEDICO ES ADMINISTRADOR
-                    Response.Redirect("MenuAdministrador.aspx");
-                }
+                else { Response.Redirect("MenuAdministrador.aspx"); }
             }
             else if (Session["usuario"] != null)
             {
                 if (Session["usuario"].ToString() == "medico")
                 {
-                    //TIENE ACCESO MEDICO
                     lblUsuario.Text = Session["legajo"].ToString();
                 }
-                else
-                {
-                    // NO TIENE ACCESO MEDICO, ES ADMINISTRADOR
-                    Response.Redirect("MenuAdministrador.aspx");
-                }
+                else { Response.Redirect("MenuAdministrador.aspx");}
             }
-            else
-            {
-                //EL USUARIO NO ESTA LOGUEADO
-                Response.Redirect("Login.aspx");
-
-            }
+            else{ Response.Redirect("Login.aspx");}
         }
-
         public void cargarTablaTurnos()
-        {
-            
+        {    
             string nombre = txtNombre.Text; 
             string apellido = txtApellido.Text;
             string fecha = txtFecha.Text;
@@ -76,7 +56,6 @@ namespace Vistas
             if (txtNombre.Text == string.Empty && txtApellido.Text == string.Empty && txtFecha.Text == string.Empty
                 && ddlEstado.SelectedItem.Text == "-- estado -- ") 
             {
-
                 grdTurnos.DataSource = negTurn.obtenerTurnos();
                 grdTurnos.DataBind();
             }
@@ -84,21 +63,12 @@ namespace Vistas
             {
             grdTurnos.DataSource = negTurn.obtenerTurnosFiltrados(nombre,apellido,fecha,opFecha,estado,legajo);
             grdTurnos.DataBind();
-
             }
-
         }
-
-        protected void grdTurnos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
             cargarTablaTurnos();
         }
-
         protected void grdTurnos_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if(e.Row.RowType == DataControlRowType.DataRow && e.Row.RowState == DataControlRowState.Normal)
@@ -107,13 +77,11 @@ namespace Vistas
                 DateTime fecha = Convert.ToDateTime(((Label)e.Row.FindControl("lbl_it_Fecha")).Text);
                 
                 lblFecha.Text = fecha.ToString("dd/MM/yyyy");
-
             }
             else if(e.Row.RowType == DataControlRowType.DataRow && e.Row.RowState == DataControlRowState.Edit)
             {
                 Label lblFecha = (Label)e.Row.FindControl("lbl_Eit_Fecha");
                 DateTime fecha = Convert.ToDateTime(((Label)e.Row.FindControl("lbl_Eit_Fecha")).Text);
-
                 lblFecha.Text = fecha.ToString("dd/MM/yyyy");
             }
         }
@@ -122,40 +90,27 @@ namespace Vistas
             grdTurnos.EditIndex = e.NewEditIndex;
             cargarTablaTurnos();
         }
-
         protected void grdTurnos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            
             int rowindex = e.RowIndex;
             GridViewRow fila = grdTurnos.Rows[rowindex];
             int numero = Convert.ToInt32(((Label)grdTurnos.Rows[e.RowIndex].FindControl("lbl_eit_Numero")).Text);
             string observacion = ((TextBox)grdTurnos.Rows[e.RowIndex].FindControl("txt_eit_Observacion")).Text;
             string estado = ((DropDownList)fila.FindControl("ddlEstados")).SelectedValue.ToString();
 
-            
-            Debug.WriteLine(observacion);
-            Debug.WriteLine(estado);
-
             if(negTurn.dejarEstadoYobservacion(numero, observacion, estado))
             {
                 lblMensaje.Text = "Agregado correctamente";
             }
-            else
-            {
-                lblMensaje.Text = " no se agrego";
-            }
-
+            else {lblMensaje.Text = " no se agrego"; }
             grdTurnos.EditIndex = -1;
             cargarTablaTurnos();
         }
-
-
         protected void btnMostrarTodos_Click(object sender, EventArgs e)
         {
             grdTurnos.DataSource = negTurn.obtenerTurnos();
             grdTurnos.DataBind();
         }
-
         protected void grdTurnos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             grdTurnos.EditIndex = -1;

@@ -106,7 +106,7 @@ namespace Vistas
             if(usuario != null)
             {
             string contraseña = usuario["contrasena_U"].ToString();
-                Debug.WriteLine("-- " + contraseña + " --- " + args.Value.ToString());
+                
             if ( contraseña == args.Value.ToString())
             {
                 args.IsValid = true;

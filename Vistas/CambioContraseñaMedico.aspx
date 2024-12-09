@@ -68,16 +68,14 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style8">Ingrese su Legajo</td>
+                <td class="auto-style8">&nbsp;</td>
                 <td class="auto-style4">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style9">
-                    <asp:TextBox ID="txtLegajo" runat="server" Height="23px" Width="160px"></asp:TextBox>
                 &nbsp;</td>
                 <td class="auto-style6">
-                    <asp:CustomValidator ID="cvLegajo" runat="server" ControlToValidate="txtLegajo" ForeColor="Red" ValidationGroup="Cambio">Incorrecto</asp:CustomValidator>
-                </td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style8">Ingrese la contraseña actual </td>
@@ -88,14 +86,14 @@
                     <asp:TextBox ID="txtContraseña" runat="server" Height="24px" Width="161px"></asp:TextBox>
                 </td>
                 <td class="auto-style6">
-                    <asp:CustomValidator ID="cvContraseña" runat="server" ControlToValidate="txtContraseña" ErrorMessage="CustomValidator" ForeColor="Red" ValidationGroup="Cambio">Incorrecta</asp:CustomValidator>
+                    <asp:CustomValidator ID="cvContraseña" runat="server" ControlToValidate="txtContraseña" ErrorMessage="CustomValidator" ForeColor="Red" ValidationGroup="Cambio" OnServerValidate="cvContraseña_ServerValidate">Incorrecta</asp:CustomValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style9">
                     Ingrese la nueva contraseña</td>
                 <td class="auto-style6">
-                    <asp:CompareValidator ID="cmpvIguales" runat="server" ControlToCompare="txtContraseña" ControlToValidate="txtContraseña1" ForeColor="Red">La contraseña es igual a la anterior</asp:CompareValidator>
+                    <asp:CompareValidator ID="cmpvIguales" runat="server" ControlToCompare="txtContraseña" ControlToValidate="txtContraseña1" ForeColor="Red" Operator="NotEqual" ValidationGroup="Cambio">La contraseña es igual a la anterior</asp:CompareValidator>
                 </td>
             </tr>
             <tr>
@@ -121,10 +119,11 @@
             </tr>
             <tr>
                 <td class="auto-style9">
-                    <asp:Button ID="btnIngresar" runat="server" Height="28px" Text="Ingresar" Width="74px" OnClick="btnIngresar_Click" ValidationGroup="Cambio" />
+                    <asp:Button ID="btnIngresar" runat="server" Height="28px" Text="Modificar" Width="74px" ValidationGroup="Cambio" OnClick="btnIngresar_Click" />
                 </td>
                 <td class="auto-style6">
-                    &nbsp;</td>
+                    <asp:Label ID="lblMensaje" runat="server"></asp:Label>
+                </td>
             </tr>
         </table>
         </div>

@@ -14,6 +14,7 @@ namespace Vistas
     public partial class WebForm3 : System.Web.UI.Page
     {
         NegocioTurnos negTurn = new NegocioTurnos();
+        string legajo;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -29,16 +30,20 @@ namespace Vistas
                 HttpCookie cookie = Request.Cookies["infoUsuario"];
                 if (cookie["tipoUsuario"] == "medico")
                 {
-                    lblUsuario.Text = cookie["Legajo"];
+                    lblUsuario.Text = cookie["Nombre"];
+                  
+                    Session["lm"] = cookie["Legajo"];
                     cargarTablaTurnos();
                 }
                 else { Response.Redirect("MenuAdministrador.aspx"); }
             }
-            else if (Session["usuario"] != null)
+            else if (Session["tipoUsuario"] != null)
             {
-                if (Session["usuario"].ToString() == "medico")
+                if (Session["tipoUsuario"].ToString() == "medico")
                 {
-                    lblUsuario.Text = Session["legajo"].ToString();
+                    lblUsuario.Text = Session["Nombre"].ToString();
+                    Session["lm"] = Session["Legajo"].ToString();
+                    cargarTablaTurnos();
                 }
                 else { Response.Redirect("MenuAdministrador.aspx");}
             }
@@ -46,23 +51,16 @@ namespace Vistas
         }
         public void cargarTablaTurnos()
         {    
-            string nombre = txtNombre.Text; 
-            string apellido = txtApellido.Text;
-            string fecha = txtFecha.Text;
-            string opFecha = ddlComparacionFecha.SelectedValue;
-            string estado = ddlEstado.SelectedItem.Text;
-            string legajo = lblUsuario.Text;
-
-            if (txtNombre.Text == string.Empty && txtApellido.Text == string.Empty && txtFecha.Text == string.Empty
-                && ddlEstado.SelectedItem.Text == "-- estado -- ") 
+            if(txtNombre.Text == string.Empty && txtApellido.Text == string.Empty && txtFecha.Text == string.Empty
+                 && ddlEstado.SelectedIndex == 0)
             {
-                grdTurnos.DataSource = negTurn.obtenerTurnos();
-                grdTurnos.DataBind();
+           grdTurnos.DataSource = negTurn.obtenerTurnosMedico(Session["lm"].ToString());
+           grdTurnos.DataBind();
             }
             else
             {
-            grdTurnos.DataSource = negTurn.obtenerTurnosFiltrados(nombre,apellido,fecha,opFecha,estado,legajo);
-            grdTurnos.DataBind();
+                grdTurnos.DataSource = negTurn.obtenerTurnosFiltrados(txtNombre.Text, txtApellido.Text, txtFecha.Text, ddlComparacionFecha.Text, ddlEstado.SelectedValue,Session["lm"].ToString());
+                grdTurnos.DataBind();
             }
         }
         protected void btnFiltrar_Click(object sender, EventArgs e)
@@ -108,8 +106,11 @@ namespace Vistas
         }
         protected void btnMostrarTodos_Click(object sender, EventArgs e)
         {
-            grdTurnos.DataSource = negTurn.obtenerTurnos();
-            grdTurnos.DataBind();
+            txtNombre.Text = string.Empty;
+            txtApellido.Text = string.Empty;
+            txtFecha.Text = string.Empty;
+            ddlEstado.SelectedIndex = 0;
+            cargarTablaTurnos();
         }
         protected void grdTurnos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {

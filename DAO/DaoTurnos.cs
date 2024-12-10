@@ -45,23 +45,23 @@ namespace DAO
         }
         public DataTable obtenerTurnosFiltrados(Turnos turno, string opFecha, string nombreP, string apellidoP)
         {
-            string consulta = "SELECT codTurno_T AS 'Codigo', nombre_P AS 'Nombre', apellido_P AS 'Apellido' ," +
+            string consulta = "SELECT codTurno_T AS 'Codigo',nombre_P +' '+ apellido_P AS 'Paciente' ," +
                 " dia_T AS 'Fecha', Horario_T AS 'Horario' , " +
                 "Estado_T AS 'Estado', Observacion_T AS 'Observacion', Legajo_Me  FROM TURNOS inner join Pacientes on turnos.dniPaciente_T = " +
                 "pacientes.DNI_P inner join Medicos on turnos.LegajoMedico_T = medicos.Legajo_Me " +
-                "WHERE LegajoMedico_T = '" + turno.LegajoMedico + "'  AND nombre_P LIKE '" + nombreP + "%' " +
-                "AND dia_T " + opFecha + " '" + turno.Dia + "' AND Estado_T LIKE '" + turno.Estado + "%' AND apellido_P LIKE '" + apellidoP + "%'";
+                "WHERE Legajo_Me = '" + turno.LegajoMedico + "'  AND nombre_P LIKE '" + nombreP + "%' " +
+                " AND Estado_T LIKE '" + turno.Estado + "%' AND apellido_P LIKE '" + apellidoP + "%' AND dia_T "+opFecha+" '"+turno.Dia+"'";
             return ad.obtenerTabla(consulta, "tablaFiltrada");
         }
         public DataTable obtenerTurnosMedico(string legajoMedico)
         {
 
-            string consulta = "SELECT codTurno_T AS 'Codigo', nombre_P AS 'Nombre', apellido_P AS 'Apellido' ," +
+            string consulta = "SELECT codTurno_T AS 'Codigo',nombre_P +' '+ apellido_P AS 'Paciente'," +
                 " dia_T AS 'Fecha', Horario_T AS 'Horario' , " +
                 "Estado_T AS 'Estado', Observacion_T AS 'Observacion', Legajo_Me  FROM TURNOS inner join Pacientes on turnos.dniPaciente_T = " +
                 "pacientes.DNI_P inner join Medicos on turnos.LegajoMedico_T = medicos.Legajo_Me " +
                 "WHERE LegajoMedico_T = '" + legajoMedico + "'";
-            return ad.obtenerTabla(consulta, "tablaFiltrada");
+            return ad.obtenerTabla(consulta, "turnosMedico");
         }
         public int actualizarEstadoYObservacion(Turnos turno)
         {

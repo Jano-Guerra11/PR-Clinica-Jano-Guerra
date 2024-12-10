@@ -122,14 +122,14 @@
                         <asp:TextBox ID="txtFecha" runat="server"></asp:TextBox>
                     </td>
                     <td class="auto-style17">
-                        &nbsp;</td>
+                        &lt;-- falta</td>
                 </tr>
                 <tr>
                     <td class="auto-style10">Estado</td>
                     <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style7">
                         <asp:DropDownList ID="ddlEstado" runat="server" Height="16px" Width="124px">
-                            <asp:ListItem>-- estado -- </asp:ListItem>
+                            <asp:ListItem></asp:ListItem>
                             <asp:ListItem>indefinido</asp:ListItem>
                             <asp:ListItem>presente</asp:ListItem>
                             <asp:ListItem>ausente</asp:ListItem>

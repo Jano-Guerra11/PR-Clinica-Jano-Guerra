@@ -35,6 +35,10 @@ namespace Negocio
         {
             return dao.obtenerTurnos();
         }
+        public DataTable obtenerTurnosMedico(string legajoM)
+        {
+            return dao.obtenerTurnosMedico(legajoM);
+        }
         public DataTable obtenerTurnosFiltrados( string nombreP,string apellidoP, string fecha, string opFecha, string estado, string legajoMedico)
         {
             Turnos turno = new Turnos();

@@ -74,6 +74,12 @@ namespace DAO
             string consulta = "update Turnos SET Baja_T = 1 WHERE codTurno_T = " + codigo;
             return ad.ejecutarConsulta(consulta);
         } 
+        public DataTable obtenerTurnosDelMesActual()
+        {
+            string consulta = "SELECT * FROM TURNOS where month(dia_T) = month(getdate())" +
+                " and year(dia_T) = year(getdate()) and baja_T = 'false' ";
+            return ad.obtenerTabla(consulta, "turnosDelMes");
+        }
        
     }
 }

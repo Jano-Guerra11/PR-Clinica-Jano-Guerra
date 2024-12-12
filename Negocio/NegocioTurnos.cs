@@ -35,6 +35,42 @@ namespace Negocio
         {
             return dao.obtenerTurnos();
         }
+        public DataTable turnosDelMes()
+        {
+            return dao.obtenerTurnosDelMesActual();
+        }
+        public int[] CantTurnos()
+        {
+            int[] estado ={0,0,0};// 0 = indefinido ; 1 = presente ; 2 = ausente
+            DataTable turnos = turnosDelMes();
+            foreach(DataRow row in turnos.Rows)
+            {
+                if (row["estado_T"].ToString() == "presente")
+                {
+                    estado[1]++;
+                }else if(row["estado_T"].ToString() == "ausente")
+                {
+                    estado[2]++;
+                }
+                else
+                {
+                    estado[0]++;
+                }
+            }
+            return estado;
+        }
+        public float[] calcularProcentajes()
+        {
+           DataTable dt = turnosDelMes();
+            int total = dt.Rows.Count;
+            int[] cantEstados = CantTurnos();
+            float[] porcentajes = { 0, 0, 0 }; // 0 = indefinido ; 1 = presente ; 2 = ausente
+            porcentajes[0] = (cantEstados[0] * 100) / total;
+            porcentajes[1] = (cantEstados[1] * 100) / total;
+            porcentajes[2] = (cantEstados[2] * 100) / total;
+
+            return porcentajes;
+        }
         public DataTable obtenerTurnosMedico(string legajoM)
         {
             return dao.obtenerTurnosMedico(legajoM);

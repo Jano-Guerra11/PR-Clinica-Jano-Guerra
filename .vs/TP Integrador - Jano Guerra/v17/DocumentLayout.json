@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|c:\\users\\usurio\\onedrive\\escritorio\\programacion iii\\tps grupales\\pr-clinica-jano-guerra\\vistas\\turnosmedico.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\turnosmedico.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|c:\\users\\usurio\\onedrive\\escritorio\\programacion iii\\tps grupales\\pr-clinica-jano-guerra\\vistas\\informes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\informes.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\vistas\\turnosmedico.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\turnosmedico.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|c:\\users\\usurio\\onedrive\\escritorio\\programacion iii\\tps grupales\\pr-clinica-jano-guerra\\negocio\\negocioespecialidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|solutionrelative:negocio\\negocioespecialidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{32D13AB8-553C-411F-BDC4-82A6836C977C}|DAO\\DAO.csproj|c:\\users\\usurio\\onedrive\\escritorio\\programacion iii\\tps grupales\\pr-clinica-jano-guerra\\dao\\daoturnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32D13AB8-553C-411F-BDC4-82A6836C977C}|DAO\\DAO.csproj|solutionrelative:dao\\daoturnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{32D13AB8-553C-411F-BDC4-82A6836C977C}|DAO\\DAO.csproj|c:\\users\\usurio\\onedrive\\escritorio\\programacion iii\\tps grupales\\pr-clinica-jano-guerra\\dao\\daoespecialidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32D13AB8-553C-411F-BDC4-82A6836C977C}|DAO\\DAO.csproj|solutionrelative:dao\\daoespecialidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|c:\\users\\usurio\\onedrive\\escritorio\\programacion iii\\tps grupales\\pr-clinica-jano-guerra\\negocio\\negocioturnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D91683E-F526-4C4A-B685-A4DA31466C6B}|Negocio\\Negocio.csproj|solutionrelative:negocio\\negocioturnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\vistas\\informes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\informes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DaoTurnos.cs",
-              "DocumentMoniker": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\DAO\\DaoTurnos.cs",
-              "RelativeDocumentMoniker": "DAO\\DaoTurnos.cs",
-              "ToolTip": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\DAO\\DaoTurnos.cs",
-              "RelativeToolTip": "DAO\\DaoTurnos.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAwwC0AAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T12:17:44.48Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NegocioTurnos.cs",
-              "DocumentMoniker": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Negocio\\NegocioTurnos.cs",
-              "RelativeDocumentMoniker": "Negocio\\NegocioTurnos.cs",
-              "ToolTip": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Negocio\\NegocioTurnos.cs",
-              "RelativeToolTip": "Negocio\\NegocioTurnos.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAwwDAAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T12:33:52.504Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TurnosMedico.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\TurnosMedico.aspx.cs",
-              "RelativeDocumentMoniker": "Vistas\\TurnosMedico.aspx.cs",
-              "ToolTip": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\TurnosMedico.aspx.cs",
-              "RelativeToolTip": "Vistas\\TurnosMedico.aspx.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAowD0AAABFAAAA",
+              "Title": "NegocioEspecialidades.cs",
+              "DocumentMoniker": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Negocio\\NegocioEspecialidades.cs",
+              "RelativeDocumentMoniker": "Negocio\\NegocioEspecialidades.cs",
+              "ToolTip": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Negocio\\NegocioEspecialidades.cs",
+              "RelativeToolTip": "Negocio\\NegocioEspecialidades.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T20:09:40.801Z",
+              "WhenOpened": "2024-12-12T18:00:57.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DaoEspecialidades.cs",
+              "DocumentMoniker": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\DAO\\DaoEspecialidades.cs",
+              "RelativeDocumentMoniker": "DAO\\DaoEspecialidades.cs",
+              "ToolTip": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\DAO\\DaoEspecialidades.cs",
+              "RelativeToolTip": "DAO\\DaoEspecialidades.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T18:00:54.631Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TurnosMedico.aspx",
-              "DocumentMoniker": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\TurnosMedico.aspx",
-              "RelativeDocumentMoniker": "Vistas\\TurnosMedico.aspx",
-              "ToolTip": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\TurnosMedico.aspx",
-              "RelativeToolTip": "Vistas\\TurnosMedico.aspx",
+              "Title": "informes.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\informes.aspx.cs",
+              "RelativeDocumentMoniker": "Vistas\\informes.aspx.cs",
+              "ToolTip": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\informes.aspx.cs",
+              "RelativeToolTip": "Vistas\\informes.aspx.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAABgAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T13:51:58.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "informes.aspx",
+              "DocumentMoniker": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\informes.aspx",
+              "RelativeDocumentMoniker": "Vistas\\informes.aspx",
+              "ToolTip": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\informes.aspx",
+              "RelativeToolTip": "Vistas\\informes.aspx",
               "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-09T20:09:37.809Z",
+              "WhenOpened": "2024-12-12T13:44:59.219Z",
               "EditorCaption": ""
             }
           ]

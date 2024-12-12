@@ -15,5 +15,9 @@ namespace Negocio
         {
            return dao.ObtenerEspecialidades();
         }
+        public DataTable cantidadDeTurnosDeCadaEsp()
+        {
+            return dao.cantidadDeTurnosDeCadaEsp();
+        }
     }
 }

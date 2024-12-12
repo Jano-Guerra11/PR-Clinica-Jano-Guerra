@@ -72,6 +72,7 @@
     <Content Include="AsignacionDeTurnos.aspx" />
     <Content Include="CambioContraseñaMedico.aspx" />
     <Content Include="CSS\StyleSheet1.css" />
+    <Content Include="informes.aspx" />
     <Content Include="MenuMedicos.aspx" />
     <Content Include="Web.config" />
     <Content Include="Login.aspx" />
@@ -106,6 +107,13 @@
     </Compile>
     <Compile Include="CambioContraseñaMedico.aspx.designer.cs">
       <DependentUpon>CambioContraseñaMedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="informes.aspx.cs">
+      <DependentUpon>informes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="informes.aspx.designer.cs">
+      <DependentUpon>informes.aspx</DependentUpon>
     </Compile>
     <Compile Include="MenuMedicos.aspx.cs">
       <DependentUpon>MenuMedicos.aspx</DependentUpon>

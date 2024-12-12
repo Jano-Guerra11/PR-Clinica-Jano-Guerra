@@ -98,5 +98,9 @@ namespace Negocio
             }
             return null;
         }
+        public DataTable cantTurnosDecadaMedico()
+        {
+            return dao.CantidadDeTurnosDeMedicos();
+        }
     }
 }

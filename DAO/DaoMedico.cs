@@ -104,6 +104,12 @@ namespace DAO
             string consulta = "SELECT IdProvincia_Me,IdLocalidad_Me,idEspecialidad FROM Medicos WHERE Legajo_Me = '" + legajo + "'";
            return ad.obtenerTabla(consulta,"provinciaAsingada");
         }
-        
+        public DataTable CantidadDeTurnosDeMedicos()
+        {
+            string consulta = "SELECT (nombre_Me+' '+apellido_Me) AS 'Medico', count(legajoMedico_T) AS " +
+                "'Cantidad de turnos totales' FROM medicos inner join turnos on medicos.legajo_Me = turnos.legajoMedico_T " +
+                "WHERE baja_Me = 'false' AND baja_T = 'false' group by nombre_Me,apellido_Me order by 'Cantidad de turnos totales' desc";
+            return ad.obtenerTabla(consulta, "cantTurnosDeCadaMedico");
+        }
     }
 }

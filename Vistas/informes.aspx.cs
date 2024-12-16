@@ -14,6 +14,8 @@ namespace Vistas
     {
         NegocioMedicos negMed = new NegocioMedicos();
         NegocioEspecialidades negEsp = new NegocioEspecialidades();
+        NegocioPacientes negPac = new NegocioPacientes();
+        NegocioTurnos negTurn = new NegocioTurnos();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -23,8 +25,10 @@ namespace Vistas
                 grdTurnosMedicos.DataBind();
                 grdEspecialidades.DataSource = negEsp.cantidadDeTurnosDeCadaEsp();
                 grdEspecialidades.DataBind();
+                lblPacienteMasFrecuente.Text = negPac.pacienteMasFrecuente();
             }
             estadisticasTurnosDelMes();
+            
             
                     
         }
@@ -75,5 +79,26 @@ namespace Vistas
                 lblCantidadAusentes.Text= cant[2].ToString();
             }
         }
+        public void historialPaciente()
+        {
+            DataTable infoDelPaciente = negPac.obtenerInfoPaciente(txtDniPaciente.Text);
+            lblPacienteSeleccionado.Text = infoDelPaciente.Rows[0]["nombre_P"].ToString()
+                +" "+ infoDelPaciente.Rows[0]["apellido_P"].ToString();
+            grdHistorialPaciente.DataSource = negTurn.obtenerTurnosPaciente(txtDniPaciente.Text);
+            grdHistorialPaciente.DataBind();
+        }
+
+        protected void btnBuscarHistorial_Click(object sender, EventArgs e)
+        {
+            if (negPac.existePaciente(txtDniPaciente.Text))
+            {
+            historialPaciente();
+            }
+            else
+            {
+                lblPacienteSeleccionado.Text = "No se encontro el paciente";
+            }
+        }
+
     }
 }

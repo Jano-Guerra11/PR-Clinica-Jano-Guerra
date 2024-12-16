@@ -71,7 +71,7 @@
     <Content Include="ABMLPaciente.aspx" />
     <Content Include="AsignacionDeTurnos.aspx" />
     <Content Include="CambioContraseñaMedico.aspx" />
-    <Content Include="CSS\StyleSheet1.css" />
+    <Content Include="CSS\estilo.css" />
     <Content Include="informes.aspx" />
     <Content Include="MenuMedicos.aspx" />
     <Content Include="Web.config" />

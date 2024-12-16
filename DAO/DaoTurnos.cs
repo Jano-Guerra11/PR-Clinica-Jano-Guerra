@@ -80,6 +80,13 @@ namespace DAO
                 " and year(dia_T) = year(getdate()) and baja_T = 'false' ";
             return ad.obtenerTabla(consulta, "turnosDelMes");
         }
+        public DataTable obtenerTurnosDePaciente(string dniPaciente)
+        {
+            string consulta = "select codTurno_T as 'codigo', nombre_Me+' '+apellido_Me AS 'Medico', FORMAT(dia_T,'dd/MM/yyyy') as 'Dia',horario_T as 'Horario', estado_T as 'Estado',observacion_T as 'Observacion',baja_T as 'Baja'" +
+                " from pacientes inner join turnos on pacientes.dni_p = turnos.dniPaciente_T inner join medicos on medicos.legajo_Me = turnos.legajoMedico_T " +
+                "WHERE baja_p = 'false' AND baja_Me = 'false' and dniPaciente_T = '"+dniPaciente+"'";
+            return ad.obtenerTabla(consulta, "turnosDelPaciente");
+        }
        
     }
 }

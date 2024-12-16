@@ -77,6 +77,15 @@ namespace Negocio
         {
            return dao.existePaciente(dni);
         }
+        public string pacienteMasFrecuente()
+        {
+           DataTable dt = dao.pacienteConMasAsistencia();
+            return dt.Rows[0]["nombre_p"].ToString() + " " + dt.Rows[0]["apellido_P"].ToString();
+        }
+        public DataTable obtenerInfoPaciente(string dni)
+        {
+            return dao.obtenerDatosPaciente(dni);
+        }
         
     }
 }

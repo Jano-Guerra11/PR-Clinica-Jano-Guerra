@@ -97,6 +97,11 @@ namespace DAO
             string consulta = "SELECT DNI_P FROM PACIENTES WHERE NOMBRE_P = '"+nombre +"' AND APELLIDO_P = '"+apellido+"'";
             return ad.obtenerTabla(consulta,"dni");
         }
-
+        public DataTable pacienteConMasAsistencia()
+        {
+            string consulta = "select top 1 count(dniPaciente_T) AS 'asistencias', nombre_p,apellido_p FROM pacientes inner join turnos on pacientes.dni_p = turnos.dniPaciente_T " +
+                "WHERE baja_P = 'false' AND baja_T = 'false' AND estado_t = 'presente' group by nombre_p,apellido_p order by 'asistencias' desc";
+           return  ad.obtenerTabla(consulta,"pacienteMasFrecuente");
+        }
     }
 }

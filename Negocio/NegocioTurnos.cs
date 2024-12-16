@@ -106,6 +106,10 @@ namespace Negocio
             }
             return false;
         }
+        public DataTable obtenerTurnosPaciente(string dni)
+        {
+            return dao.obtenerTurnosDePaciente(dni);
+        }
         
     }
 }

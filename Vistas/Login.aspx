@@ -5,17 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Login</title>
+    <link rel="stylesheet" href="CSS/estilo.css">
     <style type="text/css">
-        .auto-style1 {
-            font-size: xx-large;
-            text-align: center;
-        }
-        .auto-style2 {
-            width: 30%;
-            margin-left: 528px;
-            margin-right: 0px;
-        }
         .auto-style3 {
             font-size: x-large;
             text-align: center;
@@ -46,58 +38,72 @@
         #form1 {
             text-align: center;
         }
+        .auto-style10 {
+            text-align: center;
+            width: 238px;
+            height: 23px;
+        }
+        .auto-style11 {
+            text-align: center;
+            height: 23px;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="auto-style1">
-            <strong>CLINICA GUERRA</strong></div>
-        <table class="auto-style2">
+        <div class="cont_Titulo">
+            <strong class="Titulo">CLINICA GUERRA</strong></div>
+        <div class="cont_Tabla">
+
+        <table class="Tabla_Login">
             <tr>
-                <td class="auto-style7"><strong>Iniciar Sesion</strong></td>
-                <td class="auto-style3">&nbsp;</td>
+                <td class="celda"><h1 class="subTitulo">Iniciar Sesion</h1></td>
+                <td class="celda">&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style8">Legajo</td>
-                <td class="auto-style4">&nbsp;</td>
+                <td class="celda">Legajo</td>
+                <td class="celda">&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style9">
-                    <asp:TextBox ID="txtDni" runat="server" Height="23px" Width="160px"></asp:TextBox>
-                &nbsp;</td>
-                <td class="auto-style6">
+                <td class="celda">
+                    <asp:TextBox class="textBox" ID="txtDni" runat="server" Height="23px" Width="160px"></asp:TextBox>
+                &nbsp;<br />
                     <asp:CustomValidator ID="cvLegajo" runat="server" ControlToValidate="txtDni" ForeColor="Red" OnServerValidate="cvInicioSesion_ServerValidate" ValidationGroup="logeo"></asp:CustomValidator>
                 </td>
-            </tr>
-            <tr>
-                <td class="auto-style8">Contraseña</td>
-                <td class="auto-style4">&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style9">
-                    <asp:TextBox ID="txtContraseña" runat="server" Height="24px" Width="161px" TextMode="Password"></asp:TextBox>
-                    <br />
-                    <asp:Button ID="btnMostrar" runat="server" Height="30px" OnClick="btnMostrar_Click" Text="Mostrar" />
-                </td>
-                <td class="auto-style6">
-                    <asp:CustomValidator ID="cvContrasena" runat="server" ControlToValidate="txtContraseña" ForeColor="Red" OnServerValidate="cvContrasena_ServerValidate" ValidationGroup="logeo"></asp:CustomValidator>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style9">
-                    <asp:CheckBox ID="cbRecordarme" runat="server" Text="Recordar inicio" />
-                </td>
-                <td class="auto-style6">
+                <td class="celda">
                     &nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style9">
-                    <asp:Button ID="btnIngresar" runat="server" Height="28px" Text="Ingresar" Width="74px" OnClick="btnIngresar_Click" ValidationGroup="logeo" />
+                <td class="celda">Contraseña</td>
+                <td class="celda"></td>
+            </tr>
+            <tr>
+                <td class="celda">
+                    <asp:TextBox class="textBox" ID="txtContraseña" runat="server" Height="24px" Width="161px" TextMode="Password"></asp:TextBox>
+                    <br />
+                    <asp:CustomValidator ID="cvContrasena" runat="server" ControlToValidate="txtContraseña" ForeColor="Red" OnServerValidate="cvContrasena_ServerValidate" ValidationGroup="logeo"></asp:CustomValidator>
+                    <br />
+                    <asp:Button class="boton" ID="btnMostrar" runat="server" Height="30px" OnClick="btnMostrar_Click" Text="Mostrar" />
                 </td>
-                <td class="auto-style6">
+                <td class="celda">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="celda">
+                    <asp:CheckBox class="checkBox" ID="cbRecordarme" runat="server" Text="Recordar inicio" />
+                </td>
+                <td class="celda">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="celda">
+                    <asp:Button class="boton" ID="btnIngresar" runat="server" Height="28px" Text="Ingresar" Width="74px" OnClick="btnIngresar_Click" ValidationGroup="logeo" />
+                </td>
+                <td class="celda">
                     </td>
             </tr>
         </table>
+        </div>
         <br />
         <br />
         <br />

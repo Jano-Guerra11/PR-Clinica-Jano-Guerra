@@ -36,6 +36,16 @@
         .auto-style9 {
             font-size: medium;
         }
+        .auto-style10 {
+            font-size: medium;
+            width: 262px;
+        }
+        .auto-style11 {
+            font-size: large;
+        }
+        .auto-style12 {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -93,7 +103,36 @@
             </span></strong><span class="auto-style9">especialidades ordenadas por nivel de solicitud<br />
             <asp:GridView ID="grdEspecialidades" runat="server">
             </asp:GridView>
-            </span> </div>
+            <br />
+            </span> <strong><span class="auto-style6">Pacientes<br />
+            </span></strong>
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style10">Paciente con mas asistencia en la clinica:</td>
+                    <strong>
+                    <td>
+                        <asp:Label ID="lblPacienteMasFrecuente" runat="server"></asp:Label>
+                    </td>
+                </tr>
+            </table>
+            </strong> </div>
+        <p class="auto-style11">
+            <span class="auto-style12">Historial de paciente:</span>
+        </p>
+        <p class="auto-style11">
+            ingrese el dni del paciente&nbsp;
+            <asp:TextBox ID="txtDniPaciente" runat="server"></asp:TextBox>
+&nbsp;&nbsp;
+            <asp:Button ID="btnBuscarHistorial" runat="server" OnClick="btnBuscarHistorial_Click" Text="Buscar Historial" />
+        </p>
+        <p class="auto-style11">
+            paciente:
+            <asp:Label ID="lblPacienteSeleccionado" runat="server"></asp:Label>
+        </p>
+        <p class="auto-style11">
+            <asp:GridView ID="grdHistorialPaciente" runat="server" >
+            </asp:GridView>
+        </p>
     </form>
 </body>
 </html>

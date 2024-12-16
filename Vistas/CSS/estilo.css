@@ -1,0 +1,104 @@
+﻿body {
+    /* background-color: #81b8e5;*/
+    color: black;
+    font-family: sans-serif;
+    background-color: #e5e5f7;
+    
+    background-image: radial-gradient(#444cf7 0.8px, transparent 0.8px), radial-gradient(#444cf7 0.8px, #e5e5f7 0.8px);
+    background-size: 32px 32px;
+    background-position: 0 0,16px 16px;
+}
+.cont_Titulo{
+    margin-top:40px;
+}
+.Titulo {
+    text-align: center;
+    font-weight: 300;
+    font-size: 3rem;
+    border: medium;
+    border-radius: 20px;
+    background-color: #a7abeb;
+    padding: 15px;
+  
+}
+.Tabla_Login {
+    align-content: center;
+    text-align: center;
+    margin: auto;
+    background-color: #cdd8fe;
+    padding: 10px 30px;
+    border:groove;
+    border-color:black;
+    border-radius:10px;
+       
+}
+.cont_Tabla {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+}
+.celda{
+    padding:8px 0;
+}
+.textBox{
+    border:hidden;
+    border-radius:5px;
+    margin-bottom:5px;
+    width:160px;
+}
+.boton{
+    margin-top:6px;
+    cursor:pointer;
+    background-color:black;
+    color:white;
+    border:hidden;
+    border-radius:5px;
+}
+.checkBox{
+    cursor:pointer;
+}
+.Tabla {
+    width: 70%;
+   
+    margin:auto;
+    
+    background-color:black;
+    color:white;
+    
+}
+
+.Columna2 {
+    /*
+    width: 278px;
+       height: 40px;
+   */
+    width:290px;
+    text-align: left;
+  
+    padding-left: 10px;
+    padding-right:5px;
+    padding-top:10px;
+    padding-bottom:10px;
+    border-bottom:solid;
+    border-right:solid;
+    border-color:chartreuse;
+    border-width:medium;
+}
+
+.Columna1 {
+    width: 290px;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: solid;
+    border-left: solid;
+    border-color: chartreuse;
+    border-width: medium;
+}
+.Titulo2{
+    background-color:chartreuse;
+    border-radius:20px;
+    padding:10px;
+}

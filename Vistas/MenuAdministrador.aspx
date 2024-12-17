@@ -5,7 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Menu administrador</title>
+    <link rel="stylesheet" href="/CSS/estilo.css">
+    
     <style type="text/css">
         .auto-style2 {
             width: 30%;
@@ -21,14 +23,12 @@
             text-align: center;
             height: 50px;
         }
-        .auto-style11 {
-            text-align: center;
-        }
+       
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="auto-style11">
+        <div class="usuario">
             <asp:Label ID="lblUsuario" runat="server"></asp:Label>
         </div>
         <table class="auto-style2">

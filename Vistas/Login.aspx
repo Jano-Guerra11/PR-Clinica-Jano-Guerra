@@ -7,47 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Login</title>
     <link rel="stylesheet" href="CSS/estilo.css">
-    <style type="text/css">
-        .auto-style3 {
-            font-size: x-large;
-            text-align: center;
-            height: 51px;
-        }
-        .auto-style4 {
-            text-align: center;
-        }
-        .auto-style6 {
-            text-align: center;
-            height: 40px;
-        }
-        .auto-style7 {
-            font-size: x-large;
-            text-align: center;
-            height: 51px;
-            width: 238px;
-        }
-        .auto-style8 {
-            text-align: center;
-            width: 238px;
-        }
-        .auto-style9 {
-            text-align: center;
-            height: 40px;
-            width: 238px;
-        }
-        #form1 {
-            text-align: center;
-        }
-        .auto-style10 {
-            text-align: center;
-            width: 238px;
-            height: 23px;
-        }
-        .auto-style11 {
-            text-align: center;
-            height: 23px;
-        }
-    </style>
+   
 </head>
 <body>
     <form id="form1" runat="server">

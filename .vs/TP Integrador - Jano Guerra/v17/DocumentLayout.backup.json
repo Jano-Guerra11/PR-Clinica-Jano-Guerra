@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\vistas\\css\\estilo.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\css\\estilo.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|c:\\users\\usurio\\onedrive\\escritorio\\programacion iii\\tps grupales\\pr-clinica-jano-guerra\\vistas\\menuadministrador.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\menuadministrador.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\vistas\\css\\estilo.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{87D4EC3A-F9F0-46B7-B719-8FF54B40435C}|Vistas\\Vistas.csproj|solutionrelative:vistas\\css\\estilo.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,17 +18,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "estilo.css",
               "DocumentMoniker": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\CSS\\estilo.css",
               "RelativeDocumentMoniker": "Vistas\\CSS\\estilo.css",
               "ToolTip": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\CSS\\estilo.css",
               "RelativeToolTip": "Vistas\\CSS\\estilo.css",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAFMAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAEsAAAAAAAAAAADwv1IAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-12-16T21:19:49.124Z",
               "IsPinned": true,
@@ -36,7 +36,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MenuAdministrador.aspx",
               "DocumentMoniker": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\MenuAdministrador.aspx",
               "RelativeDocumentMoniker": "Vistas\\MenuAdministrador.aspx",

@@ -18,21 +18,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MenuAdministrador.aspx",
-              "DocumentMoniker": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\MenuAdministrador.aspx",
-              "RelativeDocumentMoniker": "Vistas\\MenuAdministrador.aspx",
-              "ToolTip": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\MenuAdministrador.aspx",
-              "RelativeToolTip": "Vistas\\MenuAdministrador.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-17T13:19:27.659Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -41,9 +28,23 @@
               "RelativeDocumentMoniker": "Vistas\\CSS\\estilo.css",
               "ToolTip": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\CSS\\estilo.css",
               "RelativeToolTip": "Vistas\\CSS\\estilo.css",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAEUAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAFMAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-12-16T21:19:49.124Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MenuAdministrador.aspx",
+              "DocumentMoniker": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\MenuAdministrador.aspx",
+              "RelativeDocumentMoniker": "Vistas\\MenuAdministrador.aspx",
+              "ToolTip": "C:\\Users\\USURIO\\OneDrive\\Escritorio\\Programacion III\\TPs Grupales\\PR-Clinica-Jano-Guerra\\Vistas\\MenuAdministrador.aspx",
+              "RelativeToolTip": "Vistas\\MenuAdministrador.aspx",
+              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-12-17T13:19:27.659Z",
               "EditorCaption": ""
             }
           ]

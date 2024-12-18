@@ -8,22 +8,6 @@
     <title>Menu administrador</title>
     <link rel="stylesheet" href="/CSS/estilo.css">
     
-    <style type="text/css">
-        .auto-style3 {
-            font-size: x-large;
-            text-align: center;
-            height: 51px;
-        }
-        .auto-style10 {
-            text-align: center;
-            height: 50px;
-        }
-       
-        .auto-style11 {
-            height: 434px;
-        }
-       
-    </style>
 </head>
 <body style="height: 436px">
     <form id="form1" runat="server" class="auto-style11">

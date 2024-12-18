@@ -6,6 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+     <link rel="stylesheet" href="/CSS/estilo.css">
     <style type="text/css">
 
         .auto-style6 {
@@ -21,11 +22,7 @@
         .auto-style7 {
             text-align: right;
         }
-        .auto-style2 {
-            width: 80%;
-            margin-left: 61px;
-            margin-right: 0px;
-        }
+      
         .auto-style9 {
             height: 49px;
         }
@@ -215,50 +212,50 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <div class="auto-style7">
-               
-            <asp:Label ID="lblUsuario" runat="server" CssClass="auto-style6"></asp:Label>
-            <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="cont_nav">
+            <div class="cont_Volver">
+             <asp:HyperLink class="volver" ID="hlVolverAlMenu" runat="server"  NavigateUrl="~/MenuAdministrador.aspx">Volver al menu</asp:HyperLink>
             </div>
-            <table class="auto-style4">
-                <tr>
-                    <td class="auto-style5">
-            <strong>Agregar Medico<br />
-                        </strong>
-            </strong>
-                        <asp:HyperLink ID="hlVolverAlMenu" runat="server" CssClass="auto-style6" NavigateUrl="~/MenuAdministrador.aspx">Volver al menu</asp:HyperLink>
-                    </td>
-                </tr>
-            </table>
+            <div class="cont_TituloAbml">
+            <strong class="TituloAbml">Agregar Medico</strong>
+            </div>
+            <div class="cont_usuario">
+            <asp:Label class="usuario" ID="lblUsuario" runat="server" CssClass="auto-style6"></asp:Label>
+            </div>
         </div>
-        <table class="auto-style2">
+        <div class="cont_tablas">
+
+        <div class="cont_tablaDatos">
+
+
+        <table class="tabla_datos">
             <tr>
-                <td>LEGAJO:          <td>
+                <td class="celda1">LEGAJO: </td>
+                <td class="celda2">
                     <asp:TextBox ID="txtLegajo" runat="server" Width="139px"></asp:TextBox>
                 &nbsp;<asp:RequiredFieldValidator ID="rfvLegajo" runat="server" ControlToValidate="txtLegajo" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                     <asp:CustomValidator ID="cvLegajo" runat="server" ControlToValidate="txtLegajo" OnServerValidate="cvLegajo_ServerValidate" ValidationGroup="1">legajo existente</asp:CustomValidator>
                 </td>
-                <td class="auto-style63">DNI:</td>
-                <td>
+                
+                <td class="celda1">DNI:</td>
+                <td class="celda2">
                     <asp:TextBox ID="txtDni" runat="server" Width="135px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtDni" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
-                <td class="auto-style11">NOMBRE:</td>
-                <td>
+                <td class="celda1">NOMBRE:</td>
+                <td class="celda2">
                     <asp:TextBox ID="txtNombre" runat="server" Width="132px"></asp:TextBox>
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="txtNombre" ForeColor="Red" ValidationGroup="1" ID="rfvNombre">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
-                <td>APELLIDO:</td>
-                <td>
+                <td class="celda1">APELLIDO:</td>
+                <td class="celda2">
                     <asp:TextBox ID="txtApellido" runat="server" Width="133px"></asp:TextBox>
-            <strong>
                     <asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="txtApellido" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
-                <td class="auto-style63">SEXO:</td>
-                <td>
+                <td class="celda1">SEXO:</td>
+                <td class="celda2">
                     <asp:DropDownList ID="ddlSexo" runat="server" Width="145px">
                         <asp:ListItem>-- Seleccione Sexo -- </asp:ListItem>
                         <asp:ListItem>Masculino</asp:ListItem>
@@ -266,29 +263,27 @@
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="rfvSexo" runat="server" ControlToValidate="ddlSexo" ForeColor="Red" InitialValue="-- Seleccione Sexo --" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
-                <td class="auto-style11">FECHA DE NACIMIENTO:</td>
-                <td>
+                <td class="celda1">FECHA DE NACIMIENTO:</td>
+                <td class="celda2">
                     <asp:TextBox ID="txtFechaNacimiento" runat="server" Width="130px" TextMode="Date"></asp:TextBox>
-            <strong>
                     <asp:RequiredFieldValidator ID="rfvFechaNacimiento" runat="server" ControlToValidate="txtFechaNacimiento" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
-                <td>NACIONALIDAD:</td>
-                <td>
+                <td class="celda1">NACIONALIDAD:</td>
+                <td class="celda2">
                     <asp:TextBox ID="txtNacionalidad" runat="server" Width="138px"></asp:TextBox>
-            <strong>
                     <asp:RequiredFieldValidator ID="rfvNacionalidad" runat="server" ControlToValidate="txtNacionalidad" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
-                <td class="auto-style63">PROVINCIA:</td>
-                <td>
+                <td class="celda1">PROVINCIA:</td>
+                <td class="celda2">
                     <asp:DropDownList ID="ddlProvincia" runat="server" AutoPostBack="True" Height="29px"  Width="177px" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged">
                         <asp:ListItem>-- Seleccione Provincia --</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="rfvProvincia" runat="server" ControlToValidate="ddlProvincia" ForeColor="Red" InitialValue="0" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
-                <td class="auto-style11">LOCALIDAD:</td>
-                <td>
+                <td class="celda1">LOCALIDAD:</td>
+                <td class="celda2">
                     <asp:DropDownList ID="ddlLocalidad" runat="server" Height="30px" Width="177px">
                         <asp:ListItem>-- Seleccione Localidad --</asp:ListItem>
                     </asp:DropDownList>
@@ -296,34 +291,30 @@
                 </td>
             </tr>
             <tr>
-                <td>TELEFONO:</td>
-                <td>
+                <td class="celda1">TELEFONO:</td>
+                <td class="celda2">
                     <asp:TextBox ID="txtTelefono" runat="server" Width="136px"></asp:TextBox>
-            <strong>
                     <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="txtTelefono" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
-                <td class="auto-style63">CORREO:</td>
-                <td>
+                <td class="celda1">CORREO:</td>
+                <td class="celda2">
                     <asp:TextBox ID="txtCorreo" runat="server"></asp:TextBox>
-            <strong>
                     <asp:RequiredFieldValidator ID="rfvCorreo" runat="server" ControlToValidate="txtCorreo" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
-                <td class="auto-style11">
+                <td class="celda1">
                     DIRECCION:
                     </td>
-                <td>
+                <td class="celda2">
                     <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
-            <strong>
                     <asp:RequiredFieldValidator ID="rfvDireccion" runat="server" ControlToValidate="txtDireccion" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style9">ESPECIALIDAD:</td>
-                <td class="auto-style9">
+                <td class="celda1">ESPECIALIDAD:</td>
+                <td class="celda2">
                     <asp:DropDownList ID="ddlEspecialidades" runat="server">
                         <asp:ListItem>-- Seleccione Especialidad --</asp:ListItem>
                     </asp:DropDownList>
-            <strong>
                     <asp:RequiredFieldValidator ID="rfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidades" ForeColor="Red" InitialValue="-- Seleccione Especialidad --" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style14">&nbsp;</td>
@@ -336,13 +327,14 @@
                 </td>
             </tr>
             </table>
-        <p>
-            <table class="auto-style15">
+        </div>
+        <div class="cont_tablaDatos">
+            <table class="tabla_datos">
                 <tr>
-                    <td class="auto-style57">DIAS DE ATENCION</td>
-                    <td class="auto-style36">&nbsp;</td>
-                    <td class="auto-style37">HORARIO ENTRADA</td>
-                    <td class="auto-style56">HORARIO SALIDA</td>
+                    <td class="filaDeColumnas" id="c1" >DIAS DE ATENCION</td>
+                    <td class="filaDeColumnas" id="c2">&nbsp;</td>
+                    <td class="filaDeColumnas" id="c3">HORARIO ENTRADA</td>
+                    <td class="filaDeColumnas" id="c4">HORARIO SALIDA</td>
                 </tr>
                 <tr>
                     <td class="auto-style57">
@@ -461,7 +453,8 @@
                     </td>
                 </tr>
             </table>
-        </p>
+        </div>
+        </div>
             Filtrar Resultados:<table class="auto-style4">
             <tr>
                 <td class="auto-style66">Legajo</td>

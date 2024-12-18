@@ -63,6 +63,9 @@
 }
 /* -- menu administrador  ---  */
 
+
+
+
 .usuario{
     margin-right:10px;
     text-align:right;
@@ -124,8 +127,6 @@
     text-align:center;
 }
 
-
-
 .cerrarSesion {
     text-decoration: blink;
     font-size: 15pt;
@@ -136,7 +137,90 @@
     background-color: #a7abeb;
     padding: 10px;
 }
+/* abmls  */
+.cont_nav{
+    display:grid;
+    margin:auto;
+    gap:1em;
+    grid-template-columns: repeat(auto-fit,minmax(260px,auto));
+    margin-top:35px;
+}
+.cont_Volver{
+    text-align:left;
+}
+.volver {
+    text-decoration: blink;
+    font-size: 15pt; 
+    margin-left: 10px;
+    border: medium;
+    border-radius: 20px;
+    background-color: #a7abeb;
+    padding: 10px;
+}
+.cont_TituloAbml {
+    width: 100%;
+    text-align:center;
+    margin-bottom: 50px;
+}
+.TituloAbml {
+    font-weight: 10;
+    font-size: 25pt;
+    background-color: #fff;
+   padding:15px;
+   border:medium;
+   border-radius:20px;
+}
+.cont_usuario{
+    text-align:right;
+}
+.cont_tablaDatos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(#444cf7 0.8px, transparent 0.5px), radial-gradient(#444cf7 0.8px, #e5e5f7 0.8px);
+    padding:10px 0px;
+    border:solid;
+    border-radius:10px;
+}
+.taba_datos {
+    width: 50%;
+    margin: 0 auto;
+    text-align:center;
+    
+}
+.cont_tablas{
+    display:flex;
+    gap:1em;
 
+}
+
+.celda1 {
+    border-bottom: solid;
+    border-bottom-left-radius: 10px;
+    align-items: center;
+    padding-left: 7px;
+    
+}
+.celda2 {
+    align-items: center;
+    border-bottom: solid;
+    border-bottom-right-radius: 10px;
+    
+}
+.filaDeColumnas {
+    border-bottom:solid;
+    border-color:black;
+    padding-bottom:10px;
+    text-align:center;
+}
+#c1 {
+    border-bottom-left-radius:15px;
+}
+
+#c4 {
+    border-bottom-right-radius: 15px;
+}
+/*------------------*/
 .Tabla {
     width: 70%;
    

@@ -15,60 +15,9 @@
         .auto-style4 {
             width: 100%;
         }
-        .auto-style5 {
-            text-align: center;
-            font-size: x-large;
-        }
-        .auto-style7 {
-            text-align: right;
-        }
-      
-        .auto-style9 {
-            height: 49px;
-        }
-        .auto-style11 {
-            width: 175px;
-        }
-        .auto-style12 {
-            width: 175px;
-            height: 49px;
-        }
-        .auto-style14 {
-            width: 238px;
-            height: 49px;
-        }
         .auto-style3 {
             margin-left: 40px;
             margin-top: 33px;
-        }
-        .auto-style15 {
-            width: 39%;
-            margin-top: 16px;
-            margin-left: 195px;
-        }
-        .auto-style16 {
-            height: 32px;
-            width: 216px;
-        }
-        .auto-style17 {
-            height: 30px;
-            width: 216px;
-        }
-        .auto-style18 {
-            height: 29px;
-            width: 216px;
-        }
-        .auto-style19 {
-            height: 27px;
-            width: 216px;
-        }
-        .auto-style20 {
-            height: 28px;
-            width: 216px;
-        }
-        .auto-style21 {
-            height: 31px;
-            width: 216px;
         }
         .auto-style28 {
             height: 45px;
@@ -77,93 +26,6 @@
         .auto-style35 {
             height: 45px;
             width: 74px;
-        }
-        .auto-style36 {
-            height: 32px;
-            width: 74px;
-            text-align: center;
-        }
-        .auto-style37 {
-            height: 32px;
-            text-align: center;
-            width: 199px;
-        }
-        .auto-style44 {
-            height: 32px;
-            width: 199px;
-        }
-        .auto-style45 {
-            height: 30px;
-            width: 199px;
-        }
-        .auto-style46 {
-            height: 29px;
-            width: 199px;
-        }
-        .auto-style47 {
-            height: 27px;
-            width: 199px;
-        }
-        .auto-style48 {
-            height: 28px;
-            width: 199px;
-        }
-        .auto-style49 {
-            height: 31px;
-            width: 199px;
-        }
-        .auto-style50 {
-            height: 32px;
-            width: 74px;
-        }
-        .auto-style51 {
-            height: 30px;
-            width: 74px;
-        }
-        .auto-style52 {
-            height: 29px;
-            width: 74px;
-        }
-        .auto-style53 {
-            height: 27px;
-            width: 74px;
-        }
-        .auto-style54 {
-            height: 28px;
-            width: 74px;
-        }
-        .auto-style55 {
-            height: 31px;
-            width: 74px;
-        }
-        .auto-style56 {
-            height: 32px;
-            width: 216px;
-            text-align: center;
-        }
-        .auto-style57 {
-            height: 32px;
-            width: 172px;
-        }
-        .auto-style58 {
-            height: 30px;
-            width: 172px;
-        }
-        .auto-style59 {
-            height: 29px;
-            width: 172px;
-        }
-        .auto-style60 {
-            height: 27px;
-            width: 172px;
-        }
-        .auto-style61 {
-            height: 28px;
-            width: 172px;
-        }
-        .auto-style62 {
-            height: 31px;
-            width: 172px;
         }
         .auto-style63 {
             width: 238px;
@@ -232,9 +94,10 @@
             <tr>
                 <td class="celda1">LEGAJO: </td>
                 <td class="celda2">
+                &nbsp;<asp:CustomValidator ID="cvLegajo" runat="server" ControlToValidate="txtLegajo" OnServerValidate="cvLegajo_ServerValidate" ValidationGroup="1">legajo existente</asp:CustomValidator>
+                    <br />
                     <asp:TextBox ID="txtLegajo" runat="server" Width="139px"></asp:TextBox>
-                &nbsp;<asp:RequiredFieldValidator ID="rfvLegajo" runat="server" ControlToValidate="txtLegajo" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
-                    <asp:CustomValidator ID="cvLegajo" runat="server" ControlToValidate="txtLegajo" OnServerValidate="cvLegajo_ServerValidate" ValidationGroup="1">legajo existente</asp:CustomValidator>
+                    <asp:RequiredFieldValidator ID="rfvLegajo" runat="server" ControlToValidate="txtLegajo" ForeColor="Red" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
                 
                 <td class="celda1">DNI:</td>
@@ -317,12 +180,12 @@
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="rfvEspecialidad" runat="server" ControlToValidate="ddlEspecialidades" ForeColor="Red" InitialValue="-- Seleccione Especialidad --" ValidationGroup="1">*</asp:RequiredFieldValidator>
                 </td>
-                <td class="auto-style14">&nbsp;</td>
-                <td class="auto-style9">
+                <td >&nbsp;</td>
+                <td >
                     &nbsp;</td>
-                <td class="auto-style12">
+                <td >
                     &nbsp;</td>
-                <td class="auto-style9">
+                <td >
                     <br />
                 </td>
             </tr>
@@ -337,116 +200,116 @@
                     <td class="filaDeColumnas" id="c4">HORARIO SALIDA</td>
                 </tr>
                 <tr>
-                    <td class="auto-style57">
+                    <td class="celda_horarios">
                         <asp:Label ID="lblLunes" runat="server" Text="LUNES"></asp:Label>
                     </td>
-                    <td class="auto-style50">
+                    <td class="celda_horarios">
                         <asp:CheckBox ID="cbLunes" runat="server" AutoPostBack="True"  />
                     </td>
-                    <td class="auto-style44">
+                    <td class="celda_horarios">
                         <asp:TextBox ID="txtEntradaLunes" runat="server" TextMode="Time" Visible="False" Width="140px"></asp:TextBox>
                     </td>
-                    <td class="auto-style16">
+                    <td class="celda_horarios">
                         <asp:TextBox ID="txtSalidaLunes" runat="server" TextMode="Time" Visible="False" Width="140px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style58">
+                    <td class="celda_horarios">
                         <asp:Label ID="lblMartes" runat="server" Text="MARTES"></asp:Label>
                     </td>
-                    <td class="auto-style51">
+                    <td class="celda_horarios">
                         <asp:CheckBox ID="cbMartes" runat="server" AutoPostBack="True"  />
                     </td>
-                    <td class="auto-style45">
+                    <td class="celda_horarios">
                         <asp:TextBox ID="txtEntradaMartes" runat="server" TextMode="Time" Visible="False" Width="140px"></asp:TextBox>
                     </td>
-                    <td class="auto-style17">
+                    <td class="celda_horarios">
                         <asp:TextBox ID="txtSalidaMartes" runat="server" TextMode="Time" Visible="False" Width="140px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style59">
+                    <td class="celda_horarios">
                         <asp:Label ID="lblMiercoles" runat="server" Text="MIERCOLES"></asp:Label>
                     </td>
-                    <td class="auto-style52">
+                    <td class="celda_horarios">
                         <asp:CheckBox ID="cbMiercoles" runat="server" AutoPostBack="True"  />
                     </td>
-                    <td class="auto-style46">
+                    <td class="celda_horarios">
                         <asp:TextBox ID="txtEntradaMiercoles" runat="server" TextMode="Time" Visible="False" Width="140px"></asp:TextBox>
                     </td>
-                    <td class="auto-style18">
+                    <td class="celda_horarios">
                         <asp:TextBox ID="txtSalidaMiercoles" runat="server" TextMode="Time" Visible="False" Width="140px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style60">
+                    <td class="celda_horarios">
                         <asp:Label ID="lblJueves" runat="server" Text="JUEVES"></asp:Label>
                     </td>
-                    <td class="auto-style53">
+                    <td class="celda_horarios">
                         <asp:CheckBox ID="cbJueves" runat="server" AutoPostBack="True" />
                     </td>
-                    <td class="auto-style47">
+                    <td class="celda_horarios">
                         <asp:TextBox ID="txtEntradaJueves" runat="server" TextMode="Time" Visible="False" Width="140px"></asp:TextBox>
                     </td>
-                    <td class="auto-style19">
+                    <td class="celda_horarios">
                         <asp:TextBox ID="txtSalidaJueves" runat="server" TextMode="Time" Visible="False" Width="140px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style61">
+                    <td class="celda_horarios">
                         <asp:Label ID="lblViernes" runat="server" Text="VIERNES"></asp:Label>
                     </td>
-                    <td class="auto-style54">
+                    <td class="celda_horarios">
                         <asp:CheckBox ID="cbViernes" runat="server" AutoPostBack="True"  />
                     </td>
-                    <td class="auto-style48">
+                    <td class="celda_horarios">
                         <asp:TextBox ID="txtEntradaViernes" runat="server" TextMode="Time" Visible="False" Width="140px"></asp:TextBox>
                     </td>
-                    <td class="auto-style20">
+                    <td class="celda_horarios">
                         <asp:TextBox ID="txtSalidaViernes" runat="server" TextMode="Time" Visible="False" Width="140px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style58">
+                    <td class="celda_horarios">
                         <asp:Label ID="lblSabado" runat="server" Text="SABADO"></asp:Label>
                     </td>
-                    <td class="auto-style51">
+                    <td class="celda_horarios">
                         <asp:CheckBox ID="cbSabado" runat="server" AutoPostBack="True"  />
                     </td>
-                    <td class="auto-style45">
+                    <td class="celda_horarios">
                         <asp:TextBox ID="txtEntradaSabado" runat="server" TextMode="Time" Visible="False" Width="140px"></asp:TextBox>
                     </td>
-                    <td class="auto-style17">
+                    <td class="celda_horarios">
                         <asp:TextBox ID="txtSalidaSabado" runat="server" TextMode="Time" Visible="False" Width="140px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style62">
+                    <td class="celda_horarios">
                         <asp:Label ID="lblDomingo" runat="server" Text="DOMINGO"></asp:Label>
                     </td>
-                    <td class="auto-style55">
+                    <td class="celda_horarios">
                         <asp:CheckBox ID="cbDomingo" runat="server" AutoPostBack="True"  />
                     </td>
-                    <td class="auto-style49">
+                    <td class="celda_horarios">
                         <asp:TextBox ID="txtEntradaDomingo" runat="server" TextMode="Time" Visible="False" Width="140px"></asp:TextBox>
                     </td>
-                    <td class="auto-style21">
+                    <td class="celda_horarios">
                         <asp:TextBox ID="txtSalidaDomingo" runat="server" TextMode="Time" Visible="False" Width="140px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style28">
+                    <td class="celda_horarios">
                         &nbsp;</td>
-                    <td class="auto-style35">
+                    <td class="celda_horarios">
 
                         &nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style28">
-                    <asp:Button ID="btnAgregar" runat="server" Height="37px" Text="Agregar" Width="82px" ValidationGroup="1" OnClick="btnAgregar_Click" />
+                    <td class="celda_horarios">
+                    <asp:Button class="boton" ID="btnAgregar" runat="server" Height="37px" Text="Agregar" Width="82px" ValidationGroup="1" OnClick="btnAgregar_Click" />
                 &nbsp;&nbsp;
                     </td>
-                    <td class="auto-style35">
+                    <td class="celda_horarios">
 
             <asp:Label ID="lblMensaje" runat="server"></asp:Label>
 
@@ -455,7 +318,8 @@
             </table>
         </div>
         </div>
-            Filtrar Resultados:<table class="auto-style4">
+            Filtrar Resultados:
+        <table class="tabla_datos">
             <tr>
                 <td class="auto-style66">Legajo</td>
                 <td class="auto-style67">
@@ -492,7 +356,8 @@
             </tr>
         </table>
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-            <asp:GridView ID="grdMedicos" runat="server" AutoGenerateColumns="False" AutoGenerateDeleteButton="True" CssClass="auto-style3"  OnRowDeleting="grdMedicos_RowDeleting" OnRowCancelingEdit="grdMedicos_RowCancelingEdit" OnRowEditing="grdMedicos_RowEditing" OnRowUpdating="grdMedicos_RowUpdating" OnRowCommand="grdMedicos_RowCommand"  AllowPaging="True" AutoGenerateEditButton="True" OnPageIndexChanging="grdMedicos_PageIndexChanging" PageSize="5" OnRowDataBound="grdMedicos_RowDataBound"   >
+        <div class="gridView_container">
+            <asp:GridView class="gridView" ID="grdMedicos" runat="server" AutoGenerateColumns="False" AutoGenerateDeleteButton="True" CssClass="gridView"  OnRowDeleting="grdMedicos_RowDeleting" OnRowCancelingEdit="grdMedicos_RowCancelingEdit" OnRowEditing="grdMedicos_RowEditing" OnRowUpdating="grdMedicos_RowUpdating" OnRowCommand="grdMedicos_RowCommand"  AllowPaging="True" AutoGenerateEditButton="True" OnPageIndexChanging="grdMedicos_PageIndexChanging" PageSize="5" OnRowDataBound="grdMedicos_RowDataBound"   >
                 <Columns>
                     <asp:ButtonField CommandName="verDiasYhorarios" Text="Ver Dias y Horarios" />
                     <asp:TemplateField HeaderText="Legajo">
@@ -607,6 +472,7 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
+            </div>
         <asp:Label ID="lblMensajeConfirmacion" runat="server" Visible="False" ForeColor="Blue"></asp:Label>
         <br />
         <br />

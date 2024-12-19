@@ -163,9 +163,9 @@
     margin-bottom: 50px;
 }
 .TituloAbml {
-    font-weight: 10;
-    font-size: 25pt;
-    background-color: #fff;
+   font-weight: 10;
+   font-size: 25pt;
+   background-color: #fff;
    padding:15px;
    border:medium;
    border-radius:20px;
@@ -181,31 +181,33 @@
     padding:10px 0px;
     border:solid;
     border-radius:10px;
+   
 }
-.taba_datos {
-    width: 50%;
-    margin: 0 auto;
-    text-align:center;
-    
+.tabla_datos {
+    margin:0 10px;
 }
-.cont_tablas{
-    display:flex;
-    gap:1em;
-
+.cont_tablas {
+    display: flex;
+    gap: 1em;
+    justify-content:space-evenly;
+    margin-bottom:30px;
+   
 }
 
 .celda1 {
     border-bottom: solid;
     border-bottom-left-radius: 10px;
     align-items: center;
-    padding-left: 7px;
-    
+    padding: 10px 5px 10px 5px;
+    height: 30px;
 }
 .celda2 {
     align-items: center;
     border-bottom: solid;
     border-bottom-right-radius: 10px;
-    
+    text-align: center;
+    padding: 10px 5px 10px 5px;
+    height: 30px;
 }
 .filaDeColumnas {
     border-bottom:solid;
@@ -216,9 +218,28 @@
 #c1 {
     border-bottom-left-radius:15px;
 }
-
+#c3{
+    padding-right:7px;
+}
 #c4 {
     border-bottom-right-radius: 15px;
+    padding-left: 7px;
+}
+.celda_horarios{
+    padding: 10px 5px;
+}
+.gridView_container {
+    background-color: white;
+    display: flex;
+    justify-content: center; /*horizontal*/
+    align-items: center; /*vertical*/
+    
+}
+.gridView{
+    text-align:center;
+    
+    border:solid;
+    border-color:black; 
 }
 /*------------------*/
 .Tabla {
